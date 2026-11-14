@@ -1,0 +1,10 @@
+# Streamlit settings for CropShift RESILIENCE.
+# No secrets belong in this file (use .env, which Git ignores).
+
+[browser]
+# Do not send usage statistics to Streamlit.
+gatherUsageStats = false
+
+[server]
+# Start without the interactive first-run prompt.
+headless = true
