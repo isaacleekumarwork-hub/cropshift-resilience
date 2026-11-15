@@ -1,0 +1,1165 @@
+{
+  "schema_version": 1,
+  "relationships": [
+    {
+      "relationship_id": "cereal-after-grain-legume",
+      "relationship_type": "legume_inclusion",
+      "strength": "documented_tendency",
+      "applies_to_families": [
+        "Fabaceae",
+        "Poaceae"
+      ],
+      "statement": "Across 199 observations in sub-Saharan Africa, a cereal grown after a grain legume yielded on average 0.49 t/ha more grain than the same cereal grown continuously, an increase of 41 %. The effect is highly significant, but its variability is large.",
+      "scope": "Cereal-based systems in sub-Saharan Africa: a systematic review of 44 publications.",
+      "known_exceptions": [
+        "Effects were smaller in the humid forest and derived savannah of West Africa and in the Sudano-Sahelian zone.",
+        "Maize responded more strongly than millet and sorghum, although cereal type and agro-ecological zone were confounded.",
+        "Residual effects were stronger after soybean and groundnut than after cowpea."
+      ],
+      "limitations": [
+        "An average across many sites. It is not a prediction for any one farm or season.",
+        "Only the abstract was read.",
+        "The review concerns yield, which this project does not predict; it is held as evidence that the rotation effect exists and varies."
+      ],
+      "evidence": [
+        {
+          "source_id": "franke-2018",
+          "locator": "Abstract",
+          "confidence": "directly_supported",
+          "applicability": "Grain legume followed by cereal, compared with continuous cereal, sub-Saharan Africa."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "In a review of studies across sub-Saharan Africa, cereals grown after a grain legume yielded on average about 41 % more than cereals grown continuously.",
+        "why_it_matters": "It is the main published evidence that putting a legume into a cereal rotation tends to help the cereal that follows.",
+        "evidence_summary": "A systematic review of 44 publications and 199 observations (Franke and others, 2018). Abstract read.",
+        "what_is_uncertain": "The size of the effect varies widely between sites and the reasons are not well explained. It was weaker in the driest and the most humid zones, and weaker after cowpea than after soybean or groundnut.",
+        "region_specific": true,
+        "region_note": "Sub-Saharan Africa as a whole. Not specific to Kenya or to the pilot site."
+      }
+    },
+    {
+      "relationship_id": "fixed-nitrogen-leaves-with-the-grain",
+      "relationship_type": "nitrogen_benefit",
+      "strength": "documented_tendency",
+      "applies_to_crops": [
+        "common-bean",
+        "pigeon-pea"
+      ],
+      "statement": "A legume that fixes nitrogen does not necessarily leave it in the field. Pigeon pea is reported to fix 40-97 kg N/ha/year in Africa, with 88 % used for the formation of pods and seeds. Common bean is described as less efficient in fixing nitrogen than other legumes.",
+      "scope": "General descriptions of the two species; the pigeon pea figure is for Africa.",
+      "known_exceptions": [
+        "A legume grown as green manure and returned to the soil, instead of harvested for grain, would leave more nitrogen. No source read quantifies this for the crops here."
+      ],
+      "limitations": [
+        "From secondary datasheets; the primary studies were not read.",
+        "No source read gives the nitrogen left for a following crop under any conditions."
+      ],
+      "evidence": [
+        {
+          "source_id": "feedipedia-pigeon-pea-forage",
+          "locator": "Section 'Environmental impact'",
+          "confidence": "context_dependent",
+          "applicability": "Pigeon pea in Africa, as summarised by the datasheet."
+        },
+        {
+          "source_id": "feedipedia-common-bean",
+          "locator": "Section 'Environmental impact', heading 'N-fixing legume'",
+          "confidence": "context_dependent",
+          "applicability": "Common bean in general."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "Legumes fix nitrogen, but most of it can leave the field in the harvested grain. For pigeon pea, 88 % of fixed nitrogen is reported to go into pods and seeds.",
+        "why_it_matters": "It guards against assuming that every legume enriches the soil for the next crop.",
+        "evidence_summary": "Statements in two Feedipedia datasheets, which cite primary studies that were not read here.",
+        "what_is_uncertain": "How much nitrogen any of these crops leaves behind under local conditions is not established by the sources read.",
+        "region_specific": false,
+        "region_note": null
+      }
+    },
+    {
+      "relationship_id": "legume-benefit-is-not-only-nitrogen",
+      "relationship_type": "nitrogen_benefit",
+      "strength": "documented_tendency",
+      "applies_to_families": [
+        "Fabaceae",
+        "Poaceae"
+      ],
+      "statement": "Applying nitrogen fertiliser to the cereal reduces the benefit of a preceding legume, but at 60-120 kg N/ha the response still equalled 0.32 t/ha, or 59 % of the response with no nitrogen applied. The review concludes that effects other than nitrogen are important.",
+      "scope": "Cereal-based systems in sub-Saharan Africa: a systematic review.",
+      "known_exceptions": [
+        "The review says grain legumes are unlikely to have a major influence on the availability of nutrients other than nitrogen and phosphorus, or on soil pH."
+      ],
+      "limitations": [
+        "Only the abstract was read.",
+        "The review calls for more research to explain the wide variability in nitrogen benefits between sites."
+      ],
+      "evidence": [
+        {
+          "source_id": "franke-2018",
+          "locator": "Abstract",
+          "confidence": "directly_supported",
+          "applicability": "Grain legume followed by cereal, sub-Saharan Africa."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "The benefit a cereal gets from a preceding legume shrinks when nitrogen fertiliser is applied, but more than half of it remains. So the benefit is not only about nitrogen.",
+        "why_it_matters": "It means a legume rotation cannot be valued simply as a quantity of nitrogen, and a farmer who already fertilises may still benefit.",
+        "evidence_summary": "A systematic review across sub-Saharan Africa (Franke and others, 2018). Abstract read.",
+        "what_is_uncertain": "What the non-nitrogen effects are, and how large they are on a given farm, is not settled.",
+        "region_specific": true,
+        "region_note": "Sub-Saharan Africa as a whole."
+      }
+    },
+    {
+      "relationship_id": "legume-effects-on-cereal-pests",
+      "relationship_type": "pest_disease_carryover",
+      "strength": "unsupported",
+      "applies_to_families": [
+        "Fabaceae",
+        "Poaceae"
+      ],
+      "statement": "That rotating a cereal with a grain legume reduces pests and diseases in the cereal is not established for sub-Saharan Africa. The review read says the impact is 'probably important' but that evidence is lacking, and that studies on nematodes are inconclusive, probably because legumes host some of the nematodes that harm maize.",
+      "scope": "Sub-Saharan Africa, grain legume and cereal rotations.",
+      "known_exceptions": [],
+      "limitations": [
+        "Absence of evidence in one review is not evidence that there is no effect.",
+        "Only the abstract was read."
+      ],
+      "evidence": [
+        {
+          "source_id": "franke-2018",
+          "locator": "Abstract",
+          "confidence": "insufficient_evidence",
+          "applicability": "The review itself reports that evidence from sub-Saharan Africa is lacking."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "A review of the research found too little evidence to say whether legume rotations reduce pests and diseases in cereals in sub-Saharan Africa.",
+        "why_it_matters": "Pest-cycle disruption is one of the benefits people expect from rotation, so it matters that it is not demonstrated here.",
+        "evidence_summary": "The abstract of a systematic review (Franke and others, 2018), which states that the evidence is lacking.",
+        "what_is_uncertain": "Almost everything: which pests, which crop pairs, and how large any effect is. This needs local knowledge.",
+        "region_specific": true,
+        "region_note": "Sub-Saharan Africa as a whole."
+      }
+    },
+    {
+      "relationship_id": "legumes-and-soil-organic-matter",
+      "relationship_type": "soil_organic_matter",
+      "strength": "documented_tendency",
+      "applies_to_families": [
+        "Fabaceae"
+      ],
+      "statement": "Beneficial impacts of grain legumes on soil organic matter can occur if legumes contribute to greater overall cropping productivity, but studies generally report no such impacts.",
+      "scope": "Sub-Saharan Africa, grain legumes in cereal-based systems.",
+      "known_exceptions": [
+        "The review allows that an effect can occur where the legume raises the productivity of the whole system."
+      ],
+      "limitations": [
+        "Only the abstract was read.",
+        "Concerns grain legumes harvested for seed, not cover crops or green manures."
+      ],
+      "evidence": [
+        {
+          "source_id": "franke-2018",
+          "locator": "Abstract",
+          "confidence": "directly_supported",
+          "applicability": "Grain legumes in cereal-based systems, sub-Saharan Africa."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "Studies in sub-Saharan Africa generally report no effect of grain legumes on soil organic matter.",
+        "why_it_matters": "Improving organic matter is a common reason given for adding legumes. The evidence read does not support expecting it from grain legumes.",
+        "evidence_summary": "A systematic review across sub-Saharan Africa (Franke and others, 2018). Abstract read.",
+        "what_is_uncertain": "An effect may occur where legumes raise overall productivity, and the finding does not cover cover crops or green manures.",
+        "region_specific": true,
+        "region_note": "Sub-Saharan Africa as a whole."
+      }
+    },
+    {
+      "relationship_id": "legumes-and-striga",
+      "relationship_type": "weed_pressure",
+      "strength": "documented_tendency",
+      "applies_to_crops": [
+        "sorghum"
+      ],
+      "applies_to_families": [
+        "Fabaceae"
+      ],
+      "statement": "Evidence of impacts of grain legumes on weeds in sub-Saharan Africa is limited to striga. Separately, the parasitic weed Striga hermonthica is described as particularly noxious to sorghum in Africa.",
+      "scope": "Sub-Saharan Africa; Africa in general for the sorghum statement.",
+      "known_exceptions": [],
+      "limitations": [
+        "The abstract read says the evidence concerns striga but does not state the size or direction of the effect.",
+        "Neither source says whether striga is present at the pilot site."
+      ],
+      "evidence": [
+        {
+          "source_id": "franke-2018",
+          "locator": "Abstract",
+          "confidence": "context_dependent",
+          "applicability": "Grain legumes and weeds, sub-Saharan Africa."
+        },
+        {
+          "source_id": "feedipedia-sorghum-forage",
+          "locator": "Section 'Distribution', second paragraph (citing FAO, 2011)",
+          "confidence": "context_dependent",
+          "applicability": "Sorghum in Africa."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "Striga is a parasitic weed that harms sorghum in Africa, and the only weed for which research on legume rotations exists in the review read.",
+        "why_it_matters": "Where striga is a problem, a legume in the rotation may matter for reasons beyond nitrogen.",
+        "evidence_summary": "The abstract of a systematic review and a Feedipedia datasheet citing FAO.",
+        "what_is_uncertain": "The abstract does not say how large the effect is, and whether striga occurs at the pilot site is unknown.",
+        "region_specific": true,
+        "region_note": "Africa in general. Local presence of striga must be checked."
+      }
+    },
+    {
+      "relationship_id": "machakos-legume-pests",
+      "relationship_type": "pest_disease_carryover",
+      "strength": "site_specific_finding",
+      "applies_to_crops": [
+        "cowpea",
+        "pigeon-pea"
+      ],
+      "statement": "In the Machakos experiment both cowpea and pigeon pea were affected by pests and diseases, which the authors say indicated the need for integrated pest management to realise the potential benefits of legume-based systems.",
+      "scope": "One research station at Machakos, Kenya, November 1989 to February 1996.",
+      "known_exceptions": [],
+      "limitations": [
+        "The abstract does not name the pests or diseases.",
+        "One station and one period."
+      ],
+      "evidence": [
+        {
+          "source_id": "rao-mathuva-2000",
+          "locator": "Abstract, final sentence",
+          "confidence": "directly_supported",
+          "applicability": "Cowpea and pigeon pea at Machakos, 1989-1996."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "At Machakos, the legumes that improved maize yields were themselves damaged by pests and diseases.",
+        "why_it_matters": "A legume rotation brings its own risk. The benefit seen in the trial depended on managing pests in the legume.",
+        "evidence_summary": "The abstract of a seven-year experiment at Machakos (Rao and Mathuva, 2000).",
+        "what_is_uncertain": "Which pests and diseases, and how severe, is not stated in the abstract. Conditions may have changed since 1996.",
+        "region_specific": true,
+        "region_note": "One research station at Machakos, Kenya."
+      }
+    },
+    {
+      "relationship_id": "machakos-maize-after-cowpea",
+      "relationship_type": "legume_inclusion",
+      "strength": "site_specific_finding",
+      "applies_to_crops": [
+        "cowpea",
+        "maize"
+      ],
+      "statement": "At Machakos, maize grown in sequence with cowpea produced 17 % higher maize yields than continuous sole maize over the experiment.",
+      "scope": "One research station at Machakos, Kenya, November 1989 to February 1996.",
+      "known_exceptions": [
+        "In the same experiment, maize rotated with pigeon pea yielded only marginally better than continuous maize."
+      ],
+      "limitations": [
+        "One station and one seven-year period. Soil, varieties, management and the rainfall of each season are unknown to this project.",
+        "Only the abstract was read.",
+        "Held as evidence that the rotation effect occurred there. It is not a yield prediction."
+      ],
+      "evidence": [
+        {
+          "source_id": "rao-mathuva-2000",
+          "locator": "Abstract",
+          "confidence": "directly_supported",
+          "applicability": "Maize after cowpea compared with continuous sole maize, Machakos, 1989-1996."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "In a seven-year experiment at Machakos, maize grown in rotation with cowpea yielded about 17 % more than maize grown continuously.",
+        "why_it_matters": "It is direct evidence, from the pilot area, that a short-duration legume in rotation helped the maize that followed.",
+        "evidence_summary": "The abstract of a peer-reviewed experiment (Rao and Mathuva, 2000).",
+        "what_is_uncertain": "The result is from one station between 1989 and 1996. How it varied between dry and wet seasons is not in the abstract.",
+        "region_specific": true,
+        "region_note": "One research station at Machakos, Kenya."
+      }
+    },
+    {
+      "relationship_id": "machakos-maize-with-pigeon-pea",
+      "relationship_type": "legume_inclusion",
+      "strength": "site_specific_finding",
+      "applies_to_crops": [
+        "maize",
+        "pigeon-pea"
+      ],
+      "statement": "At Machakos, maize intercropped with pigeon pea produced 24 % higher maize yields than continuous sole maize, whereas maize rotated with pigeon pea yielded only marginally better.",
+      "scope": "One research station at Machakos, Kenya, November 1989 to February 1996.",
+      "known_exceptions": [
+        "The gain came from growing the two crops together, not from growing them in sequence."
+      ],
+      "limitations": [
+        "Intercropping is not rotation. This project models sequences of crops, so the 24 % finding does not transfer to a rotation.",
+        "One station and one seven-year period. Only the abstract was read."
+      ],
+      "evidence": [
+        {
+          "source_id": "rao-mathuva-2000",
+          "locator": "Abstract",
+          "confidence": "directly_supported",
+          "applicability": "Maize with or after pigeon pea compared with continuous sole maize, Machakos, 1989-1996."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "At Machakos, growing maize together with pigeon pea raised maize yields by about 24 %, but growing maize after pigeon pea made little difference.",
+        "why_it_matters": "It shows that the way a legume is combined with maize matters, and that a benefit from intercropping cannot be assumed for a rotation.",
+        "evidence_summary": "The abstract of a peer-reviewed experiment (Rao and Mathuva, 2000).",
+        "what_is_uncertain": "Why rotation with pigeon pea gave little benefit there is not explained in the abstract.",
+        "region_specific": true,
+        "region_note": "One research station at Machakos, Kenya."
+      }
+    },
+    {
+      "relationship_id": "rooting-depth-diversity",
+      "relationship_type": "rooting_diversity",
+      "strength": "general_principle",
+      "applies_generally": true,
+      "statement": "Crops in rotation root at different soil depths and so explore different soil layers for nutrients; nutrients leached to deeper layers can be recycled by deeper-rooting crops.",
+      "scope": "General guidance for conservation agriculture.",
+      "known_exceptions": [],
+      "limitations": [
+        "Stated as a principle, without measurements or conditions.",
+        "Published rooting depths for the crops here assume no restricting soil layer."
+      ],
+      "evidence": [
+        {
+          "source_id": "fao-ca-diversification",
+          "locator": "Section 'Crop rotation', first paragraph",
+          "confidence": "context_dependent",
+          "applicability": "Crops in general."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "FAO guidance says that rotating crops which root at different depths lets the system use nutrients and water from more of the soil profile.",
+        "why_it_matters": "The crops in the knowledge base differ in rooting depth, from under 1 m for beans to 2 m for sorghum and pigeon pea.",
+        "evidence_summary": "An FAO guidance page, with rooting depths from an FAO handbook.",
+        "what_is_uncertain": "The guidance gives no measurements. Whether deeper roots help depends on the depth and condition of the soil, which is unknown here.",
+        "region_specific": false,
+        "region_note": null
+      }
+    },
+    {
+      "relationship_id": "rotation-breaks-crop-specific-pests",
+      "relationship_type": "same_crop_repetition",
+      "strength": "general_principle",
+      "applies_generally": true,
+      "statement": "Crop rotation has a phytosanitary function: it prevents the carry-over of crop-specific pests and diseases from one crop to the next.",
+      "scope": "General guidance for conservation agriculture.",
+      "known_exceptions": [
+        "Pests and diseases that are not specific to one crop are not covered by this statement."
+      ],
+      "limitations": [
+        "Stated as a principle, without measurements, references or conditions.",
+        "Names no pest, disease or crop."
+      ],
+      "evidence": [
+        {
+          "source_id": "fao-ca-diversification",
+          "locator": "Section 'Crop rotation', first paragraph",
+          "confidence": "context_dependent",
+          "applicability": "Crops in general."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "FAO guidance says that changing the crop from one season to the next stops pests and diseases that live on one particular crop from carrying over.",
+        "why_it_matters": "It is the reason for caution about growing the same crop season after season.",
+        "evidence_summary": "An FAO guidance page on conservation agriculture.",
+        "what_is_uncertain": "The guidance names no pest or crop and gives no measurements. Which problems apply locally needs local knowledge.",
+        "region_specific": false,
+        "region_note": null
+      }
+    },
+    {
+      "relationship_id": "rotation-diversity-in-general",
+      "relationship_type": "rotation_diversity",
+      "strength": "general_principle",
+      "applies_generally": true,
+      "statement": "The effects FAO lists for crop rotation include reduced risk of pest and weed infestations, better distribution of water and nutrients through the soil profile, increased nitrogen fixation through plant-soil symbionts, and increased humus formation.",
+      "scope": "General guidance for conservation agriculture.",
+      "known_exceptions": [
+        "For grain legumes in sub-Saharan Africa, the review read reports generally no impact on soil organic matter, which qualifies the claim about humus."
+      ],
+      "limitations": [
+        "A list of expected effects, without measurements, references or conditions.",
+        "Written for conservation agriculture, which combines rotation with minimal tillage and permanent soil cover."
+      ],
+      "evidence": [
+        {
+          "source_id": "fao-ca-diversification",
+          "locator": "Section 'Crop rotation', paragraph 'The effects of crop rotation'",
+          "confidence": "context_dependent",
+          "applicability": "Crops in general, within conservation agriculture."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "FAO guidance lists several benefits expected from rotating crops, including fewer pests and weeds and better use of water and nutrients.",
+        "why_it_matters": "It sets out why a more varied rotation is generally thought to be better for the soil.",
+        "evidence_summary": "An FAO guidance page on conservation agriculture.",
+        "what_is_uncertain": "These are expectations, not measurements. At least one of them, building organic matter, is not borne out for grain legumes in the review read.",
+        "region_specific": false,
+        "region_note": null
+      }
+    },
+    {
+      "relationship_id": "same-family-repetition",
+      "relationship_type": "same_family_repetition",
+      "strength": "unsupported",
+      "applies_to_families": [
+        "Fabaceae",
+        "Poaceae"
+      ],
+      "statement": "That growing crops of the same botanical family in succession carries over pests and diseases is widely asserted, but no source read for this knowledge base states it. The FAO guidance read speaks only of 'crop-specific' pests and diseases.",
+      "scope": "No scope: the claim is not supported by the sources read.",
+      "known_exceptions": [],
+      "limitations": [
+        "This records a gap in the sources read, not a finding that the effect does not exist.",
+        "A targeted search of plant-pathology literature would be needed to support or reject it for these families."
+      ],
+      "evidence": [
+        {
+          "source_id": "fao-ca-diversification",
+          "locator": "Section 'Crop rotation', first paragraph",
+          "confidence": "insufficient_evidence",
+          "applicability": "The page refers to crop-specific pests and diseases only and says nothing about botanical families."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "Nothing, from the sources read, about whether crops of the same family should be kept apart in a rotation.",
+        "why_it_matters": "It is a rule people commonly apply. The tool must not present it as established when its own sources do not support it.",
+        "evidence_summary": "No supporting source was found. The FAO guidance read mentions only crop-specific pests and diseases.",
+        "what_is_uncertain": "Whether the rule holds for cereals or for legumes here, and for which pests. This needs plant-pathology sources or local expertise.",
+        "region_specific": false,
+        "region_note": null
+      }
+    },
+    {
+      "relationship_id": "soil-cover-between-crops",
+      "relationship_type": "soil_cover",
+      "strength": "general_principle",
+      "applies_generally": true,
+      "statement": "Keeping the soil covered protects it during fallow periods. A mulch layer inhibits evaporation of soil moisture and leads to greater infiltration of water, and the share of rain that infiltrates depends on the amount of cover.",
+      "scope": "General guidance for conservation agriculture; the page mentions semi-arid regions as a case where cover crops are beneficial.",
+      "known_exceptions": [],
+      "limitations": [
+        "Stated as a principle, without measurements or conditions.",
+        "The guidance does not address whether a semi-arid season leaves enough water to grow a cover crop.",
+        "No crop from this knowledge base is named."
+      ],
+      "evidence": [
+        {
+          "source_id": "fao-ca-soil-cover",
+          "locator": "Opening section on soil cover and cover crops",
+          "confidence": "context_dependent",
+          "applicability": "Cover crops and residues in general, within conservation agriculture."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "FAO guidance says that soil kept covered between crops is protected, loses less moisture to evaporation and takes in more rain.",
+        "why_it_matters": "A rotation that leaves the field bare for long periods exposes the soil; one that keeps it covered helps conserve water and soil.",
+        "evidence_summary": "An FAO guidance page on conservation agriculture.",
+        "what_is_uncertain": "The guidance gives no measurements. How long each rotation leaves the soil bare here is unknown, because no local planting calendars are held.",
+        "region_specific": false,
+        "region_note": null
+      }
+    },
+    {
+      "relationship_id": "sorghum-and-maize-under-drought",
+      "relationship_type": "water_use_contrast",
+      "strength": "documented_tendency",
+      "applies_to_crops": [
+        "maize",
+        "sorghum"
+      ],
+      "statement": "Sorghum performs better than maize in drought conditions and grows in stress-prone semi-arid areas unsuitable for maize. An FAO manual rates sensitivity to drought as low for sorghum and millet and medium-high for maize, and gives sorghum a lower indicative water need.",
+      "scope": "General statements about the two species; the FAO classes are indicative and worldwide.",
+      "known_exceptions": [],
+      "limitations": [
+        "General statements, not a comparison made at the pilot site.",
+        "One source describes sorghum as widespread only up to 1000 m, below the average elevation of the pilot grid cell."
+      ],
+      "evidence": [
+        {
+          "source_id": "feedipedia-sorghum-forage",
+          "locator": "Section 'Distribution', second paragraph (citing FAO, 2011)",
+          "confidence": "directly_supported",
+          "applicability": "The two species in general."
+        },
+        {
+          "source_id": "fao-tm3",
+          "locator": "Chapter 3, Table 14, rows 'Maize' and 'Sorghum/Millet'",
+          "confidence": "context_dependent",
+          "applicability": "Indicative classes, worldwide."
+        }
+      ],
+      "explanation": {
+        "what_is_known": "The sources describe sorghum as coping better with drought than maize and as needing somewhat less water over a season.",
+        "why_it_matters": "It suggests that replacing maize with sorghum in some seasons could lower the risk in dry years.",
+        "evidence_summary": "A Feedipedia datasheet citing FAO, and the drought-sensitivity classes in an FAO training manual.",
+        "what_is_uncertain": "No comparison was found for the pilot site, and one source places sorghum mainly below 1000 m.",
+        "region_specific": false,
+        "region_note": null
+      }
+    }
+  ],
+  "constraints": [
+    {
+      "constraint_id": "cold-stops-common-bean-growth",
+      "description": "Common bean stops growing when it is colder than 10 °C.",
+      "severity": "context_dependent",
+      "applies_to_crops": [
+        "common-bean"
+      ],
+      "condition": "Temperatures below 10 °C during the growing period.",
+      "inputs": [
+        "air_temperature_mean",
+        "air_temperature_min",
+        "crop_temperature_requirement"
+      ],
+      "based_on_relationships": [],
+      "applicability": "Depends on how long and at what growth stage the cold occurs, which the source does not state.",
+      "limitations": [
+        "The source does not say whether 10 °C refers to a daily mean, a minimum or a soil temperature.",
+        "NASA temperatures describe a grid cell at its average elevation, not the field."
+      ],
+      "user_explanation": "Common bean stops growing in cold weather, below about 10 °C. Whether that matters here depends on how often and how long it gets that cold on your land during the season.",
+      "evidence": [
+        {
+          "source_id": "feedipedia-common-bean",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "directly_supported",
+          "applicability": "The species in general."
+        }
+      ]
+    },
+    {
+      "constraint_id": "continuous-cereal-without-legume",
+      "description": "A cereal grown continuously, with no legume in the rotation, tends to yield less than the same cereal grown after a grain legume.",
+      "severity": "advisory",
+      "applies_to_families": [
+        "Poaceae"
+      ],
+      "condition": "A rotation in which cereals follow cereals with no legume.",
+      "inputs": [],
+      "based_on_relationships": [
+        "cereal-after-grain-legume",
+        "machakos-maize-after-cowpea"
+      ],
+      "applicability": "Cereal-based systems in sub-Saharan Africa; the Machakos finding is for maize after cowpea.",
+      "limitations": [
+        "A documented tendency with large variability, not a rule.",
+        "The effect was weaker in the driest zones and after cowpea than after soybean or groundnut.",
+        "Says nothing about the legume's own yield, pests or water use."
+      ],
+      "user_explanation": "Growing a cereal season after season without a legume usually means lower cereal yields than a rotation with a legume. Research in Africa, including a trial at Machakos, found this on average, but the size of the benefit varies a lot from place to place.",
+      "evidence": [
+        {
+          "source_id": "franke-2018",
+          "locator": "Abstract",
+          "confidence": "directly_supported",
+          "applicability": "Grain legume followed by cereal, sub-Saharan Africa."
+        },
+        {
+          "source_id": "rao-mathuva-2000",
+          "locator": "Abstract",
+          "confidence": "directly_supported",
+          "applicability": "Maize after cowpea, Machakos, 1989-1996."
+        }
+      ]
+    },
+    {
+      "constraint_id": "drought-at-flowering-maize",
+      "description": "Maize is harmed most by drought at flowering.",
+      "severity": "context_dependent",
+      "applies_to_crops": [
+        "maize"
+      ],
+      "condition": "A dry spell during the flowering period of the maize crop.",
+      "inputs": [
+        "precipitation"
+      ],
+      "based_on_relationships": [],
+      "applicability": "Needs the timing of flowering, which depends on the variety and planting date. Neither is held.",
+      "limitations": [
+        "No planting dates or flowering dates are held for the pilot site.",
+        "Rainfall alone does not show whether the crop is short of water; stored soil water matters."
+      ],
+      "user_explanation": "Maize suffers most if it runs short of water when it is flowering. Whether a dry spell hits that stage depends on when you plant and which variety you grow.",
+      "evidence": [
+        {
+          "source_id": "feedipedia-maize-forage",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "directly_supported",
+          "applicability": "The species in general."
+        }
+      ]
+    },
+    {
+      "constraint_id": "frost-kills-maize",
+      "description": "Maize is killed by frost, so a season with frost is unsuitable for it.",
+      "severity": "hard",
+      "applies_to_crops": [
+        "maize"
+      ],
+      "condition": "Frost during the growing period.",
+      "inputs": [
+        "air_temperature_min"
+      ],
+      "based_on_relationships": [],
+      "applicability": "Any site and season in which frost occurs while maize is in the field.",
+      "limitations": [
+        "The source says 'frost' without giving a temperature. Phase A4 counts frost days with the ETCCDI climate-index definition (index FD: daily minimum air temperature below 0 °C), which describes the weather, not crop damage.",
+        "Frost can occur in hollows on a farm when the average over a large grid cell stays above freezing, so NASA data can miss it."
+      ],
+      "user_explanation": "Frost kills maize. If frost occurs on your land during the growing season, maize is not a safe choice for that season. NASA's weather record covers a wide area and can miss frost in low-lying spots, so trust your own experience of frost on your fields.",
+      "evidence": [
+        {
+          "source_id": "feedipedia-maize-forage",
+          "locator": "Section 'Distribution', second paragraph: 'Frost kills the plants.'",
+          "confidence": "directly_supported",
+          "applicability": "The species in general."
+        }
+      ]
+    },
+    {
+      "constraint_id": "frost-sensitive-crops",
+      "description": "Sorghum, pigeon pea and common bean are damaged by frost to differing degrees.",
+      "severity": "advisory",
+      "applies_to_crops": [
+        "common-bean",
+        "pigeon-pea",
+        "sorghum"
+      ],
+      "condition": "Frost during the growing period.",
+      "inputs": [
+        "air_temperature_min"
+      ],
+      "based_on_relationships": [],
+      "applicability": "Sorghum is described as sensitive to frost. Pigeon pea is sensitive, though tall plants can survive light frost. Common bean has slight tolerance, but frost hinders its yield.",
+      "limitations": [
+        "The sources do not give temperatures or durations.",
+        "NASA data for a large grid cell can miss frost in low-lying parts of a farm."
+      ],
+      "user_explanation": "Frost damages sorghum, pigeon pea and common bean, though not equally. If frost occurs on your land in the season, expect losses.",
+      "evidence": [
+        {
+          "source_id": "feedipedia-sorghum-forage",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "directly_supported",
+          "applicability": "Sorghum in general."
+        },
+        {
+          "source_id": "feedipedia-pigeon-pea-forage",
+          "locator": "Section 'Distribution', first paragraph",
+          "confidence": "directly_supported",
+          "applicability": "Pigeon pea in general."
+        },
+        {
+          "source_id": "feedipedia-common-bean",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "directly_supported",
+          "applicability": "Common bean in general."
+        }
+      ]
+    },
+    {
+      "constraint_id": "growing-period-longer-than-season",
+      "description": "A crop whose growing period is longer than the rainy season may not mature on rainfall alone.",
+      "severity": "advisory",
+      "applies_to_crops": [
+        "common-bean",
+        "maize",
+        "sorghum"
+      ],
+      "condition": "The crop's documented growing period exceeds the length of the season it is planted in.",
+      "inputs": [
+        "crop_cycle_length",
+        "precipitation"
+      ],
+      "based_on_relationships": [],
+      "applicability": "Only the three crops with a documented growing period. Requires a cited rule for when a rainy season starts and ends, which does not exist yet.",
+      "limitations": [
+        "The published growing periods are indicative; the source says they depend heavily on local varieties.",
+        "A crop can finish on water stored in the soil after the rains stop.",
+        "No growing period is held for cowpea, mung bean or pigeon pea."
+      ],
+      "user_explanation": "If a crop takes longer to mature than your rains usually last, it may run out of water before harvest. The growing periods we hold are general figures; a short-season variety can behave very differently.",
+      "evidence": [
+        {
+          "source_id": "fao-tm3",
+          "locator": "Chapter 3, Table 6, and the text introducing it",
+          "confidence": "context_dependent",
+          "applicability": "Indicative growing periods, worldwide."
+        }
+      ]
+    },
+    {
+      "constraint_id": "legume-needs-pest-management",
+      "description": "Cowpea and pigeon pea were affected by pests and diseases in the Machakos trial.",
+      "severity": "advisory",
+      "applies_to_crops": [
+        "cowpea",
+        "pigeon-pea"
+      ],
+      "condition": "Cowpea or pigeon pea included in the rotation.",
+      "inputs": [],
+      "based_on_relationships": [
+        "machakos-legume-pests"
+      ],
+      "applicability": "Reported for one research station at Machakos, 1989-1996.",
+      "limitations": [
+        "The abstract does not name the pests or diseases.",
+        "Pest pressure and available controls have changed since 1996."
+      ],
+      "user_explanation": "In a long trial at Machakos, cowpea and pigeon pea were damaged by pests and diseases. If you add these crops, plan how you will manage pests, and ask a local adviser which ones to expect.",
+      "evidence": [
+        {
+          "source_id": "rao-mathuva-2000",
+          "locator": "Abstract, final sentence",
+          "confidence": "directly_supported",
+          "applicability": "Cowpea and pigeon pea at Machakos, 1989-1996."
+        }
+      ]
+    },
+    {
+      "constraint_id": "perennial-in-seasonal-rotation",
+      "description": "Pigeon pea is a short-lived perennial and a long-duration crop, so it does not fit into a single short season like the annual crops.",
+      "severity": "context_dependent",
+      "applies_to_crops": [
+        "pigeon-pea"
+      ],
+      "condition": "Pigeon pea placed in a rotation slot that assumes one crop per season.",
+      "inputs": [],
+      "based_on_relationships": [],
+      "applicability": "Depends on the variety and on how the farmer manages the crop, neither of which is held.",
+      "limitations": [
+        "No growing period in days is held for pigeon pea.",
+        "The sources do not say how long the crop occupied the field in the Machakos trial."
+      ],
+      "user_explanation": "Pigeon pea stays in the field much longer than maize or beans, often across more than one rainy season. A rotation plan needs to allow for that.",
+      "evidence": [
+        {
+          "source_id": "feedipedia-pigeon-pea-forage",
+          "locator": "Section 'Description', subsection 'Morphology'",
+          "confidence": "directly_supported",
+          "applicability": "The species in general."
+        },
+        {
+          "source_id": "rao-mathuva-2000",
+          "locator": "Abstract",
+          "confidence": "directly_supported",
+          "applicability": "The pigeon pea used at Machakos, described as long-duration."
+        }
+      ]
+    },
+    {
+      "constraint_id": "same-crop-in-succession",
+      "description": "Growing the same crop in successive seasons allows crop-specific pests and diseases to carry over.",
+      "severity": "advisory",
+      "applies_generally": true,
+      "condition": "The same crop in two or more consecutive rotation slots.",
+      "inputs": [],
+      "based_on_relationships": [
+        "rotation-breaks-crop-specific-pests"
+      ],
+      "applicability": "Stated by FAO for crops in general.",
+      "limitations": [
+        "A general principle without measurements; no pest or disease is named.",
+        "How serious it is depends on which pests and diseases are present locally."
+      ],
+      "user_explanation": "Planting the same crop season after season gives its pests and diseases a chance to build up. Changing the crop breaks that cycle. Which problems matter on your land is something a local adviser can tell you.",
+      "evidence": [
+        {
+          "source_id": "fao-ca-diversification",
+          "locator": "Section 'Crop rotation', first paragraph",
+          "confidence": "context_dependent",
+          "applicability": "Crops in general."
+        }
+      ]
+    },
+    {
+      "constraint_id": "same-family-in-succession",
+      "description": "Avoiding crops of the same botanical family in succession. Not supported by the sources read.",
+      "severity": "unsupported",
+      "applies_to_families": [
+        "Fabaceae",
+        "Poaceae"
+      ],
+      "condition": "Two crops of the same botanical family in consecutive rotation slots.",
+      "inputs": [],
+      "based_on_relationships": [
+        "same-family-repetition"
+      ],
+      "applicability": "None established.",
+      "limitations": [
+        "No source read supports this as a rule for these families. It must not be applied as if it were established.",
+        "Recorded so that the gap is visible and can be filled from plant-pathology sources or local expertise."
+      ],
+      "user_explanation": "People often advise against following one crop with another from the same plant family. The sources behind this tool do not confirm that for these crops, so the tool does not apply it. Ask a local adviser.",
+      "evidence": [
+        {
+          "source_id": "fao-ca-diversification",
+          "locator": "Section 'Crop rotation', first paragraph",
+          "confidence": "insufficient_evidence",
+          "applicability": "The page refers to crop-specific pests and diseases only."
+        }
+      ]
+    },
+    {
+      "constraint_id": "seasonal-water-need-above-rainfall",
+      "description": "A crop's indicative seasonal water use may exceed the rain that fell in a season.",
+      "severity": "context_dependent",
+      "applies_to_crops": [
+        "common-bean",
+        "maize",
+        "sorghum"
+      ],
+      "condition": "Indicative crop water use over the growing period is greater than the season's rainfall.",
+      "inputs": [
+        "crop_seasonal_water_requirement",
+        "precipitation_total"
+      ],
+      "based_on_relationships": [
+        "sorghum-and-maize-under-drought"
+      ],
+      "applicability": "Only the three crops with a documented seasonal water need. A first indication, not a water balance.",
+      "limitations": [
+        "The crop figure is evapotranspiration, not rainfall demand; the two cannot be compared directly.",
+        "Rainfall is not the water available to a crop: runoff, soil storage and irrigation all intervene.",
+        "The source calls its figures 'a rough estimate'."
+      ],
+      "user_explanation": "Each crop needs a certain amount of water to grow well. If a season's rain is well below that, the crop is likely to be short of water unless the soil stored water beforehand or you can irrigate. This is only a rough guide.",
+      "evidence": [
+        {
+          "source_id": "fao-tm3",
+          "locator": "Chapter 3, Table 14, and the text introducing it",
+          "confidence": "context_dependent",
+          "applicability": "Indicative crop water needs, worldwide."
+        }
+      ]
+    },
+    {
+      "constraint_id": "soil-ph-outside-documented-range",
+      "description": "The field's soil pH lies outside the range a source associates with the crop.",
+      "severity": "context_dependent",
+      "applies_to_crops": [
+        "common-bean",
+        "maize",
+        "mung-bean",
+        "pigeon-pea",
+        "sorghum"
+      ],
+      "condition": "Measured or user-supplied soil pH outside the crop's documented pH range.",
+      "inputs": [
+        "crop_soil_ph_requirement",
+        "soil_ph"
+      ],
+      "based_on_relationships": [],
+      "applicability": "How serious it is depends on whether the range is an optimum, a preference or an outer limit, and on which nutrients become unavailable.",
+      "limitations": [
+        "The documented ranges are of different kinds for different crops and must not be treated alike.",
+        "No pH range is held for cowpea.",
+        "Soil pH must come from a measurement or the user; it is never inferred from NASA data."
+      ],
+      "user_explanation": "Each crop does best within a range of soil acidity. If your soil is outside that range the crop may struggle, but how much depends on the crop and the soil. A soil test is the only way to know your pH.",
+      "evidence": [
+        {
+          "source_id": "feedipedia-maize-forage",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "context_dependent",
+          "applicability": "Maize: tolerated range."
+        },
+        {
+          "source_id": "feedipedia-sorghum-forage",
+          "locator": "Section 'Distribution', first paragraph",
+          "confidence": "context_dependent",
+          "applicability": "Sorghum: range in which it grows best."
+        },
+        {
+          "source_id": "feedipedia-common-bean",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "context_dependent",
+          "applicability": "Common bean: range over which it grows well."
+        },
+        {
+          "source_id": "feedipedia-pigeon-pea-forage",
+          "locator": "Section 'Distribution', first paragraph",
+          "confidence": "context_dependent",
+          "applicability": "Pigeon pea: best range."
+        },
+        {
+          "source_id": "feedipedia-mung-bean",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "context_dependent",
+          "applicability": "Mung bean: preferred range."
+        }
+      ]
+    },
+    {
+      "constraint_id": "temperature-outside-documented-range",
+      "description": "Seasonal temperatures lie outside the range a source associates with the crop.",
+      "severity": "context_dependent",
+      "applies_to_crops": [
+        "common-bean",
+        "cowpea",
+        "maize",
+        "mung-bean",
+        "pigeon-pea",
+        "sorghum"
+      ],
+      "condition": "Growing-season temperatures outside the crop's documented temperature range.",
+      "inputs": [
+        "air_temperature_max",
+        "air_temperature_mean",
+        "air_temperature_min",
+        "crop_temperature_requirement"
+      ],
+      "based_on_relationships": [],
+      "applicability": "The documented ranges are of different kinds (optimal, suitable, tolerated, stage-specific) and use unspecified temperature measures.",
+      "limitations": [
+        "A seasonal or monthly mean hides short spells of heat or cold, which are what damage crops.",
+        "Sources seldom say which temperature measure they mean, so a like-for-like comparison is often impossible.",
+        "No heat-stress threshold is held for any crop.",
+        "NASA temperatures describe a grid cell at its average elevation, not the field."
+      ],
+      "user_explanation": "Each crop grows best within a range of temperatures. If your seasons are usually warmer or cooler than that range, the crop may do less well. This comparison uses averages over a wide area and cannot show short hot or cold spells.",
+      "evidence": [
+        {
+          "source_id": "feedipedia-maize-forage",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "context_dependent",
+          "applicability": "Maize: optimal range."
+        },
+        {
+          "source_id": "feedipedia-sorghum-forage",
+          "locator": "Section 'Distribution', first paragraph",
+          "confidence": "context_dependent",
+          "applicability": "Sorghum: stage-specific optima."
+        },
+        {
+          "source_id": "feedipedia-common-bean",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "context_dependent",
+          "applicability": "Common bean: range where it is grown."
+        },
+        {
+          "source_id": "feedipedia-cowpea-forage",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "context_dependent",
+          "applicability": "Cowpea: range where it grows."
+        },
+        {
+          "source_id": "feedipedia-pigeon-pea-forage",
+          "locator": "Section 'Distribution', first paragraph",
+          "confidence": "context_dependent",
+          "applicability": "Pigeon pea: range where it grows better."
+        },
+        {
+          "source_id": "feedipedia-mung-bean",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "context_dependent",
+          "applicability": "Mung bean: optimal range."
+        }
+      ]
+    },
+    {
+      "constraint_id": "waterlogging-sensitive-crop-on-wet-soil",
+      "description": "Crops described as intolerant of waterlogging are at risk on poorly drained soil or in very wet seasons.",
+      "severity": "advisory",
+      "applies_to_crops": [
+        "common-bean",
+        "cowpea",
+        "maize",
+        "mung-bean",
+        "pigeon-pea"
+      ],
+      "condition": "Soil the user describes as poorly drained, or a season wet enough to waterlog the field.",
+      "inputs": [
+        "precipitation"
+      ],
+      "based_on_relationships": [],
+      "applicability": "Maize is described as having no tolerance to flooding. Cowpea, pigeon pea and mung bean are described as sensitive to waterlogging. Common bean generally cannot withstand it, though some cultivars can. Sorghum is left out because it is described as somewhat tolerant for short periods.",
+      "limitations": [
+        "Whether a field waterlogs depends on its soil, slope and position, which NASA data cannot show.",
+        "Drainage must be described by the user; it is not measured.",
+        "Cultivars differ, as the common bean source notes."
+      ],
+      "user_explanation": "Maize, beans, cowpea, pigeon pea and mung bean do not cope well with standing water. On land that drains poorly, or in a very wet season, they are at risk. You know better than any map whether your field holds water.",
+      "evidence": [
+        {
+          "source_id": "feedipedia-maize-forage",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "directly_supported",
+          "applicability": "Maize in general."
+        },
+        {
+          "source_id": "feedipedia-cowpea-forage",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "directly_supported",
+          "applicability": "Cowpea in general."
+        },
+        {
+          "source_id": "feedipedia-pigeon-pea-forage",
+          "locator": "Section 'Distribution', first paragraph",
+          "confidence": "directly_supported",
+          "applicability": "Pigeon pea in general."
+        },
+        {
+          "source_id": "feedipedia-mung-bean",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "directly_supported",
+          "applicability": "Mung bean in general."
+        },
+        {
+          "source_id": "feedipedia-common-bean",
+          "locator": "Section 'Distribution', second paragraph",
+          "confidence": "directly_supported",
+          "applicability": "Common bean in general; cultivars differ."
+        }
+      ]
+    }
+  ],
+  "cropping_systems": [
+    {
+      "system_id": "machakos-continuous-maize",
+      "name": "Continuous sole maize",
+      "arrangement": "continuous",
+      "crops": [
+        "maize"
+      ],
+      "applies_to_crops": [
+        "maize"
+      ],
+      "statement": "System 1 of the Machakos experiment: continuous sole maize. It is the system against which the others were compared.",
+      "reported_outcome": "The comparison baseline. The abstract gives no yield for it.",
+      "not_reported": [
+        "Which crop was grown in which rainy season.",
+        "How long one full cycle of the system lasted.",
+        "Varieties, planting dates, spacing and fertiliser use.",
+        "Soil type and the rainfall of each season of the experiment."
+      ],
+      "limitations": [
+        "Known from the abstract only; one research station, November 1989 to February 1996.",
+        "Recorded as a system that was grown and compared, not as a recommendation.",
+        "Whether continuous maize is what a given farmer does today is for the farmer to say."
+      ],
+      "evidence": [
+        {
+          "source_id": "rao-mathuva-2000",
+          "locator": "Abstract",
+          "confidence": "directly_supported",
+          "applicability": "Continuous sole maize at Machakos, 1989-1996."
+        }
+      ]
+    },
+    {
+      "system_id": "machakos-maize-cowpea-rotation",
+      "name": "Maize rotated with cowpea",
+      "arrangement": "rotation",
+      "crops": [
+        "maize",
+        "cowpea"
+      ],
+      "applies_to_crops": [
+        "cowpea",
+        "maize"
+      ],
+      "statement": "System 2 of the Machakos experiment: maize rotated with a short-duration legume, cowpea, described as a maize-cowpea sequential system.",
+      "reported_outcome": "17 % higher maize yields than continuous sole maize. Cowpea was affected by pests and diseases.",
+      "not_reported": [
+        "Which crop was grown in which rainy season.",
+        "How long one full cycle of the system lasted.",
+        "Varieties, planting dates, spacing and fertiliser use.",
+        "Soil type and the rainfall of each season of the experiment."
+      ],
+      "limitations": [
+        "Known from the abstract only; one research station, November 1989 to February 1996.",
+        "Recorded as a system that was grown and compared, not as a recommendation."
+      ],
+      "evidence": [
+        {
+          "source_id": "rao-mathuva-2000",
+          "locator": "Abstract",
+          "confidence": "directly_supported",
+          "applicability": "Maize rotated with cowpea at Machakos, 1989-1996."
+        }
+      ]
+    },
+    {
+      "system_id": "machakos-maize-pigeon-pea-intercrop",
+      "name": "Maize intercropped with pigeon pea",
+      "arrangement": "intercrop",
+      "crops": [
+        "maize",
+        "pigeon-pea"
+      ],
+      "applies_to_crops": [
+        "maize",
+        "pigeon-pea"
+      ],
+      "statement": "System 4 of the Machakos experiment: maize intercropped with pigeon pea.",
+      "reported_outcome": "24 % higher maize yields than continuous sole maize. Pigeon pea was affected by pests and diseases.",
+      "not_reported": [
+        "Which crop was grown in which rainy season.",
+        "How long one full cycle of the system lasted.",
+        "Varieties, planting dates, spacing and fertiliser use.",
+        "Soil type and the rainfall of each season of the experiment."
+      ],
+      "limitations": [
+        "Known from the abstract only; one research station, November 1989 to February 1996.",
+        "Recorded as a system that was grown and compared, not as a recommendation.",
+        "An intercrop grows both crops at once. It is not a rotation and cannot be modelled as a sequence of crops."
+      ],
+      "evidence": [
+        {
+          "source_id": "rao-mathuva-2000",
+          "locator": "Abstract",
+          "confidence": "directly_supported",
+          "applicability": "Maize intercropped with pigeon pea at Machakos, 1989-1996."
+        }
+      ]
+    },
+    {
+      "system_id": "machakos-maize-pigeon-pea-rotation",
+      "name": "Maize rotated with pigeon pea",
+      "arrangement": "rotation",
+      "crops": [
+        "maize",
+        "pigeon-pea"
+      ],
+      "applies_to_crops": [
+        "maize",
+        "pigeon-pea"
+      ],
+      "statement": "System 3 of the Machakos experiment: maize rotated with a long-duration legume, pigeon pea.",
+      "reported_outcome": "Maize yielded only marginally better than continuous sole maize. Pigeon pea was affected by pests and diseases.",
+      "not_reported": [
+        "Which crop was grown in which rainy season.",
+        "How long one full cycle of the system lasted.",
+        "Varieties, planting dates, spacing and fertiliser use.",
+        "Soil type and the rainfall of each season of the experiment."
+      ],
+      "limitations": [
+        "Known from the abstract only; one research station, November 1989 to February 1996.",
+        "Recorded as a system that was grown and compared, not as a recommendation.",
+        "Pigeon pea has no water-use values in the knowledge base, so this system cannot yet enter a water comparison."
+      ],
+      "evidence": [
+        {
+          "source_id": "rao-mathuva-2000",
+          "locator": "Abstract",
+          "confidence": "directly_supported",
+          "applicability": "Maize rotated with pigeon pea at Machakos, 1989-1996."
+        }
+      ]
+    }
+  ]
+}

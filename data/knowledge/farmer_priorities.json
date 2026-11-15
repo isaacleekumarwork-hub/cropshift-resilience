@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "priorities": [
+    {
+      "dimension": "water_use",
+      "label": "Water conservation",
+      "description": "Preferring rotations whose crops use less water over the season.",
+      "origin": "official_challenge_text",
+      "evidence_requirement": "Seasonal crop water use for every crop in the rotation, calculated for the local climate, together with the season's rainfall. A published water-need range alone is not enough.",
+      "evidence_available": "partial",
+      "related_relationships": ["sorghum-and-maize-under-drought"],
+      "related_variables": ["crop_seasonal_water_requirement", "crop_coefficient_mid_season"],
+      "limitations": [
+        "Indicative seasonal water needs exist for maize, sorghum and common bean only. Cowpea and mung bean have crop coefficients but no seasonal figure; pigeon pea has neither.",
+        "All values describe well-watered crops, so they show potential water use, not what a rain-fed crop would actually use."
+      ]
+    },
+    {
+      "dimension": "nitrogen_fixation",
+      "label": "Nitrogen-fixing potential",
+      "description": "Preferring rotations that include crops able to fix nitrogen from the air.",
+      "origin": "official_challenge_text",
+      "evidence_requirement": "Which crops fix nitrogen, and how much of it remains in the field after harvest for the following crop under local conditions.",
+      "evidence_available": "partial",
+      "related_relationships": ["cereal-after-grain-legume", "fixed-nitrogen-leaves-with-the-grain", "legume-benefit-is-not-only-nitrogen"],
+      "related_variables": [],
+      "limitations": [
+        "The knowledge base records which crops are described as nitrogen-fixing. It does not hold how much nitrogen any of them leaves for the next crop.",
+        "The review read reports that the size of the benefit varies widely between sites and is not well explained."
+      ]
+    },
+    {
+      "dimension": "erosion_reduction",
+      "label": "Erosion reduction",
+      "description": "Preferring rotations that keep the soil covered and protected.",
+      "origin": "official_challenge_text",
+      "evidence_requirement": "How long each rotation leaves the soil bare, the slope of the field, and how intense the rain is when the soil is bare.",
+      "evidence_available": "not_available",
+      "related_relationships": ["soil-cover-between-crops"],
+      "related_variables": [],
+      "limitations": [
+        "Only a general principle about soil cover is held. There are no local planting calendars, no slope data and no sub-daily rainfall intensity.",
+        "The NASA rainfall used is a daily average over a large grid cell, which smooths the intense storms that cause erosion."
+      ]
+    },
+    {
+      "dimension": "organic_matter",
+      "label": "Organic matter improvement",
+      "description": "Preferring rotations that build soil organic matter.",
+      "origin": "official_challenge_text",
+      "evidence_requirement": "Measured change in soil organic matter under each rotation, or the amount of residue each rotation returns to the soil.",
+      "evidence_available": "partial",
+      "related_relationships": ["legumes-and-soil-organic-matter"],
+      "related_variables": [],
+      "limitations": [
+        "The evidence held points the other way from what is often assumed: the review read says studies generally report no impact of grain legumes on soil organic matter.",
+        "No residue quantities are held for any crop."
+      ]
+    },
+    {
+      "dimension": "forage_value",
+      "label": "Forage value",
+      "description": "Preferring rotations that also produce feed for livestock.",
+      "origin": "official_challenge_text",
+      "evidence_requirement": "Forage yield and feed quality of each crop under local conditions, and whether the farmer keeps livestock.",
+      "evidence_available": "not_available",
+      "related_relationships": [],
+      "related_variables": [],
+      "limitations": [
+        "No forage yields or feed values were extracted, although several of the datasheets read are about forage use.",
+        "This priority must be shown as needing local information, not scored."
+      ]
+    },
+    {
+      "dimension": "market_suitability",
+      "label": "Market and economic considerations",
+      "description": "Preferring rotations whose crops can be sold or are worth growing economically.",
+      "origin": "official_challenge_text",
+      "evidence_requirement": "Current local prices, costs and demand for each crop. These change from season to season and place to place.",
+      "evidence_available": "not_available",
+      "related_relationships": [],
+      "related_variables": [],
+      "limitations": [
+        "No prices, costs or returns are held, and none are estimated.",
+        "The Machakos experiment reported higher profitability for legume-based systems between 1989 and 1996. That historical result is not used as a present-day economic estimate.",
+        "This priority must be shown as needing local information, not scored."
+      ]
+    },
+    {
+      "dimension": "pest_cycle_disruption",
+      "label": "Pest and disease cycle disruption",
+      "description": "Preferring rotations that interrupt the build-up of pests and diseases.",
+      "origin": "official_challenge_text",
+      "evidence_requirement": "Which pests and diseases affect each crop locally, which crops host them, and how long they survive without a host.",
+      "evidence_available": "partial",
+      "related_relationships": ["rotation-breaks-crop-specific-pests", "legume-effects-on-cereal-pests", "legumes-and-striga", "same-family-repetition", "machakos-legume-pests"],
+      "related_variables": [],
+      "limitations": [
+        "Only a general principle is held. The review read says evidence on pest and disease effects of legume rotations in sub-Saharan Africa is lacking.",
+        "No pest or disease is recorded for any specific crop pair, and nothing is held about crops of the same family."
+      ]
+    },
+    {
+      "dimension": "climate_resilience",
+      "label": "Resilience across dry and wet seasons",
+      "description": "Preferring rotations that hold up across the range of seasons the area has experienced.",
+      "origin": "project_addition",
+      "evidence_requirement": "A comparison of each rotation under dry, typical and wet historical seasons, using crop water use, drought sensitivity and the validated NASA record. This is the work of phase A4.",
+      "evidence_available": "partial",
+      "related_relationships": ["sorghum-and-maize-under-drought"],
+      "related_variables": ["crop_seasonal_water_requirement", "crop_yield_response_factor", "crop_depletion_fraction"],
+      "limitations": [
+        "The inputs exist for some crops only, and no comparison has been made yet.",
+        "A record of past seasons cannot show how a rotation will perform in a climate that is changing."
+      ]
+    },
+    {
+      "dimension": "crop_diversity",
+      "label": "Crop diversity",
+      "description": "Preferring rotations with more different crops and plant families.",
+      "origin": "project_addition",
+      "evidence_requirement": "The crops in the rotation and the botanical family of each.",
+      "evidence_available": "available",
+      "related_relationships": ["rotation-diversity-in-general"],
+      "related_variables": [],
+      "limitations": [
+        "Counting crops and families is descriptive. It does not by itself show any benefit.",
+        "The knowledge base holds only two families, so the measure can distinguish little."
+      ]
+    },
+    {
+      "dimension": "operational_simplicity",
+      "label": "Operational simplicity",
+      "description": "Preferring rotations that are simpler to manage with the labour and equipment available.",
+      "origin": "project_addition",
+      "evidence_requirement": "Labour, equipment and timing demands of each crop on the farm in question.",
+      "evidence_available": "not_available",
+      "related_relationships": [],
+      "related_variables": [],
+      "limitations": [
+        "No labour or equipment information is held.",
+        "This priority must be shown as needing local information, not scored."
+      ]
+    }
+  ]
+}

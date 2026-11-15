@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "knowledge_base_version": "0.3.0",
+  "status": "provisional",
+  "compiled_on": "2026-11-14",
+  "pilot_site_id": "katumani-machakos-ke",
+  "pilot_site_approved": false,
+  "files": {
+    "sources": "evidence_registry.json",
+    "crops": "crops.json",
+    "soil": "soil_reference.json",
+    "rotations": "rotation_relationships.json",
+    "priorities": "farmer_priorities.json",
+    "mappings": "variable_mappings.json"
+  },
+  "notes": [
+    "Provisional: the pilot site has not been approved, so no record claims that a crop suits that site.",
+    "Every value was read from the cited source on 14 November 2026. Nothing was estimated to fill a gap; gaps are listed as unknown.",
+    "Crop values describe the species in general, under the conditions each source states. No cultivar-specific values are stored.",
+    "Compiled with an AI coding assistant; no value originates from the assistant's own knowledge."
+  ]
+}

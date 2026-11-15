@@ -23,9 +23,9 @@ presented as NASA requirements.
 "Page Not Found". The live challenge page is S1. The challenge title is
 unchanged.
 
-**Not reviewed.** The Participant Terms & Conditions and Privacy Policy are
-linked from S5 but were not opened. The participant must read them before
-submitting (see unresolved items).
+**Terms & Conditions.** Not opened in A1; reviewed in full in A2
+(https://www.spaceappschallenge.org/legal/, updated 7 August 2026). Findings
+are in `compliance.md`. The NASA Privacy Policy was not read.
 
 **Terminology.** The 2026 official materials use "Super Intelligence (SI)" for
 what is commonly called AI. This repository says "AI" and means the same thing.
@@ -44,7 +44,7 @@ These decide whether the project is eligible for Global Judging and awards.
 | --- | --- | --- | --- | --- | --- | --- |
 | M1 | Respond to an official challenge | S3 | "Respond to one of the official NASA Space Apps Challenges." | Built for "Field Shift: Adapting Farms with NASA Data". | Must | Verified · Met |
 | M2 | Address the challenge statement | S1 | "create a decision-support tool that uses NASA Earth observations along with local soil information, crop characteristics, and farmer priorities to help farmers explore rotation strategies that could strengthen soil health and adapt their farms to changing conditions." | All four inputs are first-class data contracts (`src/models.py`). Retrieval, crop knowledge and comparison follow in A2 to A5. | Must | Verified · Planned (A2–A5) |
-| M3 | Use at least one NASA data source | S4 | "To be eligible for a Global Award, you must use at least one NASA data or resource." | NASA POWER and GPM IMERG (see `data_sources.md`). | Must | Verified · Planned (A2) |
+| M3 | Use at least one NASA data source | S4 | "To be eligible for a Global Award, you must use at least one NASA data or resource." | NASA POWER Daily API (MERRA-2 and CERES), integrated and verified live in A2 (see `data_sources.md`). | Must | Verified · **Met** |
 | M4 | Submit before the deadline | S3, S4 | Submission closes "Sunday, November 15 at 11:59 p.m." in the Local Event's time zone. Late saves are not judged. | Plan targets submission by Sunday evening with buffer (`implementation_plan.md`). | Must | Verified · Participant |
 | M5 | Project demo within limits | S3, S4 | A slide deck of at most 7 slides including title and intro, or a video of at most 30 seconds. "Projects that exceed these limits will not be eligible for Global Judging." | Produced in A9. | Must | Verified · Planned (A9) |
 | M6 | Public links, no login | S4 | Demo and final project links must be "publicly accessible" and "not require a password, permission, or registration". | Needs a public repository or hosted app. Publishing requires the participant's approval. | Must | Verified · Participant decision before A9 |
@@ -79,7 +79,7 @@ one is a signal of what judges consider relevant.
 | R8 | Satellite versus ground data | S1 | "Clarify how satellite observations differ from ground-based measurements" | `DataKind` labels each value as satellite retrieval, reanalysis, ground measurement and so on, and the label is shown beside the value. | Medium | Contract Met · Planned (A5) |
 | R9 | Explain uncertainty | S1 | "Explain how the model interprets uncertainty and where local expertise would be needed to validate results." | `UncertaintyStatement` is required on every result and must give its basis and at least one limitation. | High | Contract Met · Planned (A4) |
 | R10 | Harmonise resolutions | S1 | "harmonizing datasets with different spatial and temporal resolutions by downsampling, aggregating, or resampling" | One time standard (UTC) and daily resolution for all MVP inputs. `ObservationSeries` refuses to mix resolutions, sources or time standards. | Medium | Contract Met · Planned (A2) |
-| R11 | Explain crop roles | S1 | "how nitrogen-fixing crops, cover crops, deep-rooting crops, or drought-tolerant crops contribute to long-term soil health" | Cited short explanations in the crop knowledge base. | Medium | Planned (A3) |
+| R11 | Explain crop roles | S1 | "how nitrogen-fixing crops, cover crops, deep-rooting crops, or drought-tolerant crops contribute to long-term soil health" | Five-part cited explanations for every crop and rotation relationship in the knowledge base, including where the evidence does not support a common belief. | Medium | **Met in A3** (shown in the interface in A5) |
 | R12 | Maps, timelines, sliders | S1 | "interactive maps ... timelines, overlays comparing datasets, or scenario sliders" | Timeline charts in the MVP. Maps are a stretch goal. No rainfall or temperature sliders: we compare real historical seasons instead of synthetic adjustments. | Low | Partly planned (A5) |
 | R13 | Farmer-centred design | S1 | "easily interpretable for farmers who may have limited technical or geospatial experience ... input their own priorities or constraints, such as water availability, equipment limitations, or market preferences" | Plain language, few steps, priorities and free-text constraints captured in `FarmerPriorityProfile`. | High | Contract Met · Planned (A5) |
 | R14 | Compare analytical approaches | S1 | "compare different SI or statistical approaches for identifying patterns" | Not planned. The MVP uses one transparent statistical method. | Low | Out of scope |
@@ -143,14 +143,14 @@ These are CropShift design decisions. NASA does not require them.
 
 | ID | Feature | Why we chose it | Phase |
 | --- | --- | --- | --- |
-| P1 | Dry, typical and wet **historical** scenario comparison | Shows how a rotation behaves across the range of conditions a farm has actually experienced. Our main differentiator. | A2, A4 |
+| P1 | Dry, typical and wet **historical** scenario comparison | Shows how a rotation behaves across the range of conditions a farm has actually experienced. Our main differentiator. | A2, A4, A5 (done) |
 | P2 | Provenance on every value | Lets a user or reviewer trace any number to its source, version and transformations. | A1 (done) |
 | P3 | Observed, reanalysis, literature, modeled and assumed values kept visibly distinct | Prevents calculated indicators from being mistaken for measurements. | A1 (done), A5 |
 | P4 | Explicit missing-data handling | Gaps are shown as gaps, never filled silently. | A1 (done), A2 |
 | P5 | Supported pilot regions | Keeps crop evidence credible by limiting scope to regions we can document. | A3 |
-| P6 | Deterministic engine independent of AI services | Results are reproducible and the app works with every optional service switched off. | A4 |
+| P6 | Deterministic engine independent of AI services | Results are reproducible and the app works with every optional service switched off. | A4 (done) |
 | P7 | Offline demonstration mode | The demo cannot fail because of a network or API outage. | A2, A5 |
-| P8 | Exportable comparison summary | A farmer can keep or share the result. | A5 |
+| P8 | Exportable comparison summary | A farmer can keep or share the result. | A5 (done: Markdown and JSON downloads) |
 | P9 | No yield predictions, input prescriptions or forecasts | These claims cannot be supported scientifically in a weekend. | All |
 
 ## D. Optional stretch goals
@@ -173,9 +173,12 @@ Attempt only if the MVP is finished and tested.
 
 | ID | Item | Who | Needed by |
 | --- | --- | --- | --- |
-| U1 | Read the Participant Terms & Conditions and Privacy Policy. | Participant | Before submission |
+| U1 | Read the Participant Terms & Conditions. | — | **Resolved in A2.** Reviewed in full; findings in `compliance.md`. The participant should still read them personally before ticking the box at submission. |
 | U2 | Decide how the final project will be made public (public code repository, hosted app, or both). Nothing is published without approval. | Participant | Before A9 |
-| U3 | Check whether using the Manus service raises any question under the China funding restriction (M15). Its ownership and the rule's scope for third-party tools were **not** verified here. | Participant | Before A7 |
+| U3 | Check whether using the Manus service raises any question under the China-affiliation rule (M15). Its ownership and the rule's scope for third-party tools were **not** verified here. | Participant | Before A7 |
 | U4 | Confirm the Singapore Local Event's own judging time, which S4 says may differ from the global deadline. | Participant | Today |
-| U5 | Approve the provisional MVP specification and pilot regions. | Participant | Before A2 |
+| U5 | Approve the provisional MVP specification and the pilot site chosen in A2 (Katumani area, Machakos County, Kenya). **Still open after A4**: the A4 brief uses the site provisionally, and every report says it is not approved. | Participant | Before A9 |
 | U6 | The official page says "More resources may be added before the hackathon begins." The Resources tab was read once on 14 Nov 2026; re-check if time allows. | Either | Optional |
+| U7 | Choose an open-source licence for the project. Without one, NASA distributes it under Apache 2.0. | Participant | Before A9 |
+| U8 | Notify the NASA POWER project of the use and redistribution of its data, as its referencing guide requests. | Participant | After publishing |
+| U9 | Decide whether to add GPM IMERG rainfall as a second NASA source. **Deferred by the A4 brief.** | Participant | After the MVP |

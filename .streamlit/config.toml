@@ -8,3 +8,11 @@ gatherUsageStats = false
 [server]
 # Start without the interactive first-run prompt.
 headless = true
+
+[client]
+# The public page shows generic error messages only; details go to the server log.
+showErrorDetails = "none"
+
+[theme]
+# Okabe-Ito blue: colour-blind safe, and not a red/green verdict colour.
+primaryColor = "#0072B2"

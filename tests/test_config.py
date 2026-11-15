@@ -29,6 +29,69 @@ def test_defaults_are_safe(make_settings):
     assert settings.manus_api_key is None
 
 
+def test_nasa_data_layer_defaults(make_settings):
+    settings = make_settings()
+    assert settings.nasa_power_base_url == "https://power.larc.nasa.gov/api/temporal/daily/point"
+    assert settings.nasa_max_retries == 3
+    assert settings.nasa_cache_ttl_hours == 720.0
+    assert settings.nasa_cache_ttl.days == 30
+    assert settings.nasa_demo_directory == Path("data/demo")
+    assert settings.nasa_demo_path == config.PROJECT_ROOT / "data" / "demo"
+    assert settings.nasa_min_completeness_percent == 90.0
+
+
+@pytest.mark.parametrize(
+    "url",
+    [
+        "http://power.larc.nasa.gov/api/temporal/daily/point",
+        "ftp://power.larc.nasa.gov/data",
+        "power.larc.nasa.gov/api",
+        "https://",
+        "https://user:secret@power.larc.nasa.gov/api",
+        "https://power.larc.nasa.gov/api?token=abc",
+    ],
+)
+def test_nasa_endpoint_must_be_plain_https(monkeypatch, make_settings, url):
+    monkeypatch.setenv("NASA_POWER_BASE_URL", url)
+    with pytest.raises(ValidationError):
+        make_settings()
+
+
+def test_nasa_endpoint_is_configurable(monkeypatch, make_settings):
+    monkeypatch.setenv("NASA_POWER_BASE_URL", "https://example.org/power/")
+    assert make_settings().nasa_power_base_url == "https://example.org/power"
+
+
+@pytest.mark.parametrize(
+    ("name", "value"),
+    [
+        ("NASA_MAX_RETRIES", "-1"),
+        ("NASA_MAX_RETRIES", "7"),
+        ("NASA_MAX_RETRIES", "many"),
+        ("NASA_CACHE_TTL_HOURS", "0"),
+        ("NASA_CACHE_TTL_HOURS", "-24"),
+        ("NASA_MIN_COMPLETENESS_PERCENT", "-1"),
+        ("NASA_MIN_COMPLETENESS_PERCENT", "101"),
+    ],
+)
+def test_invalid_data_layer_settings_are_rejected(monkeypatch, make_settings, name, value):
+    monkeypatch.setenv(name, value)
+    with pytest.raises(ValidationError):
+        make_settings()
+
+
+def test_data_layer_settings_are_read_from_the_environment(monkeypatch, make_settings):
+    monkeypatch.setenv("NASA_MAX_RETRIES", "0")
+    monkeypatch.setenv("NASA_CACHE_TTL_HOURS", "12")
+    monkeypatch.setenv("NASA_MIN_COMPLETENESS_PERCENT", "95.5")
+    monkeypatch.setenv("NASA_DEMO_DIRECTORY", "elsewhere/demo")
+    settings = make_settings()
+    assert settings.nasa_max_retries == 0
+    assert settings.nasa_cache_ttl.total_seconds() == 12 * 3600
+    assert settings.nasa_min_completeness_percent == 95.5
+    assert settings.nasa_demo_path == config.PROJECT_ROOT / "elsewhere" / "demo"
+
+
 def test_external_ai_is_disabled_by_default(make_settings):
     settings = make_settings()
     assert settings.openai_ready is False

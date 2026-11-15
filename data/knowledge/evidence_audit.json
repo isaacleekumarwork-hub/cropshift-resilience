@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "audit_version": "1.0.0",
+  "audited_on": "2026-11-15",
+  "knowledge_base_version": "0.3.0",
+  "method": [
+    "Every one of the thirteen registered sources was requested again on 15 November 2026. Each answered with HTTP status 200 at the address in the registry, or through the DOI resolver for the two journal articles.",
+    "Title, authors, journal, volume, issue, pages and year of the two journal articles were compared again with their Crossref records.",
+    "Both journal abstracts were read again from Europe PMC and every claim resting on them was compared with the abstract text.",
+    "For every value that phase A4 calculates with, the source page was downloaded again and the printed figures were compared with the knowledge base. Claim groups re-checked in this way are listed under rechecked_claims.",
+    "Claims that A4 does not use in any calculation (for example crop coefficients, plant heights, salinity ratings and growth-stage lengths) were not read again. Their status rests on the A3 reading of 14 November 2026 and is shown as such.",
+    "Statuses are derived by rule from how much of the source was read and the confidence the A3 reading assigned. The exceptions, each with its reason, are listed under claim_overrides."
+  ],
+  "sources": [
+    {
+      "source_id": "fao-56",
+      "reachable": true,
+      "checked_url": "https://www.fao.org/4/x0490e/x0490e00.htm",
+      "access": "full_text_open",
+      "metadata_confirmed": true,
+      "metadata_check": "Title page of the FAO HTML edition; unchanged since A3.",
+      "rechecked_sections": [
+        "Chapter 7, Table 19: all nine rows used by the knowledge base",
+        "Chapter 8, Equation 82: TAW = 1000 (θFC − θWP) Zr, total available soil water in the root zone, in mm",
+        "Chapter 8, Equation 83: RAW = p TAW, readily available soil water in the root zone, in mm",
+        "Chapter 8, Table 22: rows 'Maize, Field (grain) (field corn)', 'Sorghum - grain', 'Beans, dry and Pulses' and 'Green Gram and Cowpeas'"
+      ],
+      "outcome": "All re-checked values match the knowledge base. Equations 82 and 83, which A4 uses for the root-zone soil water indicators, are stated in Chapter 8 with the units used here. The scanning error in the silty clay row of Table 19 ('0-30 - 0.42') is still present.",
+      "issues": [
+        "The silty clay row of Table 19 contains a garbled field-capacity value, so that row stays provisional and is not used in calculations."
+      ]
+    },
+    {
+      "source_id": "fao-tm3",
+      "reachable": true,
+      "checked_url": "https://www.fao.org/4/s2022e/s2022e07.htm",
+      "access": "full_text_open",
+      "metadata_confirmed": true,
+      "metadata_check": "Title page of the FAO HTML edition; unchanged since A3.",
+      "rechecked_sections": [
+        "Chapter 3, Table 6: rows 'Maize grain' (125-180), 'Bean dry' (95-110), 'Sorghum' (120-130)",
+        "Chapter 3, Table 14: rows 'Maize' (500-800, medium-high), 'Bean' (300-500, medium-high), 'Sorghum/Millet' (450-650, low), with the introduction to the table"
+      ],
+      "outcome": "All re-checked values match. The cited tables are on page s2022e07.htm. The same figures are printed again in an earlier chapter of the manual (Chapter 2, Tables 4 and 5, page s2022e02.htm); that is the same source repeating itself, not independent corroboration.",
+      "issues": [
+        "The manual has two chapters titled with crop water needs, so a locator without the page address is ambiguous. The audit records the page address."
+      ]
+    },
+    {
+      "source_id": "feedipedia-common-bean",
+      "reachable": true,
+      "checked_url": "https://www.feedipedia.org/node/266",
+      "access": "full_text_open",
+      "metadata_confirmed": true,
+      "metadata_check": "Datasheet citation line on the page; unchanged since A3.",
+      "rechecked_sections": ["Taxonomic information", "Distribution, second paragraph", "Environmental impact, heading 'N-fixing legume'"],
+      "outcome": "Temperature (15-23 °C, growth stops below 10 °C), rainfall (300-4300 mm, optimum 500-1500 mm) and pH (4-9) match. The 35 °C figure is described as a temperature the crop can grow under although seed production may be hampered; it is not a tolerated maximum, so it is qualified below.",
+      "issues": ["The source does not say whether its temperatures are daily means, daytime or seasonal values."]
+    },
+    {
+      "source_id": "feedipedia-cowpea-forage",
+      "reachable": true,
+      "checked_url": "https://www.feedipedia.org/node/233",
+      "access": "full_text_open",
+      "metadata_confirmed": true,
+      "metadata_check": "Datasheet citation line on the page; unchanged since A3.",
+      "rechecked_sections": ["Taxonomic information", "Distribution, second paragraph", "Environmental impact, heading 'Soil improver'"],
+      "outcome": "Temperature (25-35 °C) and annual rainfall (750-1100 mm) match. The page still gives no soil pH range and no water need for cowpea.",
+      "issues": ["Written about cowpea grown for forage; the ranges are quoted from a secondary reference (Madamba et al., 2006) that was not read."]
+    },
+    {
+      "source_id": "feedipedia-maize-forage",
+      "reachable": true,
+      "checked_url": "https://www.feedipedia.org/node/358",
+      "access": "full_text_open",
+      "metadata_confirmed": true,
+      "metadata_check": "Datasheet citation line on the page; unchanged since A3.",
+      "rechecked_sections": ["Taxonomic information", "Distribution, second paragraph"],
+      "outcome": "Optimal 18-21 °C 'average day-temperatures', annual rainfall above 750 mm (optimal) and 230-4100 mm (withstood), pH 4.3-8.7, 'Frost kills the plants', drought at flowering and no tolerance of flooding all match.",
+      "issues": ["'Average day-temperature' may mean the daytime temperature rather than the 24-hour mean; NASA's daily mean is not necessarily the same quantity."]
+    },
+    {
+      "source_id": "feedipedia-mung-bean",
+      "reachable": true,
+      "checked_url": "https://www.feedipedia.org/node/235",
+      "access": "full_text_open",
+      "metadata_confirmed": true,
+      "metadata_check": "Datasheet citation line on the page; unchanged since A3.",
+      "rechecked_sections": ["Taxonomic information", "Distribution", "Environmental impact"],
+      "outcome": "Optimal 28-30 °C and always above 15 °C, 600-1000 mm rainfall a year and pH 5-8 match.",
+      "issues": []
+    },
+    {
+      "source_id": "feedipedia-pigeon-pea-forage",
+      "reachable": true,
+      "checked_url": "https://www.feedipedia.org/node/22444",
+      "access": "full_text_open",
+      "metadata_confirmed": true,
+      "metadata_check": "Datasheet citation line on the page; unchanged since A3.",
+      "rechecked_sections": ["Taxonomic information", "Description, subsection 'Morphology'", "Distribution, first paragraph", "Environmental impact"],
+      "outcome": "Height 1-2 m, a deep taproot of 2 m depth, temperatures of 20-40 °C, rainfall above 625 mm and continued growth at 250-375 mm on deep, well-structured soil, best pH 5-7 and the nitrogen figures all match. The page gives no water need, growing period or crop coefficient.",
+      "issues": ["The 250 mm lower rainfall value holds only 'where the soil is deep and well-structured'; that condition is carried with the value."]
+    },
+    {
+      "source_id": "feedipedia-sorghum-forage",
+      "reachable": true,
+      "checked_url": "https://www.feedipedia.org/node/379",
+      "access": "full_text_open",
+      "metadata_confirmed": true,
+      "metadata_check": "Datasheet citation line on the page; unchanged since A3.",
+      "rechecked_sections": ["Taxonomic information", "Distribution, first and second paragraphs"],
+      "outcome": "25-30 °C at seedling, 30 °C day-temperature during growth and pH 5.5-7.5 match. The rainfall sentence still reads 'with less than 400-750 mm annual rainfall' and remains unusable as a range.",
+      "issues": ["Both temperature values apply to named growth stages whose dates at the pilot site are unknown, so they cannot be compared with whole-season temperatures."]
+    },
+    {
+      "source_id": "fao-ca-diversification",
+      "reachable": true,
+      "checked_url": "https://www.fao.org/conservation-agriculture/in-practice/species-diversification/en/",
+      "access": "full_text_open",
+      "metadata_confirmed": true,
+      "metadata_check": "Undated, unsigned FAO web page; unchanged since A3.",
+      "rechecked_sections": ["Section 'Crop rotation', first paragraph"],
+      "outcome": "The passages on rooting at different depths and on preventing the carry-over of 'crop-specific pests and diseases' match. The page still says nothing about crops of the same botanical family.",
+      "issues": []
+    },
+    {
+      "source_id": "fao-ca-soil-cover",
+      "reachable": true,
+      "checked_url": "https://www.fao.org/conservation-agriculture/in-practice/soil-organic-cover/en/",
+      "access": "full_text_open",
+      "metadata_confirmed": true,
+      "metadata_check": "Undated, unsigned FAO web page; unchanged since A3.",
+      "rechecked_sections": [],
+      "outcome": "Reachable. Not read again, because A4 uses none of its claims in a calculation.",
+      "issues": []
+    },
+    {
+      "source_id": "fao-giews-kenya",
+      "reachable": true,
+      "checked_url": "https://www.fao.org/giews/countrybrief/country.jsp?code=KEN",
+      "access": "full_text_open",
+      "metadata_confirmed": true,
+      "metadata_check": "The page still carries the reference date 04-May-2026.",
+      "rechecked_sections": ["Food security snapshot: 'long-rains typically extend from March to May' and the 'October-December' short rains"],
+      "outcome": "The two rainy-season windows used in A4 (March to May, October to December) are stated on the current page for the marginal bimodal-rainfall south-eastern areas.",
+      "issues": ["The brief does not name Machakos. Placing the pilot site in that zone remains this project's assumption."]
+    },
+    {
+      "source_id": "franke-2018",
+      "reachable": true,
+      "checked_url": "https://doi.org/10.1016/j.agee.2017.09.029",
+      "access": "full_text_open_not_read",
+      "metadata_confirmed": true,
+      "metadata_check": "Crossref record re-checked: title, four authors, Agriculture, Ecosystems & Environment 261, 172-185, July 2018. Europe PMC record PMC5946712 marks it open access under a CC BY licence.",
+      "rechecked_sections": ["Abstract (Europe PMC)"],
+      "outcome": "Every claim resting on this source is stated in the abstract: the 0.49 t/ha (41 %) mean increase over 199 observations from 44 publications, the larger variability, weaker effects after cowpea than after soybean and groundnut, 0.32 t/ha (59 %) remaining at 60-120 kg N/ha, generally no reported effect on soil organic matter, weed evidence limited to striga, and a lack of evidence on other pests and diseases. The full text is openly available but was not read; no claim relies on it.",
+      "issues": ["Abstract only. None of its claims is a crop threshold; they are used as background, never as calculation inputs."]
+    },
+    {
+      "source_id": "rao-mathuva-2000",
+      "reachable": true,
+      "checked_url": "https://doi.org/10.1016/S0167-8809(99)00125-5",
+      "access": "abstract_open_full_text_restricted",
+      "metadata_confirmed": true,
+      "metadata_check": "Crossref record re-checked: title, two authors, Agriculture, Ecosystems & Environment 78(2), 123-137, April 2000. The full text is on the publisher's site behind a subscription; Europe PMC holds the abstract only (AGRICOLA record).",
+      "rechecked_sections": ["Abstract (Europe PMC, AGRICOLA record)"],
+      "outcome": "Every claim resting on this source is stated in the abstract: the six cropping systems, cowpea as the short-duration and pigeon pea as the long-duration legume, 17 % (maize-cowpea sequence) and 24 % (pigeon pea intercrop) higher maize yields than continuous sole maize, the maize-pigeon pea rotation 'only marginally better', and pests and diseases on both legumes. The abstract gives no season assignment, no cycle length, no soil type and no rainfall by season.",
+      "issues": [
+        "Abstract only. Its yield percentages are reported study outcomes for one station in 1989 to 1996. They are shown as background and never used to calculate anything.",
+        "The abstract also reports that the annual grain legume systems were 32-49 % more profitable than continuous maize. CropShift does not use that figure: the abstract gives no prices, costs or method, and economic results are outside the evidence the tool can support."
+      ]
+    }
+  ],
+  "rechecked_claims": [
+    "family:*|feedipedia-*",
+    "crop:*:identity|feedipedia-*",
+    "crop:*:requirement:*-temperature-*|feedipedia-*",
+    "crop:*:requirement:*-rainfall-*|feedipedia-*",
+    "crop:*:requirement:*-soil-ph-*|feedipedia-*",
+    "crop:*:requirement:*-growing-period|fao-tm3",
+    "crop:*:requirement:*-water-need|fao-tm3",
+    "crop:*:requirement:*-rooting-depth|*",
+    "crop:*:requirement:*-depletion-fraction|fao-56",
+    "crop:*:attribute:drought_sensitivity|fao-tm3",
+    "crop:*:attribute:nitrogen_fixation|feedipedia-*",
+    "crop:*:attribute:frost|feedipedia-*",
+    "crop:*:attribute:waterlogging|feedipedia-*",
+    "crop:*:attribute:drought|feedipedia-*",
+    "crop:maize:attribute:drought_timing|feedipedia-*",
+    "crop:pigeon-pea:regional:kenya_production|feedipedia-*",
+    "soil_reference:*|fao-56",
+    "relationship:rooting-depth-diversity|fao-ca-diversification",
+    "relationship:rotation-breaks-crop-specific-pests|fao-ca-diversification",
+    "relationship:same-family-repetition|fao-ca-diversification",
+    "relationship:sorghum-and-maize-under-drought|*",
+    "relationship:fixed-nitrogen-leaves-with-the-grain|*",
+    "relationship:legumes-and-striga|feedipedia-*",
+    "constraint:*|feedipedia-*",
+    "constraint:*|fao-tm3",
+    "constraint:same-crop-in-succession|fao-ca-diversification",
+    "constraint:same-family-in-succession|fao-ca-diversification",
+    "*|franke-2018",
+    "*|rao-mathuva-2000"
+  ],
+  "claim_overrides": [
+    {
+      "where": "crop:common-bean:requirement:common-bean-temperature-upper",
+      "status": "verified_conditional",
+      "action": "qualify",
+      "allowed_uses": ["background"],
+      "reason": "The source says the crop 'can grow under higher temperatures (35°C) but this may hamper seed production'. That is not a stated upper limit, so the value is shown as background and is not used as the top of a tolerated range."
+    },
+    {
+      "where": "crop:pigeon-pea:requirement:pigeon-pea-rainfall-lower",
+      "status": "verified_conditional",
+      "action": "qualify",
+      "allowed_uses": ["numeric_input", "background"],
+      "reason": "The source gives 250-375 mm only 'where the soil is deep and well-structured'. The value may be used only with that soil condition displayed beside it.",
+      "condition": "Holds only where the soil is deep and well-structured, according to the source."
+    },
+    {
+      "where": "crop:pigeon-pea:requirement:pigeon-pea-temperature-suitable",
+      "status": "verified_conditional",
+      "action": "qualify",
+      "allowed_uses": ["numeric_input", "background"],
+      "reason": "The source says pigeon pea 'grows better in places where temperatures range from 20° to 40°C and which are frost-free'. The range is a preference stated for places, not a tolerance limit, and the kind of temperature is not given.",
+      "condition": "A range of places where the crop grows better, not a limit; the kind of temperature is not stated."
+    },
+    {
+      "where": "crop:maize:requirement:maize-temperature-optimal",
+      "status": "verified_conditional",
+      "action": "qualify",
+      "allowed_uses": ["numeric_input", "background"],
+      "reason": "The source gives 18-21 °C as 'average day-temperatures'. That may mean the daytime temperature rather than the 24-hour mean that NASA reports, so the comparison is shown with this caveat.",
+      "condition": "The source's 'average day-temperature' may be a daytime value; NASA's daily mean is compared with it as the nearest available quantity."
+    }
+  ],
+  "method_sources": [
+    {
+      "source_id": "etccdi-indices",
+      "title": "Climate Change Indices: Definitions of the 27 core indices",
+      "authors": [],
+      "institution": "Expert Team on Climate Change Detection and Indices (ETCCDI), page hosted by the Pacific Climate Impacts Consortium",
+      "year": null,
+      "source_type": "methodology_reference",
+      "url": "https://etccdi.pacificclimate.org/list_27_indices.shtml",
+      "citation": "Expert Team on Climate Change Detection and Indices (ETCCDI). Climate Change Indices: Definitions of the 27 core indices. https://etccdi.pacificclimate.org/list_27_indices.shtml (undated web page, accessed 15 November 2026)",
+      "accessed_on": "2026-11-15",
+      "sections_read": [
+        "FD: annual count of days when the daily minimum temperature is below 0 °C",
+        "CDD: maximum number of consecutive days with daily precipitation below 1 mm",
+        "R10mm and R20mm: count of days with precipitation of at least 10 mm and 20 mm",
+        "Rx1day: maximum 1-day precipitation",
+        "SDII: mean precipitation on wet days, a wet day being one with at least 1 mm"
+      ],
+      "geographic_scope": "Global. Definitions of climate indices, not agronomic thresholds.",
+      "crop_scope": "None. The indices describe weather, not crops.",
+      "review_status": "content_read",
+      "verification_note": "Definitions read on 15 Nov 2026 from the page. The page carries no date; it lists Karl et al. (1999) among its references.",
+      "limitations": [
+        "The indices are defined for station records over a year or a month. CropShift applies the same definitions within a rainy-season window and to a reanalysis grid-cell average, which is an adaptation of their intended use.",
+        "A frost day by this definition is a statement about air temperature at 2 m. It does not establish crop damage, and frost can form on the ground when the air above stays above 0 °C."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "frost-threshold-sourced",
+      "kind": "replaced_assumption",
+      "action": "replace_with_verified_source",
+      "affects": ["constraint:frost-kills-maize", "constraint:frost-sensitive-crops"],
+      "summary": "In A3, treating a daily minimum at or below 0 °C as frost was declared as this project's assumption. A4 counts frost days with the published ETCCDI definition instead (index FD: daily minimum temperature below 0 °C). The agronomic claim, that frost kills maize, still rests on Feedipedia."
+    },
+    {
+      "finding_id": "explanation-wording-satellite",
+      "kind": "corrected_wording",
+      "action": "qualify",
+      "affects": ["constraint:frost-kills-maize"],
+      "summary": "The farmer explanation called the NASA data a 'satellite-era weather record'. The temperatures come from the MERRA-2 reanalysis, a weather model constrained by observations. The wording was corrected to 'NASA's weather record'."
+    },
+    {
+      "finding_id": "tm3-locator-page",
+      "kind": "locator_clarified",
+      "action": "retain",
+      "affects": ["crop:*:requirement:*-growing-period", "crop:*:requirement:*-water-need", "crop:*:attribute:drought_sensitivity"],
+      "summary": "The A3 locators (Chapter 3, Tables 6 and 14) are correct. The manual repeats the same figures in Chapter 2, Tables 4 and 5, so the audit records the page address (s2022e07.htm) to remove the ambiguity."
+    },
+    {
+      "finding_id": "stage-specific-temperatures",
+      "kind": "excluded_from_calculation",
+      "action": "exclude_from_calculation",
+      "affects": ["crop:sorghum:requirement:sorghum-temperature-seedling", "crop:sorghum:requirement:sorghum-temperature-growth"],
+      "summary": "Both sorghum temperature values apply to named growth stages. The dates of those stages at the pilot site are unknown, so the engine does not compare them with whole-season temperatures. They remain verified and are shown as background."
+    },
+    {
+      "finding_id": "abstract-only-background",
+      "kind": "qualified",
+      "action": "qualify",
+      "affects": ["*|franke-2018", "*|rao-mathuva-2000"],
+      "summary": "All 23 claims resting on the two abstracts are stated in the abstracts. None is a crop threshold, water-use threshold or soil threshold, and none is season-specific. They are used only as background explanation; reported yield percentages are never used to calculate a result."
+    },
+    {
+      "finding_id": "no-contradictions",
+      "kind": "no_contradiction_found",
+      "action": "retain",
+      "affects": [],
+      "summary": "No re-checked claim was contradicted by its source."
+    },
+    {
+      "finding_id": "silty-clay-excluded",
+      "kind": "excluded_from_calculation",
+      "action": "exclude_from_calculation",
+      "affects": ["soil_reference:silty_clay"],
+      "summary": "The silty clay row of FAO-56 Table 19 is still garbled by optical character recognition. It is not used to estimate soil water; a user with silty clay soil needs measured values."
+    }
+  ]
+}

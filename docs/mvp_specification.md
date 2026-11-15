@@ -126,10 +126,16 @@ or a documented manual check.
 | Languages | English | Fixed by submission rules |
 | AI explanations | Optional, off by default, never part of the calculation | Fixed |
 
-## Candidate pilot regions
+## Pilot regions
 
-*Open: to be confirmed before A2.* These are candidates only. A region is
-supported only if phase A3 finds enough published evidence for its crops.
+**Chosen in A2, awaiting approval:** the Katumani area of Machakos County,
+Kenya (latitude -1.58, longitude 37.24), a semi-arid smallholder site matching
+the second candidate below. Its NASA data for 2001 to 2025 has been retrieved
+and verified. The choice is easy to change: the data layer accepts any
+coordinates, and the site is defined in one place (`src/pilot_sites.py`).
+
+The candidates as listed in A1 follow. A region is supported only if phase A3
+finds enough published evidence for its crops.
 
 | Candidate | Why it is a candidate |
 | --- | --- |

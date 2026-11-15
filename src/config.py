@@ -19,9 +19,11 @@ direction. See docs/provenance.md.
 from __future__ import annotations
 
 import logging
+from datetime import timedelta
 from functools import lru_cache
 from pathlib import Path
 from typing import Literal
+from urllib.parse import urlsplit
 
 from pydantic import Field, SecretStr, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -32,6 +34,10 @@ PROJECT_ROOT: Path = Path(__file__).resolve().parent.parent
 LogLevel = Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
 
 MAX_NASA_REQUEST_TIMEOUT_SECONDS = 300.0
+MAX_NASA_RETRIES = 6
+
+DEFAULT_NASA_POWER_URL = "https://power.larc.nasa.gov/api/temporal/daily/point"
+"""NASA POWER Daily API, single-point endpoint."""
 
 
 class Settings(BaseSettings):
@@ -67,6 +73,32 @@ class Settings(BaseSettings):
         default=Path("data/cache"),
         description="Folder for cached NASA responses.",
     )
+    nasa_power_base_url: str = Field(
+        default=DEFAULT_NASA_POWER_URL,
+        description="NASA POWER Daily API point endpoint. Must use HTTPS.",
+    )
+    nasa_max_retries: int = Field(
+        default=3,
+        ge=0,
+        le=MAX_NASA_RETRIES,
+        description="Extra attempts after a rate limit, timeout or temporary server error.",
+    )
+    nasa_cache_ttl_hours: float = Field(
+        default=720.0,
+        gt=0,
+        le=87600,
+        description="Hours before a cached NASA response is fetched again.",
+    )
+    nasa_demo_directory: Path = Field(
+        default=Path("data/demo"),
+        description="Folder of bundled, real NASA responses for offline demonstrations.",
+    )
+    nasa_min_completeness_percent: float = Field(
+        default=90.0,
+        ge=0,
+        le=100,
+        description="A dataset is accepted only if every variable is at least this complete.",
+    )
 
     # --- Local storage --------------------------------------------------------
     database_path: Path = Field(
@@ -86,6 +118,20 @@ class Settings(BaseSettings):
     def _normalise_log_level(cls, value: object) -> object:
         return value.strip().upper() if isinstance(value, str) else value
 
+    @field_validator("nasa_power_base_url")
+    @classmethod
+    def _require_plain_https_endpoint(cls, value: str) -> str:
+        parts = urlsplit(value.strip())
+        if parts.scheme != "https":
+            raise ValueError("the NASA endpoint must use https")
+        if not parts.hostname:
+            raise ValueError("the NASA endpoint needs a host name")
+        if parts.username or parts.password:
+            raise ValueError("the NASA endpoint must not contain credentials")
+        if parts.query or parts.fragment:
+            raise ValueError("the NASA endpoint must not contain a query string or fragment")
+        return value.strip().rstrip("/")
+
     @field_validator("openai_api_key", "manus_api_key", mode="before")
     @classmethod
     def _blank_key_means_absent(cls, value: object) -> object:
@@ -98,6 +144,16 @@ class Settings(BaseSettings):
     def nasa_cache_path(self) -> Path:
         """Cache folder as an absolute path (the folder is not created here)."""
         return _resolve(self.nasa_cache_directory)
+
+    @property
+    def nasa_demo_path(self) -> Path:
+        """Bundled demo-data folder as an absolute path."""
+        return _resolve(self.nasa_demo_directory)
+
+    @property
+    def nasa_cache_ttl(self) -> timedelta:
+        """Cache lifetime as a time span."""
+        return timedelta(hours=self.nasa_cache_ttl_hours)
 
     @property
     def database_file(self) -> Path:

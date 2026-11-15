@@ -1,0 +1,2204 @@
+{
+  "schema_version": 1,
+  "families": [
+    {
+      "family_id": "fabaceae",
+      "name": "Fabaceae",
+      "alternative_names": [
+        "Leguminosae"
+      ],
+      "evidence": [
+        {
+          "source_id": "feedipedia-cowpea-forage",
+          "locator": "Taxonomic information: 'Vigna unguiculata (L.) Walp. [Fabaceae]'",
+          "confidence": "directly_supported",
+          "applicability": "Family assignment of cowpea; the other legume datasheets give the same family for their species."
+        },
+        {
+          "source_id": "fao-56",
+          "locator": "Chapter 6, Table 12, group heading 'e. Legumes (Leguminosae)'",
+          "confidence": "directly_supported",
+          "applicability": "Use of 'Leguminosae' as the name of the legume group."
+        }
+      ]
+    },
+    {
+      "family_id": "poaceae",
+      "name": "Poaceae",
+      "alternative_names": [],
+      "evidence": [
+        {
+          "source_id": "feedipedia-maize-forage",
+          "locator": "Taxonomic information: 'Zea mays L. [Poaceae]'",
+          "confidence": "directly_supported",
+          "applicability": "Family assignment of maize; the sorghum datasheet gives the same family for Sorghum bicolor."
+        }
+      ]
+    }
+  ],
+  "crops": [
+    {
+      "crop_id": "maize",
+      "common_name": "Maize",
+      "scientific_name": "Zea mays L.",
+      "botanical_family": "Poaceae",
+      "functional_group": "cereal",
+      "nitrogen_fixing": false,
+      "life_cycle": "annual",
+      "life_cycle_basis": "Inferred, not stated. The sources read give grain maize a total growing period of 125 to 180 days and treat it as a crop sown and harvested within a season, but none states the life cycle in words.",
+      "identity_evidence": [
+        {
+          "source_id": "feedipedia-maize-forage",
+          "locator": "Taxonomic information: 'Zea mays L. [Poaceae]'",
+          "confidence": "directly_supported",
+          "applicability": "Species name and family."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_id": "maize-kc-initial",
+          "variable": "crop_coefficient_initial",
+          "minimum": 0.3,
+          "maximum": 0.3,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc ini = 0.3, the single value the table lists for the cereals group as a whole.",
+          "limitation": "A group value, not specific to maize. The source calls Kc ini values 'only approximations' that depend strongly on how often the soil surface is wetted.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, group row 'i. Cereals', and the text following the table",
+            "confidence": "context_dependent",
+            "applicability": "Cereals as a group, under typical irrigation management."
+          }
+        },
+        {
+          "requirement_id": "maize-kc-mid",
+          "variable": "crop_coefficient_mid_season",
+          "minimum": 1.2,
+          "maximum": 1.2,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc mid = 1.20 for 'Maize, Field (grain) (field corn)'.",
+          "limitation": "For a non-stressed, well-managed crop in a sub-humid climate (minimum relative humidity about 45 %, wind about 2 m/s). The source requires adjustment for other climates and for sparse or stressed crops.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Maize, Field (grain) (field corn)'",
+            "confidence": "directly_supported",
+            "applicability": "Grain maize under the table's standard conditions."
+          }
+        },
+        {
+          "requirement_id": "maize-kc-end",
+          "variable": "crop_coefficient_end_season",
+          "minimum": 0.35,
+          "maximum": 0.6,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc end = 0.60-0.35: 0.60 for harvest at high grain moisture, 0.35 for harvest after complete field drying of the grain.",
+          "limitation": "Which end of the range applies depends on when the grain is harvested. Standard conditions as for Kc mid.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Maize, Field (grain) (field corn)' and footnote 11",
+            "confidence": "directly_supported",
+            "applicability": "Grain maize under the table's standard conditions."
+          }
+        },
+        {
+          "requirement_id": "maize-max-height",
+          "variable": "crop_max_height",
+          "minimum": 2.0,
+          "maximum": 2.0,
+          "unit": "m",
+          "basis": "typical",
+          "statement": "Mean maximum crop height 2 m.",
+          "limitation": "A mean for well-managed crops; varieties differ widely.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Maize, Field (grain) (field corn)', column 'Maximum Crop Height'",
+            "confidence": "directly_supported",
+            "applicability": "Grain maize under the table's standard conditions."
+          }
+        },
+        {
+          "requirement_id": "maize-rooting-depth",
+          "variable": "crop_max_rooting_depth",
+          "minimum": 1.0,
+          "maximum": 1.7,
+          "unit": "m",
+          "basis": "typical",
+          "statement": "Maximum effective rooting depth 1.0-1.7 m.",
+          "limitation": "Reached only where the soil has no layer that restricts roots. Shallow or compacted soils give less.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 22, row 'Maize, Field (grain) (field corn)'",
+            "confidence": "directly_supported",
+            "applicability": "Grain maize."
+          }
+        },
+        {
+          "requirement_id": "maize-depletion-fraction",
+          "variable": "crop_depletion_fraction",
+          "minimum": 0.55,
+          "maximum": 0.55,
+          "unit": "fraction",
+          "basis": "typical",
+          "statement": "Soil water depletion fraction for no stress, p = 0.55.",
+          "limitation": "Stated for crop evapotranspiration of about 5 mm/day. The source adjusts it for higher and lower rates.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 22, row 'Maize, Field (grain) (field corn)'",
+            "confidence": "directly_supported",
+            "applicability": "Grain maize."
+          }
+        },
+        {
+          "requirement_id": "maize-yield-response",
+          "variable": "crop_yield_response_factor",
+          "minimum": 1.25,
+          "maximum": 1.25,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Seasonal yield response factor Ky = 1.25, which the source takes from FAO Irrigation and Drainage Paper 33.",
+          "limitation": "A seasonal average describing relative yield loss under water deficit. It is not a yield, and this project does not predict yields.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 24, row 'Maize'",
+            "confidence": "directly_supported",
+            "applicability": "Maize, whole season."
+          }
+        },
+        {
+          "requirement_id": "maize-growing-period",
+          "variable": "crop_cycle_length",
+          "minimum": 125,
+          "maximum": 180,
+          "unit": "day",
+          "basis": "typical",
+          "statement": "Indicative total growing period for 'Maize grain': 125-180 days.",
+          "limitation": "Indicative only. The source says the growing period 'heavily depends on local circumstances' such as local varieties, and is longer in cool climates.",
+          "evidence": {
+            "source_id": "fao-tm3",
+            "locator": "Chapter 3, Table 6, row 'Maize grain'",
+            "confidence": "context_dependent",
+            "applicability": "Grain maize worldwide; no variety or region."
+          }
+        },
+        {
+          "requirement_id": "maize-water-need",
+          "variable": "crop_seasonal_water_requirement",
+          "minimum": 500,
+          "maximum": 800,
+          "unit": "mm",
+          "basis": "typical",
+          "original_unit": "mm/total growing period",
+          "statement": "Indicative crop water need for 'Maize': 500-800 mm over the total growing period.",
+          "limitation": "This is water the crop uses (evapotranspiration), not the rainfall it needs. The source calls it 'a rough estimate'; the higher figure applies to long growing periods.",
+          "evidence": {
+            "source_id": "fao-tm3",
+            "locator": "Chapter 3, Table 14, row 'Maize'",
+            "confidence": "context_dependent",
+            "applicability": "Maize worldwide; no variety, climate or region."
+          }
+        },
+        {
+          "requirement_id": "maize-temperature-optimal",
+          "variable": "crop_temperature_requirement",
+          "minimum": 18,
+          "maximum": 21,
+          "unit": "degC",
+          "basis": "optimal",
+          "statement": "Optimal growth conditions are 18-21 °C average day-temperatures.",
+          "limitation": "The source does not define 'average day-temperature' or name its primary reference, and it is written about maize grown for forage. Not a limit beyond which maize fails.",
+          "evidence": {
+            "source_id": "feedipedia-maize-forage",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "maize-rainfall-optimal",
+          "variable": "crop_annual_rainfall_requirement",
+          "minimum": 750,
+          "unit": "mm",
+          "basis": "optimal",
+          "original_unit": "mm/year",
+          "statement": "Optimal growth conditions include annual rainfalls of more than 750 mm.",
+          "limitation": "An annual total. It says nothing about how rain is spread across the growing season, and annual rainfall is not the water available to a crop.",
+          "evidence": {
+            "source_id": "feedipedia-maize-forage",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "maize-rainfall-tolerated",
+          "variable": "crop_annual_rainfall_requirement",
+          "minimum": 230,
+          "maximum": 4100,
+          "unit": "mm",
+          "basis": "tolerated",
+          "original_unit": "mm/year",
+          "statement": "Maize withstands annual rainfalls ranging from 230 to 4100 mm.",
+          "limitation": "The outer range over which the species is grown somewhere in the world, not the range in which it yields well. An annual total.",
+          "evidence": {
+            "source_id": "feedipedia-maize-forage",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "maize-soil-ph-tolerated",
+          "variable": "crop_soil_ph_requirement",
+          "minimum": 4.3,
+          "maximum": 8.7,
+          "unit": "pH",
+          "basis": "tolerated",
+          "statement": "Maize withstands a pH between 4.3 and 8.7.",
+          "limitation": "The outer range tolerated, not a preferred range. No optimal pH is given by the sources read.",
+          "evidence": {
+            "source_id": "feedipedia-maize-forage",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        }
+      ],
+      "attributes": [
+        {
+          "attribute": "frost",
+          "statement": "Frost kills the plants.",
+          "evidence": {
+            "source_id": "feedipedia-maize-forage",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "drought_timing",
+          "statement": "Drought is detrimental at flowering, as it affects pollination and impairs yields.",
+          "evidence": {
+            "source_id": "feedipedia-maize-forage",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "drought_sensitivity",
+          "statement": "Sensitivity to drought: medium-high.",
+          "evidence": {
+            "source_id": "fao-tm3",
+            "locator": "Chapter 3, Table 14, row 'Maize'",
+            "confidence": "context_dependent",
+            "applicability": "Maize worldwide; an indicative class."
+          }
+        },
+        {
+          "attribute": "waterlogging",
+          "statement": "Maize has no tolerance to flooding.",
+          "evidence": {
+            "source_id": "feedipedia-maize-forage",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "soil_preference",
+          "statement": "Optimal conditions include deep, well-drained, rich soils, although maize is grown on a great variety of soils.",
+          "evidence": {
+            "source_id": "feedipedia-maize-forage",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "salinity",
+          "statement": "Rated moderately sensitive to salinity. Yield first declines at a soil saturation-extract conductivity of 1.7 dS/m.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 23, row 'Maize', and the rating key in footnote 5",
+            "confidence": "directly_supported",
+            "applicability": "Maize."
+          }
+        },
+        {
+          "attribute": "altitude",
+          "statement": "Grown from sea level to an altitude of 3800 m in the Andean mountains.",
+          "evidence": {
+            "source_id": "feedipedia-maize-forage",
+            "locator": "Section 'Distribution', first paragraph",
+            "confidence": "context_dependent",
+            "applicability": "World distribution of the species."
+          }
+        }
+      ],
+      "regional_evidence": [
+        {
+          "attribute": "machakos_trial",
+          "statement": "Maize was the cereal in a cropping-systems experiment at the ICRAF research station at Machakos, Kenya, from November 1989 to February 1996.",
+          "evidence": {
+            "source_id": "rao-mathuva-2000",
+            "locator": "Abstract",
+            "confidence": "directly_supported",
+            "applicability": "One research station at Machakos, 1989-1996."
+          }
+        }
+      ],
+      "unknowns": [
+        {
+          "attribute": "base_temperature",
+          "reason": "No source read gives a base or other cardinal temperature for development."
+        },
+        {
+          "attribute": "heat_stress_threshold",
+          "reason": "No source read gives a temperature above which maize is damaged, or for how long."
+        },
+        {
+          "attribute": "soil_ph_optimal",
+          "reason": "Only the tolerated pH range was found; no optimal range."
+        },
+        {
+          "attribute": "local_varieties",
+          "reason": "No source read describes the varieties grown near the pilot site or their growing periods."
+        }
+      ],
+      "assumptions": [
+        "The FAO rows for 'Maize, Field (grain)' and 'Maize grain' are taken to describe the same crop as the maize in the Machakos trial."
+      ],
+      "limitations": [
+        "'nitrogen_fixing: false' means only that no source read describes maize as nitrogen-fixing.",
+        "Temperature, rainfall and pH figures come from a secondary datasheet about forage maize.",
+        "All water-use values assume a well-watered, well-managed crop."
+      ],
+      "data_quality": "provisional",
+      "explanation": {
+        "what_is_known": "Maize uses more water at mid-season than most field crops (crop coefficient 1.20) and needs roughly 500 to 800 mm of water over a growing period of 125 to 180 days. It is rated medium to high in sensitivity to drought, is harmed most by drought at flowering, does not tolerate flooding and is killed by frost.",
+        "why_it_matters": "Where rain is the only source of water, a crop with high water use and high drought sensitivity is the one most exposed in a dry season.",
+        "evidence_summary": "Water-use values come from two FAO irrigation handbooks. Climate and soil ranges come from a Feedipedia datasheet. Maize was grown in a seven-year experiment at Machakos.",
+        "what_is_uncertain": "The values describe well-watered crops under standard conditions, not rain-fed smallholder fields. No heat-stress threshold, base temperature or local variety information was found.",
+        "region_specific": false,
+        "region_note": null
+      }
+    },
+    {
+      "crop_id": "sorghum",
+      "common_name": "Sorghum (grain)",
+      "scientific_name": "Sorghum bicolor (L.) Moench",
+      "botanical_family": "Poaceae",
+      "functional_group": "cereal",
+      "nitrogen_fixing": false,
+      "life_cycle": "annual",
+      "life_cycle_basis": "Stated by the source: 'a tall, erect annual grass' (Feedipedia, sorghum forage, section 'Description').",
+      "identity_evidence": [
+        {
+          "source_id": "feedipedia-sorghum-forage",
+          "locator": "Taxonomic information: 'Sorghum bicolor (L.) Moench [Poaceae]'",
+          "confidence": "directly_supported",
+          "applicability": "Species name and family."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_id": "sorghum-kc-initial",
+          "variable": "crop_coefficient_initial",
+          "minimum": 0.3,
+          "maximum": 0.3,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc ini = 0.3, the single value the table lists for the cereals group as a whole.",
+          "limitation": "A group value, not specific to sorghum. The source calls Kc ini values 'only approximations' that depend strongly on how often the soil surface is wetted.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, group row 'i. Cereals', and the text following the table",
+            "confidence": "context_dependent",
+            "applicability": "Cereals as a group, under typical irrigation management."
+          }
+        },
+        {
+          "requirement_id": "sorghum-kc-mid",
+          "variable": "crop_coefficient_mid_season",
+          "minimum": 1.0,
+          "maximum": 1.1,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc mid = 1.00-1.10 for 'Sorghum - grain'.",
+          "limitation": "For a non-stressed, well-managed crop in a sub-humid climate. The source requires adjustment for other climates and for sparse or stressed crops.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Sorghum - grain'",
+            "confidence": "directly_supported",
+            "applicability": "Grain sorghum under the table's standard conditions."
+          }
+        },
+        {
+          "requirement_id": "sorghum-kc-end",
+          "variable": "crop_coefficient_end_season",
+          "minimum": 0.55,
+          "maximum": 0.55,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc end = 0.55 for 'Sorghum - grain'.",
+          "limitation": "Standard conditions as for Kc mid.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Sorghum - grain'",
+            "confidence": "directly_supported",
+            "applicability": "Grain sorghum under the table's standard conditions."
+          }
+        },
+        {
+          "requirement_id": "sorghum-max-height",
+          "variable": "crop_max_height",
+          "minimum": 1.0,
+          "maximum": 2.0,
+          "unit": "m",
+          "basis": "typical",
+          "statement": "Mean maximum crop height 1-2 m for grain sorghum.",
+          "limitation": "A mean for well-managed grain types; forage and landrace types can be much taller.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Sorghum - grain', column 'Maximum Crop Height'",
+            "confidence": "directly_supported",
+            "applicability": "Grain sorghum under the table's standard conditions."
+          }
+        },
+        {
+          "requirement_id": "sorghum-rooting-depth",
+          "variable": "crop_max_rooting_depth",
+          "minimum": 1.0,
+          "maximum": 2.0,
+          "unit": "m",
+          "basis": "typical",
+          "statement": "Maximum effective rooting depth 1.0-2.0 m for grain sorghum.",
+          "limitation": "Reached only where the soil has no layer that restricts roots.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 22, row 'Sorghum - grain'",
+            "confidence": "directly_supported",
+            "applicability": "Grain sorghum."
+          }
+        },
+        {
+          "requirement_id": "sorghum-depletion-fraction",
+          "variable": "crop_depletion_fraction",
+          "minimum": 0.55,
+          "maximum": 0.55,
+          "unit": "fraction",
+          "basis": "typical",
+          "statement": "Soil water depletion fraction for no stress, p = 0.55.",
+          "limitation": "Stated for crop evapotranspiration of about 5 mm/day. The source adjusts it for higher and lower rates.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 22, row 'Sorghum - grain'",
+            "confidence": "directly_supported",
+            "applicability": "Grain sorghum."
+          }
+        },
+        {
+          "requirement_id": "sorghum-yield-response",
+          "variable": "crop_yield_response_factor",
+          "minimum": 0.9,
+          "maximum": 0.9,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Seasonal yield response factor Ky = 0.9, which the source takes from FAO Irrigation and Drainage Paper 33.",
+          "limitation": "A seasonal average describing relative yield loss under water deficit. It is not a yield, and this project does not predict yields.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 24, row 'Sorghum'",
+            "confidence": "directly_supported",
+            "applicability": "Sorghum, whole season."
+          }
+        },
+        {
+          "requirement_id": "sorghum-growing-period",
+          "variable": "crop_cycle_length",
+          "minimum": 120,
+          "maximum": 130,
+          "unit": "day",
+          "basis": "typical",
+          "statement": "Indicative total growing period for 'Sorghum': 120-130 days.",
+          "limitation": "Indicative only. The source says the growing period 'heavily depends on local circumstances' such as local varieties.",
+          "evidence": {
+            "source_id": "fao-tm3",
+            "locator": "Chapter 3, Table 6, row 'Sorghum'",
+            "confidence": "context_dependent",
+            "applicability": "Sorghum worldwide; no variety or region."
+          }
+        },
+        {
+          "requirement_id": "sorghum-water-need",
+          "variable": "crop_seasonal_water_requirement",
+          "minimum": 450,
+          "maximum": 650,
+          "unit": "mm",
+          "basis": "typical",
+          "original_unit": "mm/total growing period",
+          "statement": "Indicative crop water need for 'Sorghum/Millet': 450-650 mm over the total growing period.",
+          "limitation": "This is water the crop uses (evapotranspiration), not the rainfall it needs. The source calls it 'a rough estimate'. The row covers sorghum and millet together.",
+          "evidence": {
+            "source_id": "fao-tm3",
+            "locator": "Chapter 3, Table 14, row 'Sorghum/Millet'",
+            "confidence": "context_dependent",
+            "applicability": "Sorghum and millet together, worldwide."
+          }
+        },
+        {
+          "requirement_id": "sorghum-temperature-seedling",
+          "variable": "crop_temperature_requirement",
+          "minimum": 25,
+          "maximum": 30,
+          "unit": "degC",
+          "basis": "stage_specific",
+          "growth_stage": "seedling",
+          "statement": "Optimal growth conditions are 25-30 °C at seedling.",
+          "limitation": "The source does not say which temperature measure is meant, and is written about forage sorghum. Not a limit beyond which sorghum fails.",
+          "evidence": {
+            "source_id": "feedipedia-sorghum-forage",
+            "locator": "Section 'Distribution', first paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "sorghum-temperature-growth",
+          "variable": "crop_temperature_requirement",
+          "minimum": 30,
+          "maximum": 30,
+          "unit": "degC",
+          "basis": "stage_specific",
+          "growth_stage": "growth after the seedling stage (day-temperature)",
+          "statement": "Optimal growth conditions are 30 °C day-temperature during growth.",
+          "limitation": "A day-time temperature, not a daily mean, so it cannot be compared directly with NASA's daily mean temperature. Written about forage sorghum.",
+          "evidence": {
+            "source_id": "feedipedia-sorghum-forage",
+            "locator": "Section 'Distribution', first paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "sorghum-soil-ph-optimal",
+          "variable": "crop_soil_ph_requirement",
+          "minimum": 5.5,
+          "maximum": 7.5,
+          "unit": "pH",
+          "basis": "optimal",
+          "statement": "Sorghum grows best on deep, well-drained loamy clay with a pH between 5.5 and 7.5.",
+          "limitation": "A preferred range. The limits sorghum tolerates were not found.",
+          "evidence": {
+            "source_id": "feedipedia-sorghum-forage",
+            "locator": "Section 'Distribution', first paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        }
+      ],
+      "attributes": [
+        {
+          "attribute": "drought",
+          "statement": "Sorghum is tolerant to drought because of its root system. It performs better than maize in drought conditions and so grows in stress-prone semi-arid areas unsuitable for maize.",
+          "evidence": {
+            "source_id": "feedipedia-sorghum-forage",
+            "locator": "Section 'Distribution', second paragraph (citing FAO, 2011)",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "drought_sensitivity",
+          "statement": "Sensitivity to drought: low.",
+          "evidence": {
+            "source_id": "fao-tm3",
+            "locator": "Chapter 3, Table 14, row 'Sorghum/Millet'",
+            "confidence": "context_dependent",
+            "applicability": "Sorghum and millet together; an indicative class."
+          }
+        },
+        {
+          "attribute": "waterlogging",
+          "statement": "Somewhat tolerant to waterlogging for short periods; sensitive to sustained flooding.",
+          "evidence": {
+            "source_id": "feedipedia-sorghum-forage",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "frost",
+          "statement": "Sensitive to frost.",
+          "evidence": {
+            "source_id": "feedipedia-sorghum-forage",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "soil_preference",
+          "statement": "Grows best on deep, well-drained loamy clay.",
+          "evidence": {
+            "source_id": "feedipedia-sorghum-forage",
+            "locator": "Section 'Distribution', first paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "root_system",
+          "statement": "Roots are adventitious, and the root system can extend from the top 90 cm of soil to twice that depth.",
+          "evidence": {
+            "source_id": "feedipedia-sorghum-forage",
+            "locator": "Section 'Description', first paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "rainfall_note",
+          "statement": "The source describes optimal conditions as 'with less than 400-750 mm annual rainfall'. The wording is ambiguous, so no rainfall range is recorded as a number.",
+          "evidence": {
+            "source_id": "feedipedia-sorghum-forage",
+            "locator": "Section 'Distribution', first paragraph",
+            "confidence": "provisional",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "weed_striga",
+          "statement": "In Africa the parasitic weed Striga hermonthica attaches itself to the roots and is particularly noxious to sorghum.",
+          "evidence": {
+            "source_id": "feedipedia-sorghum-forage",
+            "locator": "Section 'Distribution', second paragraph (citing FAO, 2011)",
+            "confidence": "directly_supported",
+            "applicability": "Africa in general; no country named."
+          }
+        },
+        {
+          "attribute": "salinity",
+          "statement": "Rated moderately tolerant to salinity. Yield first declines at a soil saturation-extract conductivity of 6.8 dS/m.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 23, row 'Sorghum', and the rating key in footnote 5",
+            "confidence": "directly_supported",
+            "applicability": "Sorghum."
+          }
+        },
+        {
+          "attribute": "altitude",
+          "statement": "Described as widespread from sea level up to an altitude of 1000 m.",
+          "evidence": {
+            "source_id": "feedipedia-sorghum-forage",
+            "locator": "Section 'Distribution', first paragraph (citing Ecoport, 2011)",
+            "confidence": "context_dependent",
+            "applicability": "World distribution of the species, as the source summarises it."
+          }
+        }
+      ],
+      "regional_evidence": [],
+      "unknowns": [
+        {
+          "attribute": "annual_rainfall_range",
+          "reason": "The only statement found is ambiguously worded and was not turned into a number."
+        },
+        {
+          "attribute": "soil_ph_tolerated",
+          "reason": "Only a preferred pH range was found; no outer limits."
+        },
+        {
+          "attribute": "base_temperature",
+          "reason": "No source read gives a base or other cardinal temperature for development."
+        },
+        {
+          "attribute": "regional_use",
+          "reason": "No source read reports sorghum being grown at or near the pilot site."
+        },
+        {
+          "attribute": "suitability_above_1000_m",
+          "reason": "One source describes sorghum as widespread up to 1000 m, while the NASA grid cell for the pilot site averages 1,328 m. No source read resolves whether sorghum suits that elevation."
+        }
+      ],
+      "assumptions": [
+        "The FAO rows for 'Sorghum - grain' and 'Sorghum' are taken to describe grain sorghum as a smallholder would grow it."
+      ],
+      "limitations": [
+        "'nitrogen_fixing: false' means only that no source read describes sorghum as nitrogen-fixing.",
+        "Temperature and pH figures come from a secondary datasheet about forage sorghum.",
+        "No evidence specific to the pilot region was found for this crop."
+      ],
+      "data_quality": "provisional",
+      "explanation": {
+        "what_is_known": "Sorghum uses less water at mid-season than maize (crop coefficient 1.00 to 1.10 against 1.20), needs roughly 450 to 650 mm over about 120 to 130 days, and is rated low in sensitivity to drought. It roots deeply and tolerates short waterlogging.",
+        "why_it_matters": "It is the cereal the sources describe as coping better than maize when rain is short, which makes it a natural comparison in a dry season.",
+        "evidence_summary": "Water-use values come from two FAO irrigation handbooks. Climate, soil and drought statements come from a Feedipedia datasheet.",
+        "what_is_uncertain": "No source read places sorghum at the pilot site, and one describes it as widespread only up to 1000 m, below the pilot grid cell's average elevation. Its rainfall range could not be recorded because the source is ambiguous.",
+        "region_specific": false,
+        "region_note": null
+      }
+    },
+    {
+      "crop_id": "common-bean",
+      "common_name": "Common bean (dry)",
+      "scientific_name": "Phaseolus vulgaris L.",
+      "botanical_family": "Fabaceae",
+      "functional_group": "legume",
+      "nitrogen_fixing": true,
+      "life_cycle": "annual",
+      "life_cycle_basis": "Stated by the source: 'a highly polymorphic warm-season, herbaceous annual' (Feedipedia, common bean, section 'Description').",
+      "identity_evidence": [
+        {
+          "source_id": "feedipedia-common-bean",
+          "locator": "Taxonomic information: 'Phaseolus vulgaris L. [Fabaceae]'",
+          "confidence": "directly_supported",
+          "applicability": "Species name and family."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_id": "common-bean-kc-initial",
+          "variable": "crop_coefficient_initial",
+          "minimum": 0.4,
+          "maximum": 0.4,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc ini = 0.4 for 'Beans, dry and Pulses'.",
+          "limitation": "The source calls Kc ini values 'only approximations' that depend strongly on how often the soil surface is wetted.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Beans, dry and Pulses', and the text following the table",
+            "confidence": "context_dependent",
+            "applicability": "Dry beans and pulses under typical irrigation management."
+          }
+        },
+        {
+          "requirement_id": "common-bean-kc-mid",
+          "variable": "crop_coefficient_mid_season",
+          "minimum": 1.15,
+          "maximum": 1.15,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc mid = 1.15 for 'Beans, dry and Pulses'. A footnote gives 1.20 for dry beans grown on stalks 1.5 to 2 m tall.",
+          "limitation": "For a non-stressed, well-managed crop in a sub-humid climate. The row covers dry beans and pulses together, not Phaseolus vulgaris alone.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Beans, dry and Pulses' and footnote 2",
+            "confidence": "directly_supported",
+            "applicability": "Dry beans and pulses under the table's standard conditions."
+          }
+        },
+        {
+          "requirement_id": "common-bean-kc-end",
+          "variable": "crop_coefficient_end_season",
+          "minimum": 0.35,
+          "maximum": 0.35,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc end = 0.35 for 'Beans, dry and Pulses'.",
+          "limitation": "For beans harvested dry. Standard conditions as for Kc mid.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Beans, dry and Pulses'",
+            "confidence": "directly_supported",
+            "applicability": "Dry beans and pulses under the table's standard conditions."
+          }
+        },
+        {
+          "requirement_id": "common-bean-max-height",
+          "variable": "crop_max_height",
+          "minimum": 0.4,
+          "maximum": 0.4,
+          "unit": "m",
+          "basis": "typical",
+          "statement": "Mean maximum crop height 0.4 m.",
+          "limitation": "For bush types. Climbing types reach 2 to 5 m according to the Feedipedia datasheet.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Beans, dry and Pulses', column 'Maximum Crop Height'",
+            "confidence": "directly_supported",
+            "applicability": "Dry beans and pulses under the table's standard conditions."
+          }
+        },
+        {
+          "requirement_id": "common-bean-rooting-depth",
+          "variable": "crop_max_rooting_depth",
+          "minimum": 0.6,
+          "maximum": 0.9,
+          "unit": "m",
+          "basis": "typical",
+          "statement": "Maximum effective rooting depth 0.6-0.9 m for 'Beans, dry and Pulses'.",
+          "limitation": "Reached only where the soil has no layer that restricts roots.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 22, row 'Beans, dry and Pulses'",
+            "confidence": "directly_supported",
+            "applicability": "Dry beans and pulses."
+          }
+        },
+        {
+          "requirement_id": "common-bean-depletion-fraction",
+          "variable": "crop_depletion_fraction",
+          "minimum": 0.45,
+          "maximum": 0.45,
+          "unit": "fraction",
+          "basis": "typical",
+          "statement": "Soil water depletion fraction for no stress, p = 0.45.",
+          "limitation": "Stated for crop evapotranspiration of about 5 mm/day. The source adjusts it for higher and lower rates.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 22, row 'Beans, dry and Pulses'",
+            "confidence": "directly_supported",
+            "applicability": "Dry beans and pulses."
+          }
+        },
+        {
+          "requirement_id": "common-bean-yield-response",
+          "variable": "crop_yield_response_factor",
+          "minimum": 1.15,
+          "maximum": 1.15,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Seasonal yield response factor Ky = 1.15 for 'Beans', which the source takes from FAO Irrigation and Drainage Paper 33.",
+          "limitation": "A seasonal average describing relative yield loss under water deficit. It is not a yield, and this project does not predict yields.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 24, row 'Beans'",
+            "confidence": "directly_supported",
+            "applicability": "Beans, whole season."
+          }
+        },
+        {
+          "requirement_id": "common-bean-growing-period",
+          "variable": "crop_cycle_length",
+          "minimum": 95,
+          "maximum": 110,
+          "unit": "day",
+          "basis": "typical",
+          "statement": "Indicative total growing period for 'Bean dry': 95-110 days.",
+          "limitation": "Indicative only. The source says the growing period 'heavily depends on local circumstances' such as local varieties.",
+          "evidence": {
+            "source_id": "fao-tm3",
+            "locator": "Chapter 3, Table 6, row 'Bean dry'",
+            "confidence": "context_dependent",
+            "applicability": "Dry beans worldwide; no variety or region."
+          }
+        },
+        {
+          "requirement_id": "common-bean-water-need",
+          "variable": "crop_seasonal_water_requirement",
+          "minimum": 300,
+          "maximum": 500,
+          "unit": "mm",
+          "basis": "typical",
+          "original_unit": "mm/total growing period",
+          "statement": "Indicative crop water need for 'Bean': 300-500 mm over the total growing period.",
+          "limitation": "This is water the crop uses (evapotranspiration), not the rainfall it needs. The source calls it 'a rough estimate'. The row does not separate green from dry beans.",
+          "evidence": {
+            "source_id": "fao-tm3",
+            "locator": "Chapter 3, Table 14, row 'Bean'",
+            "confidence": "context_dependent",
+            "applicability": "Beans worldwide; no variety, climate or region."
+          }
+        },
+        {
+          "requirement_id": "common-bean-temperature-suitable",
+          "variable": "crop_temperature_requirement",
+          "minimum": 15,
+          "maximum": 23,
+          "unit": "degC",
+          "basis": "suitable",
+          "statement": "Common bean grows where average temperatures range between 15 °C and 23 °C.",
+          "limitation": "Describes where the crop is grown, using an unspecified 'average temperature'. Not an optimum and not a limit.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "common-bean-temperature-upper",
+          "variable": "crop_temperature_requirement",
+          "maximum": 35,
+          "unit": "degC",
+          "basis": "tolerated",
+          "statement": "It can grow under higher temperatures (35 °C), but this may hamper seed production.",
+          "limitation": "An upper temperature at which the plant still grows, with a stated penalty on seed. The source gives no duration or growth stage.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "common-bean-temperature-lower",
+          "variable": "crop_temperature_requirement",
+          "minimum": 10,
+          "unit": "degC",
+          "basis": "tolerated",
+          "statement": "Growth stops below 10 °C.",
+          "limitation": "A temperature below which growth stops, not one that kills the plant. The source gives no duration.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Distribution', second paragraph (citing Wortmann, 2006; Smoliak et al., 1990)",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "common-bean-rainfall-optimal",
+          "variable": "crop_annual_rainfall_requirement",
+          "minimum": 500,
+          "maximum": 1500,
+          "unit": "mm",
+          "basis": "optimal",
+          "original_unit": "mm/year",
+          "statement": "Annual rainfall has an optimum between 500 and 1500 mm.",
+          "limitation": "An annual total. It says nothing about how rain is spread across the growing season, and annual rainfall is not the water available to a crop.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "common-bean-rainfall-tolerated",
+          "variable": "crop_annual_rainfall_requirement",
+          "minimum": 300,
+          "maximum": 4300,
+          "unit": "mm",
+          "basis": "tolerated",
+          "original_unit": "mm/year",
+          "statement": "Common bean grows where annual rainfall is between 300 and 4300 mm.",
+          "limitation": "The outer range over which the species is grown somewhere in the world. An annual total.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "common-bean-soil-ph-suitable",
+          "variable": "crop_soil_ph_requirement",
+          "minimum": 4,
+          "maximum": 9,
+          "unit": "pH",
+          "basis": "suitable",
+          "statement": "The common bean grows well on a large variety of soils with pH ranging from 4 to 9.",
+          "limitation": "A very wide range from a secondary source. The same source lists sensitivities and deficiencies that occur within it, on calcareous and on sandy acidic soils.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        }
+      ],
+      "attributes": [
+        {
+          "attribute": "nitrogen_fixation",
+          "statement": "Described as an N-fixing legume that is less efficient in fixing nitrogen than other legumes, but reported to have fixed up to 125 kg N/ha.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Environmental impact', heading 'N-fixing legume' (citing Wortmann, 2006)",
+            "confidence": "directly_supported",
+            "applicability": "The species in general; the amount fixed is an upper report, not a typical value."
+          }
+        },
+        {
+          "attribute": "drought_sensitivity",
+          "statement": "Sensitivity to drought: medium-high.",
+          "evidence": {
+            "source_id": "fao-tm3",
+            "locator": "Chapter 3, Table 14, row 'Bean'",
+            "confidence": "context_dependent",
+            "applicability": "Beans worldwide; an indicative class."
+          }
+        },
+        {
+          "attribute": "waterlogging",
+          "statement": "Generally cannot withstand waterlogging, though some cultivars do well in standing water.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Distribution', second paragraph (citing Ecoport, 2013)",
+            "confidence": "directly_supported",
+            "applicability": "The species in general; cultivars differ."
+          }
+        },
+        {
+          "attribute": "wet_conditions",
+          "statement": "Does not do well under very wet conditions, which cause fungal attacks and flower drop.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Distribution', second paragraph (citing Ecoport, 2013)",
+            "confidence": "directly_supported",
+            "applicability": "Tropical areas."
+          }
+        },
+        {
+          "attribute": "frost",
+          "statement": "Has slight frost tolerance, but frost hinders yield at various stages of growth.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "soil_preference",
+          "statement": "Does better on well-drained sandy loam, silt loam or clay loam soils that are rich in organic content.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "nutrient_sensitivities",
+          "statement": "Sensitive to aluminium, boron, manganese and high levels of sodium. Zinc deficiency may arise on calcareous soils, and magnesium and molybdenum deficiencies on sandy acidic soils.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Distribution', second paragraph (citing Ecoport, 2013; Wortmann, 2006)",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "salinity",
+          "statement": "Rated sensitive to salinity. Yield first declines at a soil saturation-extract conductivity of 1.0 dS/m.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 23, row 'Beans', and the rating key in footnote 5",
+            "confidence": "directly_supported",
+            "applicability": "Beans."
+          }
+        },
+        {
+          "attribute": "root_system",
+          "statement": "Has a taproot with many adventitious roots.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Description', first paragraph (citing Ecoport, 2013)",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "climate_preference",
+          "statement": "A warm-season legume that does better under subtropical and temperate conditions.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "altitude",
+          "statement": "Grows from sea level up to an altitude of 2200-3000 m.",
+          "evidence": {
+            "source_id": "feedipedia-common-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "World distribution of the species."
+          }
+        }
+      ],
+      "regional_evidence": [],
+      "unknowns": [
+        {
+          "attribute": "soil_ph_optimal",
+          "reason": "Only a broad 'grows well' range was found; no optimal range."
+        },
+        {
+          "attribute": "base_temperature",
+          "reason": "No source read gives a base temperature for development, only that growth stops below 10 °C."
+        },
+        {
+          "attribute": "nitrogen_left_for_next_crop",
+          "reason": "No source read says how much fixed nitrogen remains in the soil after the grain is harvested."
+        },
+        {
+          "attribute": "regional_use",
+          "reason": "No source read reports common bean being grown at or near the pilot site."
+        }
+      ],
+      "assumptions": [
+        "The FAO rows 'Beans, dry and Pulses', 'Bean dry' and 'Beans' are taken to describe Phaseolus vulgaris grown for dry grain. The rows are broader than that single species."
+      ],
+      "limitations": [
+        "Temperature, rainfall and pH figures come from a secondary datasheet.",
+        "No evidence specific to the pilot region was found for this crop."
+      ],
+      "data_quality": "provisional",
+      "explanation": {
+        "what_is_known": "Common bean has a short growing period (about 95 to 110 days) and lower total water use than the cereals (roughly 300 to 500 mm), but is rated medium to high in sensitivity to drought. It is grown where average temperatures are between 15 and 23 °C, and high temperatures may hamper seed production. It fixes nitrogen, though less efficiently than other legumes.",
+        "why_it_matters": "A short season and low total water use can fit a brief rainy season, but drought sensitivity and a preference for cooler conditions limit where that helps.",
+        "evidence_summary": "Water-use values come from two FAO irrigation handbooks. Climate, soil and nitrogen statements come from a Feedipedia datasheet.",
+        "what_is_uncertain": "No source read places common bean at the pilot site. How much nitrogen it leaves for a following crop is not established, and the 15 to 23 °C range uses an unspecified average.",
+        "region_specific": false,
+        "region_note": null
+      }
+    },
+    {
+      "crop_id": "cowpea",
+      "common_name": "Cowpea",
+      "scientific_name": "Vigna unguiculata (L.) Walp.",
+      "botanical_family": "Fabaceae",
+      "functional_group": "legume",
+      "nitrogen_fixing": true,
+      "life_cycle": "annual",
+      "life_cycle_basis": "Stated by the source: 'an annual herbaceous legume' (Feedipedia, cowpea forage, section 'Description').",
+      "identity_evidence": [
+        {
+          "source_id": "feedipedia-cowpea-forage",
+          "locator": "Taxonomic information: 'Vigna unguiculata (L.) Walp. [Fabaceae]'",
+          "confidence": "directly_supported",
+          "applicability": "Species name and family."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_id": "cowpea-kc-initial",
+          "variable": "crop_coefficient_initial",
+          "minimum": 0.4,
+          "maximum": 0.4,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc ini = 0.4, the value the table lists for the legumes group as a whole.",
+          "limitation": "A group value, not specific to cowpea. The source calls Kc ini values 'only approximations' that depend strongly on how often the soil surface is wetted.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, group row 'e. Legumes (Leguminosae)', and the text following the table",
+            "confidence": "context_dependent",
+            "applicability": "Legumes as a group, under typical irrigation management."
+          }
+        },
+        {
+          "requirement_id": "cowpea-kc-mid",
+          "variable": "crop_coefficient_mid_season",
+          "minimum": 1.05,
+          "maximum": 1.05,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc mid = 1.05 for 'Green Gram and Cowpeas'.",
+          "limitation": "For a non-stressed, well-managed crop in a sub-humid climate. The row covers green gram and cowpeas together.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Green Gram and Cowpeas'",
+            "confidence": "directly_supported",
+            "applicability": "Green gram and cowpeas together, under the table's standard conditions."
+          }
+        },
+        {
+          "requirement_id": "cowpea-kc-end",
+          "variable": "crop_coefficient_end_season",
+          "minimum": 0.35,
+          "maximum": 0.6,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc end = 0.60-0.35: the first value is for the crop harvested fresh, the second for harvested dry.",
+          "limitation": "Which end of the range applies depends on whether the crop is harvested fresh or dry. Shared row with green gram.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Green Gram and Cowpeas' and footnote 6",
+            "confidence": "directly_supported",
+            "applicability": "Green gram and cowpeas together, under the table's standard conditions."
+          }
+        },
+        {
+          "requirement_id": "cowpea-max-height",
+          "variable": "crop_max_height",
+          "minimum": 0.4,
+          "maximum": 0.4,
+          "unit": "m",
+          "basis": "typical",
+          "statement": "Mean maximum crop height 0.4 m for 'Green Gram and Cowpeas'.",
+          "limitation": "A mean for the shared row. The Feedipedia datasheet reports prostrate varieties of about 80 cm and climbing cultivars up to 2 m.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Green Gram and Cowpeas', column 'Maximum Crop Height'",
+            "confidence": "context_dependent",
+            "applicability": "Green gram and cowpeas together."
+          }
+        },
+        {
+          "requirement_id": "cowpea-rooting-depth",
+          "variable": "crop_max_rooting_depth",
+          "minimum": 0.6,
+          "maximum": 1.0,
+          "unit": "m",
+          "basis": "typical",
+          "statement": "Maximum effective rooting depth 0.6-1.0 m for 'Green Gram and Cowpeas'.",
+          "limitation": "Reached only where the soil has no layer that restricts roots. Shared row with green gram.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 22, row 'Green Gram and Cowpeas'",
+            "confidence": "directly_supported",
+            "applicability": "Green gram and cowpeas together."
+          }
+        },
+        {
+          "requirement_id": "cowpea-depletion-fraction",
+          "variable": "crop_depletion_fraction",
+          "minimum": 0.45,
+          "maximum": 0.45,
+          "unit": "fraction",
+          "basis": "typical",
+          "statement": "Soil water depletion fraction for no stress, p = 0.45.",
+          "limitation": "Stated for crop evapotranspiration of about 5 mm/day. Shared row with green gram.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 22, row 'Green Gram and Cowpeas'",
+            "confidence": "directly_supported",
+            "applicability": "Green gram and cowpeas together."
+          }
+        },
+        {
+          "requirement_id": "cowpea-temperature-suitable",
+          "variable": "crop_temperature_requirement",
+          "minimum": 25,
+          "maximum": 35,
+          "unit": "degC",
+          "basis": "suitable",
+          "statement": "Cowpea grows in savannah vegetation at temperatures ranging from 25 °C to 35 °C.",
+          "limitation": "Describes where the crop grows, without saying which temperature measure is meant. Not an optimum and not a limit.",
+          "evidence": {
+            "source_id": "feedipedia-cowpea-forage",
+            "locator": "Section 'Distribution', second paragraph (citing Madamba et al., 2006)",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "cowpea-rainfall-suitable",
+          "variable": "crop_annual_rainfall_requirement",
+          "minimum": 750,
+          "maximum": 1100,
+          "unit": "mm",
+          "basis": "suitable",
+          "original_unit": "mm/year",
+          "statement": "Cowpea grows in areas where annual rainfall ranges from 750 mm to 1100 mm.",
+          "limitation": "Describes areas where the crop grows, as an annual total. It is not the minimum rainfall cowpea needs, and annual rainfall is not the water available to a crop.",
+          "evidence": {
+            "source_id": "feedipedia-cowpea-forage",
+            "locator": "Section 'Distribution', second paragraph (citing Madamba et al., 2006)",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        }
+      ],
+      "attributes": [
+        {
+          "attribute": "nitrogen_fixation",
+          "statement": "Described as an N-fixing legume that can be included in crop rotations to increase soil nitrogen.",
+          "evidence": {
+            "source_id": "feedipedia-cowpea-forage",
+            "locator": "Section 'Environmental impact', heading 'Soil improver'",
+            "confidence": "directly_supported",
+            "applicability": "The species in general. The source gives no amount and no conditions."
+          }
+        },
+        {
+          "attribute": "drainage",
+          "statement": "Grows on a wide range of soils provided they are well drained.",
+          "evidence": {
+            "source_id": "feedipedia-cowpea-forage",
+            "locator": "Section 'Distribution', second paragraph (citing Madamba et al., 2006)",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "waterlogging",
+          "statement": "Sensitive to waterlogging, though less so than other legumes.",
+          "evidence": {
+            "source_id": "feedipedia-cowpea-forage",
+            "locator": "Section 'Distribution', second paragraph (citing Ecocrop, 2009)",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "humidity_and_disease",
+          "statement": "High moisture may hinder cowpea crops in the sub-humid tropics because of the many diseases they are susceptible to.",
+          "evidence": {
+            "source_id": "feedipedia-cowpea-forage",
+            "locator": "Section 'Distribution', second paragraph (citing Tarawali et al., 1997)",
+            "confidence": "directly_supported",
+            "applicability": "Sub-humid tropics."
+          }
+        },
+        {
+          "attribute": "shade",
+          "statement": "Tolerant of shading and can be combined with tall cereal plants such as sorghum and maize.",
+          "evidence": {
+            "source_id": "feedipedia-cowpea-forage",
+            "locator": "Section 'Distribution', second paragraph (citing FAO, 2013)",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "root_system",
+          "statement": "Has a well developed root system.",
+          "evidence": {
+            "source_id": "feedipedia-cowpea-forage",
+            "locator": "Section 'Description', first paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "salinity",
+          "statement": "Rated moderately tolerant to salinity. Yield first declines at a soil saturation-extract conductivity of 4.9 dS/m.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 23, row 'Cowpea', and the rating key in footnote 5",
+            "confidence": "directly_supported",
+            "applicability": "Cowpea."
+          }
+        },
+        {
+          "attribute": "altitude",
+          "statement": "Widespread in most tropical areas below an altitude of 2000 m.",
+          "evidence": {
+            "source_id": "feedipedia-cowpea-forage",
+            "locator": "Section 'Distribution', first paragraph (citing Ecocrop, 2009)",
+            "confidence": "context_dependent",
+            "applicability": "World distribution of the species."
+          }
+        },
+        {
+          "attribute": "duration",
+          "statement": "Described as a 'short-duration legume' in the Machakos cropping-systems experiment.",
+          "evidence": {
+            "source_id": "rao-mathuva-2000",
+            "locator": "Abstract",
+            "confidence": "directly_supported",
+            "applicability": "The cowpea used at Machakos, 1989-1996; no number of days is given."
+          }
+        }
+      ],
+      "regional_evidence": [
+        {
+          "attribute": "machakos_trial",
+          "statement": "Cowpea was the short-duration legume rotated with maize in a cropping-systems experiment at the ICRAF research station at Machakos, Kenya, from November 1989 to February 1996.",
+          "evidence": {
+            "source_id": "rao-mathuva-2000",
+            "locator": "Abstract",
+            "confidence": "directly_supported",
+            "applicability": "One research station at Machakos, 1989-1996."
+          }
+        },
+        {
+          "attribute": "machakos_pests",
+          "statement": "In that experiment cowpea was affected by pests and diseases, which the authors say indicates a need for integrated pest management.",
+          "evidence": {
+            "source_id": "rao-mathuva-2000",
+            "locator": "Abstract, final sentence",
+            "confidence": "directly_supported",
+            "applicability": "One research station at Machakos, 1989-1996."
+          }
+        }
+      ],
+      "unknowns": [
+        {
+          "attribute": "soil_ph",
+          "reason": "The datasheet read gives no soil pH range for cowpea."
+        },
+        {
+          "attribute": "growing_period",
+          "reason": "No source read gives a growing period in days as a range. The one example found (FAO, Mediterranean, shared with green gram) is internally inconsistent: its stages add up to 100 days beside a printed total of 110."
+        },
+        {
+          "attribute": "seasonal_water_need",
+          "reason": "The FAO table of indicative crop water needs has no row for cowpea."
+        },
+        {
+          "attribute": "yield_response_factor",
+          "reason": "The FAO table of yield response factors has no row for cowpea."
+        },
+        {
+          "attribute": "drought_tolerance",
+          "reason": "The sections read make no statement about cowpea's tolerance of drought."
+        },
+        {
+          "attribute": "nitrogen_left_for_next_crop",
+          "reason": "No source read says how much fixed nitrogen remains in the soil after the grain is harvested."
+        }
+      ],
+      "assumptions": [
+        "The FAO row 'Green Gram and Cowpeas' is used for cowpea. It is a shared row, so its values are not specific to cowpea."
+      ],
+      "limitations": [
+        "Temperature and rainfall figures come from a secondary datasheet about forage cowpea.",
+        "Several attributes important for water-balance work are unknown: growing period, seasonal water need and yield response."
+      ],
+      "data_quality": "incomplete",
+      "explanation": {
+        "what_is_known": "Cowpea is an annual, nitrogen-fixing legume with a lower mid-season water use than maize (crop coefficient 1.05). It needs well-drained soil and grows at temperatures of 25 to 35 °C. At Machakos it was the short-duration legume rotated with maize, and maize yielded about 17 % more after it than when grown continuously.",
+        "why_it_matters": "It is the legume with direct experimental evidence at the pilot location, both for rotation with maize and for the pest problems that came with it.",
+        "evidence_summary": "Crop coefficients and rooting depth come from an FAO handbook row shared with green gram. Climate and soil statements come from a Feedipedia datasheet. Regional evidence comes from the abstract of a seven-year Machakos experiment.",
+        "what_is_uncertain": "Its growing period, seasonal water need, soil pH range and drought tolerance were not found in the sources read. The Machakos result is from one station between 1989 and 1996.",
+        "region_specific": true,
+        "region_note": "The rotation and pest findings are from one research station at Machakos, Kenya, 1989 to 1996. The crop characteristics are general."
+      }
+    },
+    {
+      "crop_id": "pigeon-pea",
+      "common_name": "Pigeon pea",
+      "scientific_name": "Cajanus cajan (L.) Huth",
+      "botanical_family": "Fabaceae",
+      "functional_group": "legume",
+      "nitrogen_fixing": true,
+      "life_cycle": "short_lived_perennial",
+      "life_cycle_basis": "Stated by the source: 'an erect, short-lived perennial leguminous shrub' (Feedipedia, pigeon pea forage, section 'Description').",
+      "identity_evidence": [
+        {
+          "source_id": "feedipedia-pigeon-pea-forage",
+          "locator": "Taxonomic information: 'Cajanus cajan (L.) Huth [Fabaceae]'",
+          "confidence": "directly_supported",
+          "applicability": "Species name and family."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_id": "pigeon-pea-height",
+          "variable": "crop_max_height",
+          "minimum": 1.0,
+          "maximum": 2.0,
+          "unit": "m",
+          "basis": "typical",
+          "statement": "Usually grows to a height of about 1-2 m, but can reach up to 2-5 m.",
+          "limitation": "The usual height. The source reports plants reaching 5 m.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Description', subsection 'Morphology'",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "pigeon-pea-rooting-depth",
+          "variable": "crop_max_rooting_depth",
+          "minimum": 2.0,
+          "maximum": 2.0,
+          "unit": "m",
+          "basis": "typical",
+          "statement": "Quickly develops a deep taproot, described as 2 m in depth.",
+          "limitation": "A single descriptive figure, not a measured range, and reached only where the soil allows.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Description', subsection 'Morphology'",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "pigeon-pea-temperature-suitable",
+          "variable": "crop_temperature_requirement",
+          "minimum": 20,
+          "maximum": 40,
+          "unit": "degC",
+          "basis": "suitable",
+          "statement": "Grows better in places where temperatures range from 20 °C to 40 °C and which are frost-free.",
+          "limitation": "Describes places where the crop does better, without saying which temperature measure is meant.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Distribution', first paragraph (citing FAO, 2016a)",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "pigeon-pea-rainfall-preferred",
+          "variable": "crop_annual_rainfall_requirement",
+          "minimum": 625,
+          "unit": "mm",
+          "basis": "optimal",
+          "original_unit": "mm/year",
+          "statement": "Does better where annual rainfall is above 625 mm, but is highly tolerant of dry periods.",
+          "limitation": "An annual total above which the crop 'does better'; not a requirement. Annual rainfall is not the water available to a crop.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Distribution', first paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "pigeon-pea-rainfall-lower",
+          "variable": "crop_annual_rainfall_requirement",
+          "minimum": 250,
+          "unit": "mm",
+          "basis": "tolerated",
+          "original_unit": "mm/year",
+          "statement": "Where the soil is deep and well-structured it continues to grow with rainfall as low as 250 to 375 mm.",
+          "limitation": "Holds only on deep, well-structured soil. The source gives the lower limit itself as a range, 250 to 375 mm; the smaller figure is recorded here. An annual total, which is not the water available to a crop.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Distribution', first paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species on deep, well-structured soils."
+          }
+        },
+        {
+          "requirement_id": "pigeon-pea-soil-ph-optimal",
+          "variable": "crop_soil_ph_requirement",
+          "minimum": 5,
+          "maximum": 7,
+          "unit": "pH",
+          "basis": "optimal",
+          "statement": "Grows on soils with variable pH; the best pH range is within 5-7.",
+          "limitation": "A preferred range. The limits pigeon pea tolerates were not given.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Distribution', first paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        }
+      ],
+      "attributes": [
+        {
+          "attribute": "nitrogen_fixation",
+          "statement": "Described as an N-fixing legume that does not need inoculation before sowing. Reported to fix 40-97 kg N/ha/year in Africa, with 88 % used for the formation of pods and seeds.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Environmental impact'",
+            "confidence": "directly_supported",
+            "applicability": "Africa in general for the amount; the source names no country."
+          }
+        },
+        {
+          "attribute": "drought",
+          "statement": "Described as drought resistant and highly tolerant of dry periods, and as particularly suited to rain-fed agriculture in semi-arid areas because of its deep taproot, heat tolerance and fast growth.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Sections 'Description' and 'Distribution' (citing Bekele-Tessema, 2007; Mallikarjuna et al., 2011)",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "heat",
+          "statement": "Very heat-tolerant.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Distribution', first paragraph (citing FAO, 2016a)",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "frost",
+          "statement": "Sensitive to frost, though it keeps growing at temperatures close to 0 °C and tall plants can survive light frost.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Distribution', first paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "waterlogging",
+          "statement": "Sensitive to waterlogging.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Distribution', first paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "soil_preference",
+          "statement": "Can grow on a wide range of soils, from sands to heavy black clays.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Distribution', first paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "salinity",
+          "statement": "Has low tolerance of soil salinity, although some cultivars were reported to tolerate 6-12 dS/m.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Distribution', first paragraph (citing Duke, 1983)",
+            "confidence": "context_dependent",
+            "applicability": "The species in general; cultivars differ."
+          }
+        },
+        {
+          "attribute": "shade",
+          "statement": "Under shade it shows reduced growth and bears few pods.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Distribution', first paragraph (citing FAO, 2016a)",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "altitude",
+          "statement": "Found from sea level to an altitude of 2000 m.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Distribution', first paragraph (citing Ecocrop, 2016)",
+            "confidence": "context_dependent",
+            "applicability": "World distribution of the species."
+          }
+        },
+        {
+          "attribute": "duration",
+          "statement": "Described as a 'long-duration legume' in the Machakos cropping-systems experiment.",
+          "evidence": {
+            "source_id": "rao-mathuva-2000",
+            "locator": "Abstract",
+            "confidence": "directly_supported",
+            "applicability": "The pigeon pea used at Machakos, 1989-1996; no number of days is given."
+          }
+        }
+      ],
+      "regional_evidence": [
+        {
+          "attribute": "machakos_trial",
+          "statement": "Pigeon pea was the long-duration legume, both rotated and intercropped with maize, in a cropping-systems experiment at the ICRAF research station at Machakos, Kenya, from November 1989 to February 1996.",
+          "evidence": {
+            "source_id": "rao-mathuva-2000",
+            "locator": "Abstract",
+            "confidence": "directly_supported",
+            "applicability": "One research station at Machakos, 1989-1996."
+          }
+        },
+        {
+          "attribute": "machakos_pests",
+          "statement": "In that experiment pigeon pea was affected by pests and diseases, which the authors say indicates a need for integrated pest management.",
+          "evidence": {
+            "source_id": "rao-mathuva-2000",
+            "locator": "Abstract, final sentence",
+            "confidence": "directly_supported",
+            "applicability": "One research station at Machakos, 1989-1996."
+          }
+        },
+        {
+          "attribute": "kenya_production",
+          "statement": "Kenya is listed among the main producers of pigeon peas, with 0.28 million tonnes in 2014.",
+          "evidence": {
+            "source_id": "feedipedia-pigeon-pea-forage",
+            "locator": "Section 'Distribution', second paragraph (citing FAO, 2016b)",
+            "confidence": "directly_supported",
+            "applicability": "Kenya as a whole, 2014; no county is named."
+          }
+        }
+      ],
+      "unknowns": [
+        {
+          "attribute": "crop_coefficients",
+          "reason": "The FAO crop coefficient table has no row for pigeon pea. Its legume group values were not applied, because pigeon pea is a tall, deep-rooted perennial shrub unlike the crops in that group."
+        },
+        {
+          "attribute": "depletion_fraction",
+          "reason": "The FAO rooting-depth table has no row for pigeon pea."
+        },
+        {
+          "attribute": "growing_period",
+          "reason": "No source read gives a growing period in days. One calls it 'long-duration'."
+        },
+        {
+          "attribute": "seasonal_water_need",
+          "reason": "The FAO table of indicative crop water needs has no row for pigeon pea."
+        },
+        {
+          "attribute": "yield_response_factor",
+          "reason": "The FAO table of yield response factors has no row for pigeon pea."
+        },
+        {
+          "attribute": "nitrogen_left_for_next_crop",
+          "reason": "One source reports that 88 % of fixed nitrogen goes into pods and seeds; none says how much remains for a following crop."
+        }
+      ],
+      "assumptions": [],
+      "limitations": [
+        "No water-use values exist for this crop in the knowledge base, so it cannot yet enter a water-balance comparison.",
+        "As a perennial that occupies the field for longer than one season, it does not fit a simple season-by-season rotation model.",
+        "Climate and soil figures come from a secondary datasheet about forage use."
+      ],
+      "data_quality": "incomplete",
+      "explanation": {
+        "what_is_known": "Pigeon pea is a short-lived perennial, nitrogen-fixing shrub with a deep taproot. The sources describe it as drought resistant, very heat-tolerant and suited to rain-fed semi-arid farming, but sensitive to waterlogging. At Machakos, maize intercropped with pigeon pea yielded about 24 % more than continuous maize, while maize rotated after pigeon pea was only marginally better.",
+        "why_it_matters": "It is the most drought-tolerant legume in the knowledge base and has direct experimental evidence at the pilot location, but the benefit seen there came from intercropping rather than rotation.",
+        "evidence_summary": "Crop characteristics come from a Feedipedia datasheet. Regional evidence comes from the abstract of a seven-year Machakos experiment.",
+        "what_is_uncertain": "No crop coefficient, growing period or seasonal water need was found, so its water use cannot be compared with the other crops. Most of the nitrogen it fixes is reported to go into pods and seeds.",
+        "region_specific": true,
+        "region_note": "The rotation, intercropping and pest findings are from one research station at Machakos, Kenya, 1989 to 1996. The crop characteristics are general."
+      }
+    },
+    {
+      "crop_id": "mung-bean",
+      "common_name": "Mung bean (green gram)",
+      "scientific_name": "Vigna radiata (L.) R. Wilczek",
+      "botanical_family": "Fabaceae",
+      "functional_group": "legume",
+      "nitrogen_fixing": true,
+      "life_cycle": "annual",
+      "life_cycle_basis": "Stated by the source: 'The mung bean plant is an annual' (Feedipedia, mung bean, section 'Description').",
+      "identity_evidence": [
+        {
+          "source_id": "feedipedia-mung-bean",
+          "locator": "Taxonomic information: 'Vigna radiata (L.) R. Wilczek [Fabaceae]'; common names include 'green gram'",
+          "confidence": "directly_supported",
+          "applicability": "Species name, family, and that 'green gram' is a common name of this species."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_id": "mung-bean-kc-initial",
+          "variable": "crop_coefficient_initial",
+          "minimum": 0.4,
+          "maximum": 0.4,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc ini = 0.4, the value the table lists for the legumes group as a whole.",
+          "limitation": "A group value, not specific to mung bean. The source calls Kc ini values 'only approximations' that depend strongly on how often the soil surface is wetted.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, group row 'e. Legumes (Leguminosae)', and the text following the table",
+            "confidence": "context_dependent",
+            "applicability": "Legumes as a group, under typical irrigation management."
+          }
+        },
+        {
+          "requirement_id": "mung-bean-kc-mid",
+          "variable": "crop_coefficient_mid_season",
+          "minimum": 1.05,
+          "maximum": 1.05,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc mid = 1.05 for 'Green Gram and Cowpeas'.",
+          "limitation": "For a non-stressed, well-managed crop in a sub-humid climate. The row covers green gram and cowpeas together.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Green Gram and Cowpeas'",
+            "confidence": "directly_supported",
+            "applicability": "Green gram and cowpeas together, under the table's standard conditions."
+          }
+        },
+        {
+          "requirement_id": "mung-bean-kc-end",
+          "variable": "crop_coefficient_end_season",
+          "minimum": 0.35,
+          "maximum": 0.6,
+          "unit": "dimensionless",
+          "basis": "typical",
+          "statement": "Kc end = 0.60-0.35: the first value is for the crop harvested fresh, the second for harvested dry.",
+          "limitation": "Which end of the range applies depends on whether the crop is harvested fresh or dry. Shared row with cowpeas.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Green Gram and Cowpeas' and footnote 6",
+            "confidence": "directly_supported",
+            "applicability": "Green gram and cowpeas together, under the table's standard conditions."
+          }
+        },
+        {
+          "requirement_id": "mung-bean-max-height",
+          "variable": "crop_max_height",
+          "minimum": 0.4,
+          "maximum": 0.4,
+          "unit": "m",
+          "basis": "typical",
+          "statement": "Mean maximum crop height 0.4 m for 'Green Gram and Cowpeas'.",
+          "limitation": "A mean for the shared row. The Feedipedia datasheet reports plant heights of 0.15 to 1.25 m.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 6, Table 12, row 'Green Gram and Cowpeas', column 'Maximum Crop Height'",
+            "confidence": "context_dependent",
+            "applicability": "Green gram and cowpeas together."
+          }
+        },
+        {
+          "requirement_id": "mung-bean-rooting-depth",
+          "variable": "crop_max_rooting_depth",
+          "minimum": 0.6,
+          "maximum": 1.0,
+          "unit": "m",
+          "basis": "typical",
+          "statement": "Maximum effective rooting depth 0.6-1.0 m for 'Green Gram and Cowpeas'.",
+          "limitation": "Reached only where the soil has no layer that restricts roots. Shared row with cowpeas.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 22, row 'Green Gram and Cowpeas'",
+            "confidence": "directly_supported",
+            "applicability": "Green gram and cowpeas together."
+          }
+        },
+        {
+          "requirement_id": "mung-bean-depletion-fraction",
+          "variable": "crop_depletion_fraction",
+          "minimum": 0.45,
+          "maximum": 0.45,
+          "unit": "fraction",
+          "basis": "typical",
+          "statement": "Soil water depletion fraction for no stress, p = 0.45.",
+          "limitation": "Stated for crop evapotranspiration of about 5 mm/day. Shared row with cowpeas.",
+          "evidence": {
+            "source_id": "fao-56",
+            "locator": "Chapter 8, Table 22, row 'Green Gram and Cowpeas'",
+            "confidence": "directly_supported",
+            "applicability": "Green gram and cowpeas together."
+          }
+        },
+        {
+          "requirement_id": "mung-bean-temperature-optimal",
+          "variable": "crop_temperature_requirement",
+          "minimum": 28,
+          "maximum": 30,
+          "unit": "degC",
+          "basis": "optimal",
+          "statement": "Reaches maturity very quickly under tropical and subtropical conditions where optimal temperatures are about 28-30 °C.",
+          "limitation": "The source does not say which temperature measure is meant. Not a limit beyond which the crop fails.",
+          "evidence": {
+            "source_id": "feedipedia-mung-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "mung-bean-temperature-lower",
+          "variable": "crop_temperature_requirement",
+          "minimum": 15,
+          "unit": "degC",
+          "basis": "tolerated",
+          "statement": "Temperatures should be always above 15 °C.",
+          "limitation": "A lower bound attached to the source's description of optimal conditions. The source gives no duration and does not say what happens below it.",
+          "evidence": {
+            "source_id": "feedipedia-mung-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "mung-bean-rainfall-suitable",
+          "variable": "crop_annual_rainfall_requirement",
+          "minimum": 600,
+          "maximum": 1000,
+          "unit": "mm",
+          "basis": "suitable",
+          "original_unit": "mm rainfall/year",
+          "statement": "It does not require large amounts of water (600-1000 mm rainfall/year) and is tolerant of drought.",
+          "limitation": "An annual total given as an indication of modest water need. Annual rainfall is not the water available to a crop in its season.",
+          "evidence": {
+            "source_id": "feedipedia-mung-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "requirement_id": "mung-bean-soil-ph-suitable",
+          "variable": "crop_soil_ph_requirement",
+          "minimum": 5,
+          "maximum": 8,
+          "unit": "pH",
+          "basis": "suitable",
+          "statement": "Grows on a wide range of soils but prefers well-drained loams or sandy loams, with a pH ranging from 5 to 8.",
+          "limitation": "A preferred range from a secondary source; no outer limits are given.",
+          "evidence": {
+            "source_id": "feedipedia-mung-bean",
+            "locator": "Section 'Distribution', second paragraph (citing Mogotsi, 2006)",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        }
+      ],
+      "attributes": [
+        {
+          "attribute": "nitrogen_fixation",
+          "statement": "Described as an N-fixing legume that can provide large amounts of biomass and nitrogen to the soil, with reported amounts ranging from 30 to 251 kg N/ha.",
+          "evidence": {
+            "source_id": "feedipedia-mung-bean",
+            "locator": "Section 'Environmental impact'",
+            "confidence": "directly_supported",
+            "applicability": "The species in general. The range is very wide and the conditions are not stated."
+          }
+        },
+        {
+          "attribute": "drought",
+          "statement": "Tolerant of drought.",
+          "evidence": {
+            "source_id": "feedipedia-mung-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "waterlogging",
+          "statement": "Sensitive to waterlogging.",
+          "evidence": {
+            "source_id": "feedipedia-mung-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "moisture_at_maturity",
+          "statement": "High moisture at maturity tends to spoil the seeds, which may sprout before being harvested.",
+          "evidence": {
+            "source_id": "feedipedia-mung-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "soil_preference",
+          "statement": "Grows on a wide range of soils but prefers well-drained loams or sandy loams.",
+          "evidence": {
+            "source_id": "feedipedia-mung-bean",
+            "locator": "Section 'Distribution', second paragraph (citing Mogotsi, 2006)",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "salinity",
+          "statement": "Somewhat tolerant to saline soils.",
+          "evidence": {
+            "source_id": "feedipedia-mung-bean",
+            "locator": "Section 'Distribution', second paragraph (citing Mogotsi, 2006)",
+            "confidence": "context_dependent",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "maturity",
+          "statement": "A fast-growing, warm-season legume that reaches maturity very quickly under tropical and subtropical conditions.",
+          "evidence": {
+            "source_id": "feedipedia-mung-bean",
+            "locator": "Section 'Distribution', second paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general; no number of days is given."
+          }
+        },
+        {
+          "attribute": "root_system",
+          "statement": "Has a well-developed root system.",
+          "evidence": {
+            "source_id": "feedipedia-mung-bean",
+            "locator": "Section 'Description', first paragraph",
+            "confidence": "directly_supported",
+            "applicability": "The species in general."
+          }
+        },
+        {
+          "attribute": "altitude",
+          "statement": "Found from sea level up to an altitude of 1850 m in the Himalayas.",
+          "evidence": {
+            "source_id": "feedipedia-mung-bean",
+            "locator": "Section 'Distribution', first paragraph (citing Lambrides et al., 2006; Mogotsi, 2006)",
+            "confidence": "context_dependent",
+            "applicability": "World distribution of the species."
+          }
+        },
+        {
+          "attribute": "importance_in_africa",
+          "statement": "Though produced in many African countries, the mung bean is not a major crop there.",
+          "evidence": {
+            "source_id": "feedipedia-mung-bean",
+            "locator": "Section 'Distribution', third paragraph (citing Mogotsi, 2006)",
+            "confidence": "directly_supported",
+            "applicability": "Africa in general; no country named."
+          }
+        }
+      ],
+      "regional_evidence": [],
+      "unknowns": [
+        {
+          "attribute": "growing_period",
+          "reason": "No source read gives a growing period in days as a range; one says only that it matures 'very quickly'. The one example found (FAO, Mediterranean, shared with cowpeas) is internally inconsistent and is filed under cowpea."
+        },
+        {
+          "attribute": "seasonal_water_need",
+          "reason": "The FAO table of indicative crop water needs has no row for mung bean or green gram."
+        },
+        {
+          "attribute": "yield_response_factor",
+          "reason": "The FAO table of yield response factors has no row for mung bean or green gram."
+        },
+        {
+          "attribute": "nitrogen_left_for_next_crop",
+          "reason": "The amounts of nitrogen reported span 30 to 251 kg/ha with no conditions; none says how much remains after harvest."
+        },
+        {
+          "attribute": "regional_use",
+          "reason": "No source read reports mung bean being grown at or near the pilot site."
+        }
+      ],
+      "assumptions": [
+        "The FAO row 'Green Gram and Cowpeas' is used for mung bean because the Feedipedia datasheet lists 'green gram' as a common name of Vigna radiata. It is a shared row, so its values are not specific to mung bean."
+      ],
+      "limitations": [
+        "Climate and soil figures come from a secondary datasheet.",
+        "Several attributes important for water-balance work are unknown: growing period, seasonal water need and yield response.",
+        "No evidence specific to the pilot region was found for this crop."
+      ],
+      "data_quality": "incomplete",
+      "explanation": {
+        "what_is_known": "Mung bean, also called green gram, is a fast-maturing annual legume that fixes nitrogen. The sources describe it as tolerant of drought, sensitive to waterlogging, and best suited to temperatures of about 28 to 30 °C. Its mid-season water use is lower than maize (crop coefficient 1.05).",
+        "why_it_matters": "A fast-maturing, drought-tolerant legume is a candidate for a short or unreliable rainy season.",
+        "evidence_summary": "Crop coefficients and rooting depth come from an FAO handbook row shared with cowpeas. Climate, soil and nitrogen statements come from a Feedipedia datasheet.",
+        "what_is_uncertain": "No source read gives its growing period in days or its seasonal water need, and none places it at the pilot site. The datasheet says it is not a major crop in Africa.",
+        "region_specific": false,
+        "region_note": null
+      }
+    }
+  ],
+  "growth_stage_examples": [
+    {
+      "example_id": "maize-east-africa-altitude",
+      "crop_id": "maize",
+      "source_crop_label": "Maize (grain)",
+      "region_label": "East Africa (alt.)",
+      "planting_period": "April",
+      "initial_days": 30,
+      "development_days": 50,
+      "mid_season_days": 60,
+      "late_season_days": 40,
+      "total_days": 180,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 6, Table 11, row 'Maize (grain)', first line",
+        "confidence": "context_dependent",
+        "applicability": "The region the table labels 'East Africa (alt.)', April planting. The table does not say which altitude or country."
+      }
+    },
+    {
+      "example_id": "maize-arid-climate",
+      "crop_id": "maize",
+      "source_crop_label": "Maize (grain)",
+      "region_label": "Arid Climate",
+      "planting_period": "Dec/Jan",
+      "initial_days": 25,
+      "development_days": 40,
+      "mid_season_days": 45,
+      "late_season_days": 30,
+      "total_days": 140,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 6, Table 11, row 'Maize (grain)', second line",
+        "confidence": "context_dependent",
+        "applicability": "The climate the table labels 'Arid Climate', December or January planting."
+      }
+    },
+    {
+      "example_id": "sorghum-arid-region",
+      "crop_id": "sorghum",
+      "source_crop_label": "Sorghum",
+      "region_label": "Arid Region",
+      "planting_period": "Mar/April",
+      "initial_days": 20,
+      "development_days": 35,
+      "mid_season_days": 45,
+      "late_season_days": 30,
+      "total_days": 140,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 6, Table 11, row 'Sorghum', second line",
+        "confidence": "provisional",
+        "applicability": "The region the table labels 'Arid Region', March or April planting. The row is internally inconsistent."
+      },
+      "discrepancy_note": "The table prints stages of 20, 35, 45 and 30 days, which add up to 130, beside a total of 140. Both are recorded as printed; neither was corrected."
+    },
+    {
+      "example_id": "sorghum-usa-pakistan-mediterranean",
+      "crop_id": "sorghum",
+      "source_crop_label": "Sorghum",
+      "region_label": "USA, Pakis., Med.",
+      "planting_period": "May/June",
+      "initial_days": 20,
+      "development_days": 35,
+      "mid_season_days": 40,
+      "late_season_days": 30,
+      "total_days": 130,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 6, Table 11, row 'Sorghum', first line",
+        "confidence": "provisional",
+        "applicability": "The regions the table labels 'USA, Pakis., Med.', May or June planting. The row is internally inconsistent."
+      },
+      "discrepancy_note": "The table prints stages of 20, 35, 40 and 30 days, which add up to 125, beside a total of 130. Both are recorded as printed; neither was corrected."
+    },
+    {
+      "example_id": "common-bean-continental",
+      "crop_id": "common-bean",
+      "source_crop_label": "Beans (dry)",
+      "region_label": "Continental Climates",
+      "planting_period": "May/June",
+      "initial_days": 20,
+      "development_days": 30,
+      "mid_season_days": 40,
+      "late_season_days": 20,
+      "total_days": 110,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 6, Table 11, row 'Beans (dry)', first line",
+        "confidence": "context_dependent",
+        "applicability": "The climates the table labels 'Continental Climates', May or June planting."
+      }
+    },
+    {
+      "example_id": "common-bean-pakistan-california",
+      "crop_id": "common-bean",
+      "source_crop_label": "Beans (dry)",
+      "region_label": "Pakistan, Calif.",
+      "planting_period": "June",
+      "initial_days": 15,
+      "development_days": 25,
+      "mid_season_days": 35,
+      "late_season_days": 20,
+      "total_days": 95,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 6, Table 11, row 'Beans (dry)', second line",
+        "confidence": "context_dependent",
+        "applicability": "The regions the table labels 'Pakistan, Calif.', June planting."
+      }
+    },
+    {
+      "example_id": "cowpea-mediterranean",
+      "crop_id": "cowpea",
+      "source_crop_label": "Green gram, cowpeas",
+      "region_label": "Mediterranean",
+      "planting_period": "March",
+      "initial_days": 20,
+      "development_days": 30,
+      "mid_season_days": 30,
+      "late_season_days": 20,
+      "total_days": 110,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 6, Table 11, row 'Green gram, cowpeas'",
+        "confidence": "provisional",
+        "applicability": "The Mediterranean, March planting, for green gram and cowpeas together. The row is internally inconsistent."
+      },
+      "discrepancy_note": "The table prints stages of 20, 30, 30 and 20 days, which add up to 100, beside a total of 110. Both are recorded as printed; neither was corrected."
+    }
+  ]
+}

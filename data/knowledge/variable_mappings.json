@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "variable_mappings": [
+    {
+      "mapping_id": "annual-rainfall-requirement-to-precipitation",
+      "crop_variable": "crop_annual_rainfall_requirement",
+      "target": "nasa_observation",
+      "target_variables": ["precipitation_total"],
+      "comparison_intent": "Set the annual rainfall a source associates with a crop beside the annual rainfall totals in the NASA record.",
+      "temporal_basis": "Monthly totals added up to calendar-year totals, one per year on record.",
+      "available_from_data_layer": true,
+      "limitations": [
+        "An annual total hides how rain is split between seasons; the pilot site has two rainy seasons a year.",
+        "Rainfall is not the water available to a crop: runoff, evaporation from bare soil, soil storage and irrigation all intervene.",
+        "The NASA rainfall is a reanalysis estimate for a grid cell tens of kilometres wide, not a gauge on the farm."
+      ]
+    },
+    {
+      "mapping_id": "depletion-fraction-to-soil-water",
+      "crop_variable": "crop_depletion_fraction",
+      "target": "soil_information",
+      "target_variables": ["soil_available_water_capacity", "soil_field_capacity", "soil_wilting_point"],
+      "comparison_intent": "Combine the share of soil water a crop can use before stress with how much water the soil holds.",
+      "temporal_basis": "Static soil properties for the rooting zone.",
+      "available_from_data_layer": false,
+      "limitations": [
+        "Soil water characteristics must come from the user or a soil source. Reference values by texture class are typical values, not measurements.",
+        "The published fraction assumes an evapotranspiration rate of about 5 mm/day."
+      ]
+    },
+    {
+      "mapping_id": "growing-period-to-season-length",
+      "crop_variable": "crop_cycle_length",
+      "target": "nasa_observation",
+      "target_variables": ["precipitation"],
+      "comparison_intent": "Set a crop's documented growing period beside the length of a rainy season in the NASA daily record.",
+      "temporal_basis": "Daily rainfall within a season whose start and end are defined by a cited rule.",
+      "available_from_data_layer": true,
+      "limitations": [
+        "No rule for the start and end of a rainy season has been adopted yet. Phase A4 must define and cite one.",
+        "Published growing periods are indicative and depend on the variety.",
+        "A crop can finish on stored soil water after the rains end, so season length is not a strict limit."
+      ]
+    },
+    {
+      "mapping_id": "kc-end-to-reference-evapotranspiration",
+      "crop_variable": "crop_coefficient_end_season",
+      "target": "derived_from_nasa",
+      "target_variables": ["reference_evapotranspiration"],
+      "comparison_intent": "Multiply by reference evapotranspiration to estimate potential crop water use late in the season.",
+      "temporal_basis": "Daily, over the late-season stage.",
+      "available_from_data_layer": false,
+      "limitations": [
+        "Reference evapotranspiration is not retrieved; it must be calculated, and the standard method needs wind speed, which the data layer does not yet retrieve.",
+        "Crop coefficients are for well-watered crops under standard conditions and overstate the water use of a stressed rain-fed crop."
+      ]
+    },
+    {
+      "mapping_id": "kc-initial-to-reference-evapotranspiration",
+      "crop_variable": "crop_coefficient_initial",
+      "target": "derived_from_nasa",
+      "target_variables": ["reference_evapotranspiration"],
+      "comparison_intent": "Multiply by reference evapotranspiration to estimate potential crop water use early in the season.",
+      "temporal_basis": "Daily, over the initial stage.",
+      "available_from_data_layer": false,
+      "limitations": [
+        "Reference evapotranspiration is not retrieved; it must be calculated, and the standard method needs wind speed, which the data layer does not yet retrieve.",
+        "The source calls initial-stage coefficients 'only approximations' that depend on how often the soil is wetted."
+      ]
+    },
+    {
+      "mapping_id": "kc-mid-to-reference-evapotranspiration",
+      "crop_variable": "crop_coefficient_mid_season",
+      "target": "derived_from_nasa",
+      "target_variables": ["reference_evapotranspiration"],
+      "comparison_intent": "Multiply by reference evapotranspiration to estimate potential crop water use at mid-season.",
+      "temporal_basis": "Daily, over the mid-season stage.",
+      "available_from_data_layer": false,
+      "limitations": [
+        "Reference evapotranspiration is not retrieved; it must be calculated, and the standard method needs wind speed, which the data layer does not yet retrieve.",
+        "Crop coefficients are for well-watered crops in a sub-humid climate; the source requires adjustment for other climates."
+      ]
+    },
+    {
+      "mapping_id": "rooting-depth-to-soil-water",
+      "crop_variable": "crop_max_rooting_depth",
+      "target": "soil_information",
+      "target_variables": ["soil_available_water_capacity", "soil_field_capacity", "soil_wilting_point"],
+      "comparison_intent": "Combine rooting depth with how much water the soil holds per unit depth to estimate the water a crop can draw on.",
+      "temporal_basis": "Static soil properties for the rooting zone.",
+      "available_from_data_layer": false,
+      "limitations": [
+        "Soil water characteristics must come from the user or a soil source; they are never taken from NASA weather data.",
+        "Published rooting depths assume no restricting soil layer; soil depth at the site is unknown."
+      ]
+    },
+    {
+      "mapping_id": "seasonal-water-need-to-seasonal-rainfall",
+      "crop_variable": "crop_seasonal_water_requirement",
+      "target": "nasa_observation",
+      "target_variables": ["precipitation_total"],
+      "comparison_intent": "Set a crop's indicative seasonal water use beside the rainfall of a past season, as a first indication of water shortfall or surplus.",
+      "temporal_basis": "Rainfall totalled over a defined growing season, one value per season on record.",
+      "available_from_data_layer": true,
+      "limitations": [
+        "The crop figure is evapotranspiration, not rainfall demand. The two are not directly comparable without a water balance.",
+        "Rainfall is not the water available to a crop: runoff, soil storage, deep drainage and irrigation all intervene.",
+        "Indicative water needs are held for maize, sorghum and common bean only."
+      ]
+    },
+    {
+      "mapping_id": "soil-ph-requirement-to-soil-ph",
+      "crop_variable": "crop_soil_ph_requirement",
+      "target": "soil_information",
+      "target_variables": ["soil_ph"],
+      "comparison_intent": "Set the soil pH a source associates with a crop beside the pH of the field.",
+      "temporal_basis": "Static, for the topsoil.",
+      "available_from_data_layer": false,
+      "limitations": [
+        "Soil pH must be measured or supplied by the user. It is never inferred from NASA temperature or rainfall.",
+        "The published ranges mix optimal, preferred and tolerated values, which must not be treated alike.",
+        "No pH range is held for cowpea."
+      ]
+    },
+    {
+      "mapping_id": "temperature-requirement-to-air-temperature",
+      "crop_variable": "crop_temperature_requirement",
+      "target": "nasa_observation",
+      "target_variables": ["air_temperature_mean", "air_temperature_max", "air_temperature_min"],
+      "comparison_intent": "Set the temperatures a source associates with a crop beside the NASA record for the growing season.",
+      "temporal_basis": "Daily values within the growing season. Monthly means may be used only for a general picture.",
+      "available_from_data_layer": true,
+      "limitations": [
+        "A monthly or seasonal mean cannot show short spells of heat or cold, which are what damage crops.",
+        "Sources rarely say whether they mean a daily mean, a day-time or a seasonal temperature, so a like-for-like comparison is often not possible.",
+        "NASA temperatures are for a grid cell at its average elevation; the pilot cell averages 1,328 m.",
+        "A crop's temperature preference says nothing about disease incidence or yield."
+      ]
+    },
+    {
+      "mapping_id": "yield-response-to-water-deficit",
+      "crop_variable": "crop_yield_response_factor",
+      "target": "derived_from_nasa",
+      "target_variables": ["reference_evapotranspiration"],
+      "comparison_intent": "Indicate which crops are relatively more sensitive to a seasonal water deficit.",
+      "temporal_basis": "Whole season.",
+      "available_from_data_layer": false,
+      "limitations": [
+        "Needs a calculated water deficit, which does not exist yet.",
+        "The factor describes relative yield loss. This project does not predict yields, so it may be used only to compare sensitivity between crops.",
+        "Held for maize, sorghum and beans only."
+      ]
+    }
+  ]
+}

@@ -6,6 +6,11 @@ The hackathon runs **14–15 November 2026**. Submission closes on **Sunday
 15 November at 11:59 p.m. Singapore time**. Phase A1 finished on Saturday
 morning, leaving about a day and a half for A2 to A9.
 
+**Status at 10:35 on Sunday 15 November:** A1 to A5 are complete; A5 took
+about half an hour. About 13.5 hours remain for A8 and A9 (A6 and A7 are optional and
+best skipped). The revised windows below keep at least three hours of buffer
+before the deadline; A6 and A7 remain optional and are still best skipped.
+
 The time boxes below are a proposal, not a commitment. The rule that matters:
 **a submitted, honest MVP beats an unfinished ambitious one.** If a phase
 overruns, cut scope inside it rather than borrowing time from A8 and A9.
@@ -13,14 +18,14 @@ overruns, cut scope inside it rather than borrowing time from A8 and A9.
 | Phase | Proposed window (Singapore time) | Can it be cut? |
 | --- | --- | --- |
 | A1 Foundation | Sat morning | Done |
-| A2 NASA data ingestion | Sat late morning to early afternoon | No |
-| A3 Agronomic knowledge base | Sat afternoon | No, but fewer crops and regions is acceptable |
-| A4 Scenario and comparison engine | Sat evening | No, but fewer indicators is acceptable |
-| A5 Streamlit interface | Sat night to Sun late morning | No |
-| A6 OpenAI explanations | Sun midday, one hour at most | **Yes, optional** |
-| A7 Manus reports | Sun midday, one hour at most | **Yes, optional** |
-| A8 Final validation | Sun early afternoon | No |
-| A9 Demonstration and submission | Sun mid-afternoon to early evening | No |
+| A2 NASA data ingestion | Sat late morning | Done |
+| A3 Agronomic knowledge base | Sat afternoon to Sun 01:00 | Done |
+| A4 Scenario and comparison engine | Sun morning | Done |
+| A5 Streamlit interface | Sun morning | Done |
+| A6 OpenAI explanations | Only if A5 finishes early | **Yes, optional; recommend skipping** |
+| A7 Manus reports | Only if A5 finishes early | **Yes, optional; recommend skipping** |
+| A8 Final validation | Sun late afternoon (revised) | No |
+| A9 Demonstration and submission | Sun early evening (revised) | No |
 | Buffer | Sun evening | Keep at least three hours before the deadline |
 
 Each phase starts only on the participant's explicit approval.
@@ -34,24 +39,48 @@ matrix, provisional MVP specification, repository structure, typed
 configuration, scientific data contracts, NASA data source evaluation, minimal
 Streamlit page, baseline tests, documentation.
 
-### A2. NASA data ingestion
+### A2. NASA data ingestion, validation, provenance and caching — complete
 
-* Retrieve daily point data from the NASA POWER API in UTC for the MVP
-  variables, including GPM IMERG rainfall.
-* Cache raw responses; add offline demo mode with bundled real responses for
-  the pilot regions.
-* Convert fill values to explicit gaps; validate units and plausibility;
-  attach provenance to every value.
-* Summarise by growing season and rank past seasons to define dry, typical and
-  wet historical scenarios.
-* Resolve the open items in `data_sources.md`.
+Delivered: compliance review; NASA POWER client with bounded retries; verified
+file cache; three-level validation; typed observations; dataset provenance with
+NASA's requested citations; offline mode with bundled real data; monthly totals
+and means; a command line; a data preview in the app; one documented pilot site
+verified with a live retrieval; 225 new tests.
 
-Done when: real NASA data for each pilot region loads live and offline, gaps
-are explicit, and tests cover parsing, gap handling and season ranking using
-saved responses.
+Changed from the A1 plan:
 
-### A3. Agronomic knowledge base
+* **GPM IMERG was not added.** The A2 brief asked for one source first. It is
+  ready to add and needs a decision.
+* **Seasons were not ranked into dry, typical and wet.** That needs a cited
+  definition of the growing seasons, which is A3's work, so it moves to A4
+  with the scenario engine.
+* **One pilot site, not two or three.** The brief asked for one.
 
+### A3. Evidence-based agronomic knowledge base — complete
+
+Delivered: an evidence registry of thirteen sources, each with how it was read
+and its limits; six crop profiles with 64 sourced requirements, 57 sourced
+statements and 30 recorded gaps; growth-stage examples; soil-water reference
+values for nine texture classes; fifteen rotation relationships; fourteen
+stored constraints; four cropping systems from the Machakos experiment; ten
+farmer-priority definitions; eleven interface contracts for A4; the pilot site
+description rewritten with citations; 271 new tests.
+
+Changed from the plan below:
+
+* **Rotations were not defined with calendars.** The one source that names
+  rotations for the area gives no seasons or cycle lengths, so the systems are
+  recorded with those details listed as missing. A4 must obtain them.
+* **Pilot regions were not confirmed.** The site still awaits approval.
+* **The growing seasons** are described from FAO (long rains March to May,
+  short rains October to December), but a rule for when a season starts and
+  ends in a given year is left to A4.
+
+Original plan:
+
+* Cite or remove the pilot site's farming background (`compliance.md`, C6).
+* Define the pilot site's growing seasons from a cited source. The NASA record
+  shows two wetter periods centred on April and November.
 * Confirm the pilot regions and their crops.
 * Build cited crop profiles; record every source.
 * Define the current and alternative rotations for each region, with their
@@ -61,8 +90,36 @@ saved responses.
 Done when: every parameter in the knowledge base has a citation, and missing
 parameters are listed as gaps rather than filled.
 
-### A4. Scenario and comparison engine
+### A4. Scenario and comparison engine — complete
 
+Delivered: an evidence audit of all thirteen sources with a claim-to-evidence
+matrix and an evidence gate; soil inputs with provenance for the three soil
+mappings; a provisional pilot configuration with cited season windows; a
+historical scenario engine (25 seasons per window, dry, typical and wet
+terciles); a comparison engine with eleven indicators, fourteen evaluated
+constraints, tradeoffs and farmer priorities without weights; uncertainty
+statements and six-part explanations for every indicator; 170 new tests. Details
+in `a4_validation_report.md`.
+
+Changed from the plan below, as the A4 brief directed:
+
+* **No season onset and end rule.** The cited FAO windows are used as fixed
+  analysis windows; sowing dates stay unknown, and every result says so.
+* **No wind speed, IMERG or reference evapotranspiration.** Deferred by the
+  brief; the four mappings that need them stay unavailable.
+* **The pilot site is used provisionally**, not approved.
+
+Original plan:
+
+* Confirm the pilot site, and the rotations to compare, with the participant.
+  The knowledge base offers continuous maize, maize rotated with cowpea and
+  maize rotated with pigeon pea as documented systems; pigeon pea has no
+  water-use data.
+* Adopt and cite a rule for the start and end of a rainy season.
+* Rank past seasons into dry, typical and wet from the validated NASA record,
+  using the season definitions from A3.
+* Decide whether to add wind speed (needed for the standard reference
+  evapotranspiration method) and GPM IMERG rainfall.
 * Define indicators that the inputs can support and declare them in the
   variable registry.
 * Calculate indicators for each rotation under each historical scenario.
@@ -73,7 +130,17 @@ parameters are listed as gaps rather than filled.
 Done when: results are reproducible, every indicator documents its method and
 limits, and tests cover the calculations with hand-checked cases.
 
-### A5. Complete Streamlit interface
+### A5. Complete Streamlit interface — complete
+
+Delivered: six-tab application (Overview, Climate Explorer, Rotation
+Comparison, Soil & Farm Inputs, Scientific Evidence, About & Methodology);
+seven charts from real NASA data; scenario explorer; side-by-side comparison of
+the three strategies with every A4 indicator, constraint and tradeoff; soil
+form with validation and provenance; farmer priorities without weights;
+evidence and limitations panels; downloads; offline operation; 64 new tests.
+SQLite persistence was deferred. Details in `a5_validation_report.md`.
+
+Original plan:
 
 * Build the ten-step user journey from `mvp_specification.md`.
 * Accessible charts, a sources and assumptions screen, a glossary.

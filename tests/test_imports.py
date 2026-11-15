@@ -44,18 +44,71 @@ def test_placeholders_contain_no_implementation(module):
     assert "Not implemented" in loaded.__doc__
 
 
-def test_only_foundation_modules_are_marked_as_working():
+def _defines_something(name: str) -> bool:
+    loaded = importlib.import_module(f"src.{name}")
+    return any(
+        (inspect.isfunction(value) or inspect.isclass(value))
+        and getattr(value, "__module__", None) == loaded.__name__
+        for key, value in vars(loaded).items()
+        if not key.startswith("_")
+    )
+
+
+@pytest.mark.parametrize("module", [item for item in src.MODULES if item.implemented], ids=lambda m: m.name)
+def test_modules_marked_as_working_really_contain_code(module):
+    assert _defines_something(module.name)
+    assert "Not implemented" not in importlib.import_module(f"src.{module.name}").__doc__
+
+
+def test_working_modules_belong_to_finished_phases_only():
+    finished = {phase.code for phase in src.PHASES if phase.status == "complete"}
+    for module in src.MODULES:
+        if module.deferred:
+            # Deliberately not built in its phase: it must still be an empty
+            # placeholder (checked above), and the reason must be stated.
+            assert not module.implemented and module.phase in finished and len(module.deferred) > 20, module.name
+            continue
+        assert module.implemented == (module.phase in finished), module.name
+
+
+def test_only_the_persistence_module_is_deferred():
+    assert [module.name for module in src.MODULES if module.deferred] == ["persistence"]
+
+
+def test_data_and_knowledge_modules_are_working():
     working = {module.name for module in src.MODULES if module.implemented}
-    assert working == {"config", "models"}
+    assert working == {
+        "config",
+        "models",
+        "nasa_client",
+        "nasa_cache",
+        "pilot_sites",
+        "data_validation",
+        "data_processing",
+        "data_service",
+        "crop_knowledge",
+        "evidence_audit",
+        "soil_inputs",
+        "season_config",
+        "scenario_engine",
+        "comparison_engine",
+        "uncertainty",
+        "visualizations",
+        "ui_state",
+        "report_service",
+    }
 
 
 def test_phase_plan_is_consistent():
     codes = [phase.code for phase in src.PHASES]
     assert codes == [f"A{number}" for number in range(1, 10)]
-    assert src.CURRENT_PHASE == "A1"
+    assert src.CURRENT_PHASE in codes
     assert {module.phase for module in src.MODULES} <= set(codes)
-    started = [phase.code for phase in src.PHASES if phase.status != "not started"]
-    assert started == ["A1"]
+    # Every phase up to the current one is complete; nothing later has begun.
+    current = codes.index(src.CURRENT_PHASE)
+    for index, phase in enumerate(src.PHASES):
+        assert phase.status == ("complete" if index <= current else "not started"), phase.code
+    assert src.CURRENT_PHASE == "A5"
 
 
 def test_optional_ai_libraries_are_not_imported_by_the_core():

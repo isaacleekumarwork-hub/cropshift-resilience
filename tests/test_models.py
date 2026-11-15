@@ -168,7 +168,16 @@ def test_registry_holds_one_unit_per_variable():
 def test_registry_can_be_filtered_by_domain():
     soil = models.registered_variables(models.VariableDomain.SOIL)
     assert soil and all(item.domain is models.VariableDomain.SOIL for item in soil)
-    assert models.registered_variables(models.VariableDomain.INDICATOR) == ()
+    # A1 declared no indicators and left them to the A4 engine. The engine
+    # declares exactly three descriptive ones; nothing else may appear.
+    import src.comparison_engine  # noqa: F401  (registers the A4 indicator variables)
+
+    indicators = models.registered_variables(models.VariableDomain.INDICATOR)
+    assert {item.name for item in indicators} == {
+        "indicator_season_rainfall_total",
+        "indicator_frost_days",
+        "indicator_family_count",
+    }
 
 
 def test_unknown_variable_is_rejected(make_observation):

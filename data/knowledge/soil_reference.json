@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "soil_texture_references": [
+    {
+      "texture_class": "sand",
+      "source_label": "Sand",
+      "field_capacity_min": 0.07, "field_capacity_max": 0.17,
+      "wilting_point_min": 0.02, "wilting_point_max": 0.07,
+      "available_water_min": 0.05, "available_water_max": 0.11,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 7, Table 19, row 'Sand'",
+        "confidence": "directly_supported",
+        "applicability": "Typical values for the texture class. Not a measurement of any field."
+      }
+    },
+    {
+      "texture_class": "loamy_sand",
+      "source_label": "Loamy sand",
+      "field_capacity_min": 0.11, "field_capacity_max": 0.19,
+      "wilting_point_min": 0.03, "wilting_point_max": 0.10,
+      "available_water_min": 0.06, "available_water_max": 0.12,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 7, Table 19, row 'Loamy sand'",
+        "confidence": "directly_supported",
+        "applicability": "Typical values for the texture class. Not a measurement of any field."
+      }
+    },
+    {
+      "texture_class": "sandy_loam",
+      "source_label": "Sandy loam",
+      "field_capacity_min": 0.18, "field_capacity_max": 0.28,
+      "wilting_point_min": 0.06, "wilting_point_max": 0.16,
+      "available_water_min": 0.11, "available_water_max": 0.15,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 7, Table 19, row 'Sandy loam'",
+        "confidence": "directly_supported",
+        "applicability": "Typical values for the texture class. Not a measurement of any field."
+      }
+    },
+    {
+      "texture_class": "loam",
+      "source_label": "Loam",
+      "field_capacity_min": 0.20, "field_capacity_max": 0.30,
+      "wilting_point_min": 0.07, "wilting_point_max": 0.17,
+      "available_water_min": 0.13, "available_water_max": 0.18,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 7, Table 19, row 'Loam'",
+        "confidence": "directly_supported",
+        "applicability": "Typical values for the texture class. Not a measurement of any field."
+      }
+    },
+    {
+      "texture_class": "silt_loam",
+      "source_label": "Silt loam",
+      "field_capacity_min": 0.22, "field_capacity_max": 0.36,
+      "wilting_point_min": 0.09, "wilting_point_max": 0.21,
+      "available_water_min": 0.13, "available_water_max": 0.19,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 7, Table 19, row 'Silt loam'",
+        "confidence": "directly_supported",
+        "applicability": "Typical values for the texture class. Not a measurement of any field."
+      }
+    },
+    {
+      "texture_class": "silt",
+      "source_label": "Silt",
+      "field_capacity_min": 0.28, "field_capacity_max": 0.36,
+      "wilting_point_min": 0.12, "wilting_point_max": 0.22,
+      "available_water_min": 0.16, "available_water_max": 0.20,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 7, Table 19, row 'Silt'",
+        "confidence": "directly_supported",
+        "applicability": "Typical values for the texture class. Not a measurement of any field."
+      }
+    },
+    {
+      "texture_class": "silty_clay_loam",
+      "source_label": "Silt clay loam",
+      "field_capacity_min": 0.30, "field_capacity_max": 0.37,
+      "wilting_point_min": 0.17, "wilting_point_max": 0.24,
+      "available_water_min": 0.13, "available_water_max": 0.18,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 7, Table 19, row 'Silt clay loam'",
+        "confidence": "directly_supported",
+        "applicability": "Typical values for the texture class. Not a measurement of any field."
+      }
+    },
+    {
+      "texture_class": "silty_clay",
+      "source_label": "Silty clay",
+      "field_capacity_min": 0.30, "field_capacity_max": 0.42,
+      "wilting_point_min": 0.17, "wilting_point_max": 0.29,
+      "available_water_min": 0.13, "available_water_max": 0.19,
+      "note": "The HTML edition prints the field-capacity range as '0-30 - 0.42'. It is read here as 0.30 to 0.42, which is consistent with the neighbouring rows. This is an interpretation of a scanning error, so the row is provisional.",
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 7, Table 19, row 'Silty clay'",
+        "confidence": "provisional",
+        "applicability": "Typical values for the texture class. Not a measurement of any field.",
+        "transformations": ["Field-capacity lower bound printed as '0-30' read as 0.30."]
+      }
+    },
+    {
+      "texture_class": "clay",
+      "source_label": "Clay",
+      "field_capacity_min": 0.32, "field_capacity_max": 0.40,
+      "wilting_point_min": 0.20, "wilting_point_max": 0.24,
+      "available_water_min": 0.12, "available_water_max": 0.20,
+      "evidence": {
+        "source_id": "fao-56",
+        "locator": "Chapter 7, Table 19, row 'Clay'",
+        "confidence": "directly_supported",
+        "applicability": "Typical values for the texture class. Not a measurement of any field."
+      }
+    }
+  ]
+}
