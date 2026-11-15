@@ -333,12 +333,15 @@ scientific sources, ran the NASA requests and checked the app in a browser.
 * **Data:** every environmental value was returned by NASA's service and is
   stored unmodified. Every agronomic value was read from the published source it
   cites, not from the assistant's own knowledge.
-* **Media:** the app's painted background, banner and brushstroke ornaments
-  (the "Starry Night" theme) are original AI-generated SVG artwork, inspired by
-  Vincent van Gogh's public-domain *The Starry Night* (1889). They are
-  watermarked in the image and credited on every page, and they show an
-  imaginary landscape, not the pilot site. No AI-generated video or audio is
-  included. The screenshots are captures of the running app.
+* **Media:** the app's page background and the demo deck's background are the
+  same painting: a wheat field under a swirling night sky in the style of
+  Vincent van Gogh, an AI-generated image that the participant created with an
+  AI image tool. It shows an imaginary landscape, not the pilot site, and no
+  people. Every app page and every slide labels it "AI-generated image (SI)".
+  The app's brushstroke ornaments (underlines, dividers, frame) are simple SVG
+  strokes drawn by `scripts/make_theme_artwork.py`, written with AI assistance.
+  No AI-generated video or audio is included. The screenshots are captures of
+  the running app.
 * **Marking:** every Python module, this README, `docs/provenance.md` and the
   app's footer state that AI assistance was used.
 

@@ -196,19 +196,21 @@ out the demo slides; and drafted this text.
 What the SI did not do: it generated no environmental data (every value was
 returned by NASA's service and is stored unmodified), no agronomic values
 (every one was read from the published source it cites), and no video or
-audio. The one AI-generated image is the app's decorative painted background
-in the "Starry Night" theme (original SVG artwork inspired by Van Gogh's
-public-domain painting, showing an imaginary landscape); it carries a visible
-"AI-generated (SI)" watermark and a credit on every page. Screenshots are
-captures of the running app. The running app
+audio. One image is AI-generated: a painting of a wheat field under a swirling
+night sky in the style of Van Gogh, which I created with an AI image tool. It
+is the app's page background and the demo deck's background, shows an
+imaginary landscape (not the pilot site) and is labelled "AI-generated image
+(SI)" on every app page and every slide. The app's brushstroke ornaments are
+simple AI-assisted SVG strokes. The screenshots are captures of the running
+app. The running app
 uses no AI: its scientific engine is deterministic, and its optional OpenAI and
 Manus integrations are switched off and not built.
 
 SI use is marked in the code and documentation: every Python module's opening
 docstring, the README, `docs/provenance.md` and the app's footer.
 
-[Add any other SI tools you used outside this repository, for example to draft
-the phase briefs.]
+[Name the AI image tool you used for the deck background, and add any other SI
+tools you used outside this repository, for example to draft the phase briefs.]
 
 ## NASA Data
 
@@ -306,10 +308,10 @@ documentation are released under the Apache License 2.0.
 
 **Demo deck**
 
-Typefaces Space Grotesk and Inter from Google Fonts (SIL Open Font Licence).
-All images are screenshots of the app; no stock images. If the "Starry Night"
-theme is shown, its painted background is the app's own watermarked
-AI-generated artwork.
+Typeface Inter from Google Fonts (SIL Open Font Licence) and the system font
+Georgia. Images: screenshots of the app, and a background painting in the
+style of Vincent van Gogh that the participant generated with an AI image tool
+(watermarked as AI-generated on every slide). No stock images.
 
 **Tools**
 

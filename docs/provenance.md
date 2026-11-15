@@ -61,7 +61,7 @@ The 2026 official materials call these tools "Super Intelligence (SI)".
 
 | Tool | Used for | Not used for |
 | --- | --- | --- |
-| Claude Code (Anthropic), an AI coding assistant | Writing the code, tests and documentation in this repository under the participant's direction; reading the official challenge, legal and NASA documentation pages; running the NASA POWER requests; in A9, capturing screenshots of the running app, laying out the seven-slide demo deck and drafting the submission text | Generating images, video or audio; generating any scientific data or results. Every environmental value in the project was returned by NASA's service and is stored unmodified. The screenshots are captures of the app, not generated images. |
+| Claude Code (Anthropic), an AI coding assistant | Writing the code, tests and documentation in this repository under the participant's direction; reading the official challenge, legal and NASA documentation pages; running the NASA POWER requests; in A9, capturing screenshots of the running app, laying out the seven-slide demo deck and drafting the submission text; placing the participant's AI-generated background image on the slides and watermarking it (see below) | Generating video or audio; generating any scientific data or results. Every environmental value in the project was returned by NASA's service and is stored unmodified. The screenshots are captures of the app, not generated images. |
 
 How the work was directed: the participant supplied a written brief for the
 phase, including the product concept, architecture, scope and acceptance
@@ -75,16 +75,21 @@ code ("descriptive text and metadata"):
 * this file and `README.md` state it;
 * the app's footer states it.
 
-AI-generated images: the visual theme's artwork in `static/theme/` (a painted
-night sky over fields and wheat, a banner strip and brushstroke ornaments) is
-original SVG produced by `scripts/make_theme_artwork.py`, which was written
-with AI assistance (patch A9.UI.1). It is inspired by Vincent van Gogh's
-public-domain *The Starry Night* (1889) but reproduces no painting. As the
-Project Submission Guide requires, the image carries a visible watermark
-("Original AI-generated artwork (SI)"), and every page shows a credit saying
-the background is AI-generated. The landscape is imaginary, not the pilot
-site. No AI-generated video or audio is in this project. No NASA logos or
-mission identifiers are used.
+AI-generated images: one painting, used twice. The app's page background and
+the demo deck's background (`docs/presentation/CropShift_RESILIENCE_demo.pdf`)
+are a painting of a wheat field under a swirling night sky, in the style of
+Vincent van Gogh. The participant created it, in a wide and a tall version,
+with an AI image-generation tool and supplied it on 15 November 2026; the
+assistant placed it in the app (`static/theme/`) and on the slides and added
+the labels. The landscape is imaginary, not the pilot site, and the image
+contains no people. As the Project Submission Guide requires, every slide
+shows a visible watermark ("AI-generated image (SI) · imaginary landscape, not
+the pilot site") and every app page shows a credit saying the background is an
+AI-generated image. The app's brushstroke ornaments (gold underlines, painted
+dividers, the brushed frame and a canvas-grain tile) are simple SVG strokes
+drawn by `scripts/make_theme_artwork.py`, which was written with AI
+assistance. The project contains no AI-generated video or audio. No NASA logos
+or mission identifiers are used.
 
 The participant should complete the SI field of the submission form in their
 own words, and add any other AI tools they used outside this repository.
