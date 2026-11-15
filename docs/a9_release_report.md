@@ -3,9 +3,12 @@
 Phase A9, 15 November 2026, 14:40 to 15:10 Singapore time. Deadline:
 Sunday 15 November, 23:59 in the Local Event's time zone.
 
-**Outcome: every safe preparation task is done; nothing has been published,
-deployed or submitted.** Making the project public needs the participant's
-decisions (section L). The project is fit to submit once those steps are taken.
+**Outcome: the repository is public at
+https://github.com/isaacleekumarwork-hub/cropshift-resilience under Apache-2.0,
+published with the participant's approval and checked without a login.**
+Nothing was deployed or submitted. What remains is the participant's: the demo
+deck's names and public link, the Project page, and pressing "Submit for
+Judging" (section L).
 
 ## A. Executive summary
 
@@ -31,9 +34,9 @@ decisions (section L). The project is fit to submit once those steps are taken.
 | Item | State |
 | --- | --- |
 | A8 commit | `aa5efdf` on branch `a8-validation` ("Validate science, data and app end to end; fix overclaiming wording (A8)") |
-| `main` | Still at `e1d021d` (A2 to A5); not moved |
-| A9 changes | **Uncommitted**: README, claims register, submission text, this report, screenshots, the About-tab correction and its tests, provenance and plan updates, `.gitignore` (`.gstack/`, a local browser tool's folder) |
-| Remote | None. Nothing pushed. The GitHub CLI is installed and signed in |
+| A9 commit | `bc5bff3` ("Prepare release and submission materials; license under Apache-2.0 (A9)"): LICENSE, README, claims register, submission text, this report, screenshots, the About-tab correction and its tests, provenance, compliance and plan updates, `.gitignore` (`.gstack/`, a local browser tool's folder) |
+| `main` | Fast-forwarded to `bc5bff3` after approval |
+| Remote | `origin` = https://github.com/isaacleekumarwork-hub/cropshift-resilience (public), created with `gh repo create --public --source . --push`; `main` pushed and tracking `origin/main`. Other local branches were not pushed |
 | History rewritten | No. No force-push |
 | Author identity | `isaacleekumarwork` with a Gmail address on all three commits (see section E) |
 
@@ -147,7 +150,7 @@ participant's login and was not opened.
 
 | Link | Status |
 | --- | --- |
-| Public repository | **Does not exist.** Needs approval (section L) |
+| Public repository | **https://github.com/isaacleekumarwork-hub/cropshift-resilience**. Checked without credentials on 15 Nov 2026: the repository page, README, LICENSE, a screenshot and the NASA data file all return HTTP 200; the GitHub API reports visibility public, licence Apache-2.0, default branch main; in a signed-out browser the README renders with all six screenshots loaded |
 | Public demo (slides) | **Does not exist.** The deck is a private artifact |
 | Hosted app | None, and none is needed: the guide accepts a code repository as the final project link |
 | `http://localhost:8501` | Local only. Not a submission link; judges cannot open it |
@@ -173,8 +176,7 @@ No other test was changed.
 
 ## J. Outstanding blockers
 
-1. **No public link.** The repository has to be made public on GitHub (or
-   another host) before submission. Needs approval.
+1. ~~No public link.~~ **Resolved:** the repository is public (section H).
 2. **Demo not hosted.** The deck has to be exported to PDF (or shared publicly)
    and given a link that needs no login.
 3. **Placeholders.** Team name and participant name in the deck and the form;
@@ -198,8 +200,8 @@ to present the pilot site (provisional, as everywhere now, unless approved).
 | AI-use disclosure complete | Passed (participant to add any other tools) | README, provenance, SI field |
 | Third-party licences checked | Passed | Section E |
 | Project licence approved | Passed | Apache-2.0 approved 15 Nov 2026; `LICENSE` added |
-| Public repository approved and published | **Not done** | Needs approval |
-| Public link verified without login | **Not done** | Needs a public link first |
+| Public repository approved and published | Passed | Approved 15 Nov 2026; section H |
+| Public link verified without login | Passed for the repository; **not done** for the demo | Section H |
 | Seven-slide deck or compliant video created | Passed (placeholders remain) | Private Slides artifact |
 | Demo assets checked | Passed | Real screenshots; local render check |
 | Submission text prepared | Passed | `a9_submission_text.md` |
@@ -209,14 +211,13 @@ to present the pilot site (provisional, as everywhere now, unless approved).
 
 ## L. Exact participant actions needed
 
-In order, with the time each takes:
+Steps 1 to 3 were completed on 15 November 2026 after the participant
+approved the licence and publishing. The commit e-mail was published as it
+was. The rest, in order, with the time each takes:
 
-1. **Decide** (2 minutes): licence (Apache-2.0 suggested); keep or replace
-   the Gmail address in the commit history; team name and your full name as
-   they should appear; approval to publish.
-2. **Commit and publish** (5 minutes, can be done for you on approval): add
-   `LICENSE`, commit the A9 work, fast-forward `main`, then create the public
-   repository and push:
+1. ~~**Decide**~~ (done: Apache-2.0, publish). Still open: team name and your
+   full name as they should appear.
+2. ~~**Commit and publish**~~ (done; the commands used, for the record):
 
    ```bash
    gh api /licenses/apache-2.0 --jq .body > LICENSE
@@ -234,8 +235,10 @@ In order, with the time each takes:
    gh repo create cropshift-resilience --public --source . --remote origin --push --description "Compare crop rotations against 25 years of NASA climate history, with evidence and uncertainty in plain view. NASA Space Apps 2026."
    ```
 
-3. **Check the repository link** in a private browser window (1 minute).
-4. **Finish the deck** (5 minutes): replace the three placeholders, then
+3. ~~**Check the repository link**~~ (done without credentials; a private
+   window check of your own is still worthwhile, 1 minute).
+4. **Finish the deck** (5 minutes): replace the two remaining placeholders
+   (`[Team name]`, `[Your full name]`; the repository link is filled in), then
    export it as PDF from the deck's Share menu. Add the PDF to the repository
    (for example `docs/presentation/CropShift_RESILIENCE_demo.pdf`) and push,
    or upload it to Google Drive with "anyone with the link" access. Check the
