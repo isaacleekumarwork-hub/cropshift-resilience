@@ -13,12 +13,12 @@ from __future__ import annotations
 
 from typing import NamedTuple
 
-__version__ = "0.5.0"
+__version__ = "0.9.0"
 
 PROJECT_NAME = "CropShift RESILIENCE"
 CHALLENGE_NAME = "Field Shift: Adapting Farms with NASA Data"
 EVENT_NAME = "NASA Space Apps Challenge 2026"
-CURRENT_PHASE = "A5"
+CURRENT_PHASE = "A9"
 
 
 class Phase(NamedTuple):
@@ -26,7 +26,7 @@ class Phase(NamedTuple):
 
     code: str
     title: str
-    status: str  # "complete", "in progress" or "not started"
+    status: str  # "complete", "in progress", "deferred" or "not started"
 
 
 class Module(NamedTuple):
@@ -45,10 +45,10 @@ PHASES: tuple[Phase, ...] = (
     Phase("A3", "Evidence-based agronomic knowledge base", "complete"),
     Phase("A4", "Scenario and comparison engine", "complete"),
     Phase("A5", "Complete Streamlit interface", "complete"),
-    Phase("A6", "Optional OpenAI explanations", "not started"),
-    Phase("A7", "Optional Manus research reports", "not started"),
-    Phase("A8", "Final validation", "not started"),
-    Phase("A9", "Demonstration and submission", "not started"),
+    Phase("A6", "Optional OpenAI explanations", "deferred"),
+    Phase("A7", "Optional Manus research reports", "deferred"),
+    Phase("A8", "Final validation", "complete"),
+    Phase("A9", "Demonstration and submission", "in progress"),
 )
 
 MODULES: tuple[Module, ...] = (

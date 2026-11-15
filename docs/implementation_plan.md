@@ -6,7 +6,7 @@ The hackathon runs **14–15 November 2026**. Submission closes on **Sunday
 15 November at 11:59 p.m. Singapore time**. Phase A1 finished on Saturday
 morning, leaving about a day and a half for A2 to A9.
 
-**Status at 13:30 on Sunday 15 November:** A1 to A5 and the A8 validation are complete. About 10.5 hours remain for A9. A6 and A7 are not recommended before submission (see `a8_validation_report.md`, section N).
+**Status at 15:10 on Sunday 15 November:** A1 to A5 and A8 are complete; A6 and A7 are deferred until after submission (see `a8_validation_report.md`, section N). A9 preparation is done: claims register, README, screenshots, a seven-slide deck and the submission text. Publishing, the licence and the final submission wait for the participant's approval (see `a9_release_report.md`). About 8.8 hours remain before the 23:59 deadline.
 
 The time boxes below are a proposal, not a commitment. The rule that matters:
 **a submitted, honest MVP beats an unfinished ambitious one.** If a phase

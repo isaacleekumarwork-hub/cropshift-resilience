@@ -104,11 +104,16 @@ def test_phase_plan_is_consistent():
     assert codes == [f"A{number}" for number in range(1, 10)]
     assert src.CURRENT_PHASE in codes
     assert {module.phase for module in src.MODULES} <= set(codes)
-    # Every phase up to the current one is complete; nothing later has begun.
-    current = codes.index(src.CURRENT_PHASE)
-    for index, phase in enumerate(src.PHASES):
-        assert phase.status == ("complete" if index <= current else "not started"), phase.code
-    assert src.CURRENT_PHASE == "A5"
+    # A9 is under way. A6 and A7 were deferred after the A8 reassessment, so
+    # their modules stay empty placeholders; every other earlier phase is done.
+    assert src.CURRENT_PHASE == "A9"
+    statuses = {phase.code: phase.status for phase in src.PHASES}
+    assert statuses == {
+        "A1": "complete", "A2": "complete", "A3": "complete", "A4": "complete", "A5": "complete",
+        "A6": "deferred", "A7": "deferred", "A8": "complete", "A9": "in progress",
+    }
+    deferred = {code for code, status in statuses.items() if status == "deferred"}
+    assert all(not module.implemented for module in src.MODULES if module.phase in deferred)
 
 
 def test_optional_ai_libraries_are_not_imported_by_the_core():

@@ -85,7 +85,8 @@ def test_navigation_has_the_six_sections(app_default):
 
 def test_app_states_its_stage_and_its_limits_honestly(app_default):
     text = all_text(app_default)
-    assert "Development stage A5 of A9" in text
+    assert "Development stage A9 of A9" in text
+    assert "internal validation" in text
     banner = app_default.warning[0].value
     assert "has not approved this pilot site" in banner
     assert "past seasons, not forecasts" in banner

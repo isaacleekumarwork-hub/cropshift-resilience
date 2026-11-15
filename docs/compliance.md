@@ -26,7 +26,7 @@ concerns the participant's own account data rather than this project.
 
 | Topic | What the terms say | Where this project stands |
 | --- | --- | --- |
-| Licence of original work | Original content must be "freely available without restriction or ... licensed as open source as defined by the Open Source Initiative". "If you do not specify a specific OSI compliant license, NASA will distribute your original content under an Apache 2.0 license." | **Decision needed (C1).** No licence file has been added, because none has been approved. |
+| Licence of original work | Original content must be "freely available without restriction or ... licensed as open source as defined by the Open Source Initiative". "If you do not specify a specific OSI compliant license, NASA will distribute your original content under an Apache 2.0 license." | **Met (C1, 15 Nov 2026).** The participant approved Apache-2.0; `LICENSE` holds the standard text. |
 | Third-party materials | Non-NASA materials must be "freely and publicly available without restriction or, at a minimum ... licensed as open source". Their licences "must be identified in the documentation that you submit". | Met. All 46 installed packages are under permissive open-source licences (section 3). Nothing else from a third party is used. |
 | Citing sources | "You must cite every source that is used in the creation of your project, even if it is open source or freely available." NASA may remove awards from teams that do not. | Met so far. `provenance.md` is the running list for the References field. |
 | Addressing a challenge | Solutions "shall directly address one or more" challenges. | Met. |
@@ -130,7 +130,7 @@ of the solution or needed to run it. AI use is disclosed in `provenance.md`.
 
 | ID | Item | Why it matters | Suggested action |
 | --- | --- | --- | --- |
-| C1 | **Choose a licence for the project.** | Required by the terms. Without one, NASA will distribute the work under Apache 2.0. | Apache-2.0 is the simplest choice: it is NASA's default, and it is compatible with every dependency. MIT is the main alternative. Nothing is added until you decide. |
+| C1 | ~~Choose a licence for the project.~~ **Resolved in A9.** | Required by the terms. | Apache-2.0 approved by the participant on 15 Nov 2026 and added as `LICENSE`. |
 | C2 | **Notify the NASA POWER project.** | POWER asks to hear about uses of its data and about redistribution. | Send a short note to `larc-power-project@mail.nasa.gov` once the project is public. A draft can be prepared in A9. |
 | C3 | **Describe optional paid services neutrally.** | The terms exclude "material that promotes commercial services or products" and require third-party materials to be free or open source where the solution *requires* them. | OpenAI and Manus stay optional and off by default, and the solution works fully without them. In the submission, describe them as optional integrations, or leave A6 and A7 out. |
 | C4 | **Check the Manus service against the China-affiliation rule before A7.** | The terms forbid collaborating or coordinating with "any Chinese-owned entity" in relation to participation. Whether a commercial tool falls under this, and who owns Manus today, was not verified. | Confirm with your Local Lead, or skip A7. |

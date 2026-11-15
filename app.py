@@ -934,9 +934,9 @@ def _knowledge_summary(knowledge: KnowledgeBase) -> None:
 
 def _about(settings: Settings, scenarios: ScenarioSet | None) -> None:
     st.markdown(
-        f"**Development stage {CURRENT_PHASE} of A9: interactive application.** The NASA data layer, the cited "
-        "knowledge base, the comparison engine and this interface work. Optional AI explanations (A6) and research "
-        "reports (A7) are not built and are switched off."
+        f"**Development stage {CURRENT_PHASE} of A9: demonstration and submission.** The NASA data layer, the cited "
+        "knowledge base, the comparison engine and this interface work, and were checked in an internal validation "
+        "(A8). Optional AI explanations (A6) and research reports (A7) are deferred: not built, and switched off."
     )
     st.subheader("What CropShift does")
     st.markdown(
