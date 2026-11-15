@@ -136,13 +136,16 @@ signed-out headless browser):
 * Public copy: `docs/presentation/CropShift_RESILIENCE_demo.pdf`, seven
   1920 × 1080 pages rendered from the deck's own slide files and checked page
   by page. Same file name, so the demo link is unchanged.
-* Look (updated 15 Nov 2026, at the participant's request): the "Starry
-  Night" theme. Every slide sits on a painted night sky over fields and wheat,
-  original AI-generated artwork watermarked "AI-generated artwork (SI) · after
-  Van Gogh, The Starry Night (1889) · imaginary landscape" on every slide, with
-  text on solid dark panels. Content, numbers and the real app screenshots are
-  unchanged. The AI-use disclosures in the README, `provenance.md` and the
-  submission text were updated to say so.
+* Look (updated 15 Nov 2026, at the participant's request): every slide sits
+  on the participant's AI-generated painting of a wheat field under a swirling
+  night sky, watermarked "AI-generated image (SI) · imaginary landscape, not
+  the pilot site" on every slide. The cover writes the title, tagline and team
+  directly on the painting (an edgeless shade and a letter halo keep it above
+  4.5:1 contrast); the other slides keep text on solid dark panels. A second
+  image the participant offered for the cover was not used because it showed
+  a child, which the Project Submission Guide does not allow in demos. Content,
+  numbers and the real app screenshots are unchanged. The AI-use disclosures
+  in the README, `provenance.md` and the submission text say so.
 
 ## J. Submission text status
 
