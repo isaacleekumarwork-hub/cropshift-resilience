@@ -101,6 +101,13 @@ uv pip install --python .venv/bin/python -r requirements.txt
 .venv/bin/python -m streamlit run app.py
 ```
 
+To reproduce the exact tested environment (46 packages, versions recorded on
+15 November 2026), install from the lock file instead:
+
+```bash
+uv pip install --python .venv/bin/python -r requirements-lock.txt
+```
+
 Run these from the repository root, so that Python finds the `src` package.
 The app opens at http://localhost:8501. On first start it requests the pilot
 dataset from NASA (about a second) and caches it. Without a connection it falls
@@ -234,6 +241,7 @@ docs/                   Project documentation
 
 | Document | Contents |
 | --- | --- |
+| [docs/a8_validation_report.md](docs/a8_validation_report.md) | Independent validation: science, NASA data, browser walkthrough, security, usability, submission readiness |
 | [docs/a5_application_guide.md](docs/a5_application_guide.md) | Launching and using the app; demonstration script; known issues |
 | [docs/a5_validation_report.md](docs/a5_validation_report.md) | A5 test results, walkthrough, acceptance checklist and A6 readiness |
 | [docs/a5_ui_architecture.md](docs/a5_ui_architecture.md) | Interface files, caching, state and failure handling |

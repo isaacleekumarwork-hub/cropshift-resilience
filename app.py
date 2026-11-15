@@ -19,6 +19,7 @@ direction. See docs/provenance.md.
 from __future__ import annotations
 
 import calendar
+import hashlib
 import logging
 from datetime import date
 
@@ -36,7 +37,7 @@ from src.comparison_engine import (
     PrioritySelection,
     compare_strategies,
 )
-from src.config import Settings, get_settings
+from src.config import PROJECT_ROOT, Settings, get_settings
 from src.crop_knowledge import KnowledgeBase, KnowledgeBaseError, load_knowledge_base
 from src.data_processing import monthly_climatology, monthly_summary, to_wide_frame
 from src.data_service import load_pilot_dataset
@@ -104,28 +105,43 @@ def _pilot_dataset(_settings: Settings, fingerprint: tuple[object, ...]) -> Envi
     return load_pilot_dataset(settings=_settings)
 
 
+def _source_fingerprint() -> str:
+    """A fingerprint of the code and knowledge files that every cached result depends on.
+
+    Part of every cache key below, so a result made by older code or older knowledge
+    files is never served after they change (for example after a hot reload).
+    """
+    digest = hashlib.sha256()
+    paths = sorted([*(PROJECT_ROOT / "src").glob("*.py"), *(PROJECT_ROOT / "data" / "knowledge").glob("*.json")])
+    for path in paths:
+        digest.update(path.name.encode("utf-8"))
+        digest.update(path.read_bytes())
+    return digest.hexdigest()[:16]
+
+
 @st.cache_resource(show_spinner="Loading the knowledge base and evidence audit…")
-def _knowledge() -> tuple[KnowledgeBase, EvidenceGate]:
+def _knowledge(source_key: str) -> tuple[KnowledgeBase, EvidenceGate]:
     kb = load_knowledge_base()
     return kb, load_evidence_gate(kb)
 
 
 @st.cache_resource(show_spinner="Ranking past seasons…")
-def _scenarios(_dataset: EnvironmentalDataset, dataset_key: tuple[str, str]) -> ScenarioSet:
+def _scenarios(_dataset: EnvironmentalDataset, dataset_key: tuple[str, str, str]) -> ScenarioSet:
     return build_scenarios(_dataset, pilot_configuration().windows)
 
 
 @st.cache_resource(show_spinner=False)
-def _climatology(_dataset: EnvironmentalDataset, dataset_key: tuple[str, str]) -> pd.DataFrame:
+def _climatology(_dataset: EnvironmentalDataset, dataset_key: tuple[str, str, str]) -> pd.DataFrame:
     return monthly_climatology(monthly_summary(_dataset))
 
 
 @st.cache_resource(show_spinner="Comparing rotations…", max_entries=32)
 def _report(
-    _scenarios: ScenarioSet, _kb: KnowledgeBase, _gate: EvidenceGate, key: tuple[str, str, str, str, tuple[str, ...]]
+    _scenarios: ScenarioSet, _kb: KnowledgeBase, _gate: EvidenceGate,
+    key: tuple[str, str, str, str, str, tuple[str, ...]],
 ) -> ComparisonReport:
-    """One report per dataset, knowledge base, audit, soil input and priority order."""
-    _, _, _, soil_json, priorities = key
+    """One report per code version, dataset, knowledge base, audit, soil input and priority order."""
+    _, _, _, _, soil_json, priorities = key
     soil = None if soil_json == "no-soil" else SoilProfileInput.model_validate_json(soil_json)
     selection = PrioritySelection(dimensions=tuple(PriorityDimension(item) for item in priorities)) if priorities else None
     return compare_strategies(
@@ -174,7 +190,7 @@ def _category_line(result: IndicatorResult, category: ScenarioCategory | None) -
     lead = f"In the {summary.seasons} {category.value} {result.window_id.replace('-', ' ') if result.window_id else ''} seasons"
     if result.indicator_id == "rainfall_vs_crop_water_use":
         return (f"{lead}: rainfall below the range in {count('below')}, within it in {count('within')}, above it in "
-                f"{count('above')}; median {summary.median_value:g} mm.")
+                f"{count('above')}; median {summary.median_value:.0f} mm.")
     if result.indicator_id == "temperature_vs_documented_range":
         outside = count("below") + count("above")
         return (f"{lead}: season mean outside the range in {outside}; median share of days inside the range "
@@ -328,7 +344,7 @@ def _overview(config: PilotConfiguration, dataset: EnvironmentalDataset | None, 
                 )
             st.caption("Descriptions of the past record, not forecasts and not scores.")
     if dataset is not None:
-        climatology = _climatology(dataset, (dataset.dataset_id, dataset.provenance.payload_sha256))
+        climatology = _climatology(dataset, (dataset.dataset_id, dataset.provenance.payload_sha256, SOURCE_KEY))
         _chart(viz.monthly_rainfall_figure(climatology, [(item.start_month, item.end_month) for item in config.windows]))
     st.subheader("How to use CropShift")
     st.markdown(
@@ -485,7 +501,7 @@ def _data_quality(dataset: EnvironmentalDataset) -> None:
     st.dataframe(wide.head(PREVIEW_ROWS), width="stretch")
     st.markdown(f"**Last {PREVIEW_ROWS} days**")
     st.dataframe(wide.tail(PREVIEW_ROWS), width="stretch")
-    climatology = _climatology(dataset, (dataset.dataset_id, dataset.provenance.payload_sha256))
+    climatology = _climatology(dataset, (dataset.dataset_id, dataset.provenance.payload_sha256, SOURCE_KEY))
     table = climatology.pivot(index="month", columns="variable", values="mean_value")
     table = table[[name for name in dataset.variables if name in table.columns]]
     monthly_units = climatology.drop_duplicates("variable").set_index("variable")["unit"]
@@ -1004,6 +1020,7 @@ except ValidationError as error:
     )
     st.stop()
 
+SOURCE_KEY = _source_fingerprint()
 config = pilot_configuration()
 request = config.site.request()
 fingerprint = (
@@ -1013,6 +1030,7 @@ fingerprint = (
     str(settings.nasa_demo_path),
     settings.nasa_min_completeness_percent,
     settings.nasa_power_base_url,
+    SOURCE_KEY,
 )
 dataset: EnvironmentalDataset | None = None
 data_error: str | None = None
@@ -1024,14 +1042,14 @@ except NasaDataError as error:
 kb: KnowledgeBase | None = None
 gate: EvidenceGate | None = None
 try:
-    kb, gate = _knowledge()
+    kb, gate = _knowledge(SOURCE_KEY)
 except KnowledgeBaseError as error:
     LOG.warning("knowledge base not loaded: %s", error)
 
 scenarios: ScenarioSet | None = None
 if dataset is not None and dataset.quality.accepted:
     try:
-        scenarios = _scenarios(dataset, (dataset.dataset_id, dataset.provenance.payload_sha256))
+        scenarios = _scenarios(dataset, (dataset.dataset_id, dataset.provenance.payload_sha256, SOURCE_KEY))
     except Exception:  # noqa: BLE001
         LOG.exception("scenarios could not be built")
 
@@ -1047,7 +1065,7 @@ if scenarios is not None and kb is not None and gate is not None:
         soil_json, priorities = selections.cache_key()
         report = _report(
             scenarios, kb, gate,
-            (scenarios.payload_sha256, kb.manifest.knowledge_base_version, gate.audit.audit_version, soil_json, priorities),
+            (SOURCE_KEY, scenarios.payload_sha256, kb.manifest.knowledge_base_version, gate.audit.audit_version, soil_json, priorities),
         )
     except Exception:  # noqa: BLE001
         LOG.exception("comparison failed")

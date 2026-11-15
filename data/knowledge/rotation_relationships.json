@@ -559,7 +559,7 @@
         "The effect was weaker in the driest zones and after cowpea than after soybean or groundnut.",
         "Says nothing about the legume's own yield, pests or water use."
       ],
-      "user_explanation": "Growing a cereal season after season without a legume usually means lower cereal yields than a rotation with a legume. Research in Africa, including a trial at Machakos, found this on average, but the size of the benefit varies a lot from place to place.",
+      "user_explanation": "Research in Africa found that cereals grown after a legume yielded more, on average, than cereals grown season after season, and a trial at Machakos found this for maize after cowpea. The effect varies a lot from place to place, and at Machakos maize after pigeon pea gained little.",
       "evidence": [
         {
           "source_id": "franke-2018",
@@ -930,7 +930,7 @@
         "No heat-stress threshold is held for any crop.",
         "NASA temperatures describe a grid cell at its average elevation, not the field."
       ],
-      "user_explanation": "Each crop grows best within a range of temperatures. If your seasons are usually warmer or cooler than that range, the crop may do less well. This comparison uses averages over a wide area and cannot show short hot or cold spells.",
+      "user_explanation": "Each crop grows best within a range of temperatures. If your seasons are usually warmer or cooler than that range, the crop may do less well. The sources often do not say which temperature they mean, and this comparison uses averages over a wide area that cannot show short hot or cold spells.",
       "evidence": [
         {
           "source_id": "feedipedia-maize-forage",

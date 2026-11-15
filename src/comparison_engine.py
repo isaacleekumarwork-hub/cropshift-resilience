@@ -555,6 +555,14 @@ def _used(decision: GateDecision, kb: KnowledgeBase, provenance: ProvenanceRecor
     )
 
 
+def _short_source(kb: KnowledgeBase, source_id: str) -> str:
+    """A readable short reference: the source's title and year (never a citation cut at an initial)."""
+    source = next((item for item in kb.sources if item.source_id == source_id), None)
+    if source is None:
+        return source_id
+    return f"{source.title} ({source.year})" if source.year else source.title
+
+
 def _range_text(low: float | None, high: float | None, unit: str) -> str:
     if low is not None and high is not None:
         return f"{low:g} to {high:g} {unit}" if low != high else f"{low:g} {unit}"
@@ -698,7 +706,8 @@ def rainfall_vs_water_use(
         window_id=window.window.season_id, requirement_id=requirement.requirement_id,
         headline=(
             f"{name}, {window_name}: season rainfall was below the indicative water use of {range_text} in "
-            f"{below} of {len(findings)} past seasons, within it in {within} and above it in {above}."
+            f"{below} of {len(findings)} past seasons, within it in {within} and above it in {above} "
+            f"(rain within the {window_days}-day window only; not a water balance)."
         ),
         values=(
             IndicatorValue(label="Indicative seasonal water use, low end", value=low, unit=Unit.MILLIMETRE),
@@ -728,7 +737,7 @@ def rainfall_vs_water_use(
             ),
             data_and_evidence_used=(
                 f"NASA POWER daily rainfall (MERRA-2 reanalysis), 2001-2025, summed over each window; the water-use "
-                f"range from {evidence[0].citation.split('.')[0]}, {requirement.provenance.locator}."
+                f"range from {_short_source(kb, evidence[0].source_id)}, {requirement.provenance.locator}."
             ),
             assumptions=(
                 "The rainy-season window stands in for the growing season; sowing dates are not known. Rainfall is "
@@ -803,7 +812,8 @@ def temperature_vs_range(
                 headline=(
                     f"{name}, {window_name}: on a median {share_text} of days the daily mean temperature was inside "
                     f"the {requirement.basis.value} range of {range_text}; the season mean lay outside it in "
-                    f"{means_outside} of {len(findings)} seasons."
+                    f"{means_outside} of {len(findings)} seasons (the source does not say which temperature it "
+                    "means, so this is not evidence of unsuitability)."
                 ),
                 values=(
                     IndicatorValue(label=f"Documented {requirement.basis.value} range, low end", value=low, unit=Unit.DEGREE_CELSIUS),
@@ -831,7 +841,7 @@ def temperature_vs_range(
                     ),
                     data_and_evidence_used=(
                         f"NASA POWER daily mean air temperature at 2 m (MERRA-2), 2001-2025; the range from "
-                        f"{evidence[0].citation.split('.')[0]}, {requirement.provenance.locator}."
+                        f"{_short_source(kb, evidence[0].source_id)}, {requirement.provenance.locator}."
                     ),
                     assumptions="The daily mean temperature is taken as comparable with the documented range; the window stands in for the growing season.",
                     what_it_means=(
@@ -950,7 +960,7 @@ def growing_period_vs_window(
         ),
         explanation=IndicatorExplanation(
             what_was_calculated=f"The documented total growing period of {name.lower()} minus the length of the {window_name} window.",
-            data_and_evidence_used=f"{evidence[0].citation.split('.')[0]}, {requirement.provenance.locator}; the FAO GIEWS season window.",
+            data_and_evidence_used=f"{_short_source(kb, evidence[0].source_id)}, {requirement.provenance.locator}; the FAO GIEWS season window.",
             assumptions="The window is used as the length of the rainy season.",
             what_it_means="A crop longer than the window relies on rain after the window or on stored soil water to finish.",
             what_it_does_not_establish="Real rainy seasons vary in length, and local varieties may be shorter or longer.",
@@ -1026,7 +1036,7 @@ def annual_rainfall_vs_range(
                 ),
                 explanation=IndicatorExplanation(
                     what_was_calculated=f"For each complete calendar year, whether NASA annual rainfall was inside {range_text}.",
-                    data_and_evidence_used=f"NASA POWER daily rainfall summed by year; {evidence[0].citation.split('.')[0]}, {requirement.provenance.locator}.",
+                    data_and_evidence_used=f"NASA POWER daily rainfall summed by year; {_short_source(kb, evidence[0].source_id)}, {requirement.provenance.locator}.",
                     assumptions="None beyond treating the grid-cell rainfall as representative of the area.",
                     what_it_means=f"How often the site's annual rainfall resembled the rainfall of areas the source associates with {name.lower()}.",
                     what_it_does_not_establish="It says nothing about the timing of rain within the year, or about any one season.",
@@ -1753,8 +1763,10 @@ def build_tradeoffs(strategies: Sequence[StrategyAssessment]) -> tuple[TradeoffN
             statement="; ".join(
                 f"{name}: {', '.join(dict.fromkeys(items)) if items else 'no legume'}" for name, items in legumes.items()
             )
-            + ". A review abstract reports higher average cereal yields after grain legumes in sub-Saharan Africa, with large "
-            "variation; at Machakos both cowpea and pigeon pea were affected by pests and diseases.",
+            + ". Past study results, not predictions: a review abstract reports higher average cereal yields after grain "
+            "legumes in sub-Saharan Africa, with large variation and weaker effects after cowpea than after soybean or "
+            "groundnut. At Machakos, maize after cowpea yielded about 17 % more than continuous maize, maize after pigeon "
+            "pea only marginally more, and both legumes were affected by pests and diseases.",
             strategies_involved=names,
         )
     )

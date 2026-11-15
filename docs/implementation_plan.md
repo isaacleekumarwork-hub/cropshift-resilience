@@ -6,10 +6,7 @@ The hackathon runs **14–15 November 2026**. Submission closes on **Sunday
 15 November at 11:59 p.m. Singapore time**. Phase A1 finished on Saturday
 morning, leaving about a day and a half for A2 to A9.
 
-**Status at 10:35 on Sunday 15 November:** A1 to A5 are complete; A5 took
-about half an hour. About 13.5 hours remain for A8 and A9 (A6 and A7 are optional and
-best skipped). The revised windows below keep at least three hours of buffer
-before the deadline; A6 and A7 remain optional and are still best skipped.
+**Status at 13:30 on Sunday 15 November:** A1 to A5 and the A8 validation are complete. About 10.5 hours remain for A9. A6 and A7 are not recommended before submission (see `a8_validation_report.md`, section N).
 
 The time boxes below are a proposal, not a commitment. The rule that matters:
 **a submitted, honest MVP beats an unfinished ambitious one.** If a phase
@@ -24,7 +21,7 @@ overruns, cut scope inside it rather than borrowing time from A8 and A9.
 | A5 Streamlit interface | Sun morning | Done |
 | A6 OpenAI explanations | Only if A5 finishes early | **Yes, optional; recommend skipping** |
 | A7 Manus reports | Only if A5 finishes early | **Yes, optional; recommend skipping** |
-| A8 Final validation | Sun late afternoon (revised) | No |
+| A8 Final validation | Sun late morning | Done |
 | A9 Demonstration and submission | Sun early evening (revised) | No |
 | Buffer | Sun evening | Keep at least three hours before the deadline |
 

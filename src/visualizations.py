@@ -42,6 +42,7 @@ UNCLASSIFIED_COLOUR = "#CCCCCC"
 TEMPERATURE_COLOURS = {"max": "#D55E00", "mean": "#4D4D4D", "min": "#56B4E9"}
 BAND_COLOUR = "rgba(0, 158, 115, 0.12)"  # pale bluish green, a reference band only
 BAND_LINE = "#009E73"
+OUTLINE = {"color": "#333333", "width": 0.8}  # dark edge so every bar reaches 3:1 contrast against white
 CHART_CONFIG = {"displaylogo": False, "modeBarButtonsToRemove": ["lasso2d", "select2d"]}
 
 
@@ -79,6 +80,7 @@ def seasonal_rainfall_figure(window: WindowScenarios, *, highlight: ScenarioCate
             y=[item.rainfall_total_mm for item in members],
             name=f"{category.value.title()} ({len(members)})",
             marker_color=CATEGORY_COLOURS[category],
+            marker_line=OUTLINE,
             opacity=0.3 if dimmed else 1.0,
             customdata=[[item.label, item.rank, item.wet_days, item.longest_dry_spell_days] for item in members],
             hovertemplate=(
@@ -178,7 +180,7 @@ def season_daily_figure(season: SeasonClimate) -> go.Figure:
     figure.add_bar(
         x=days, y=list(season.daily_precipitation_mm), name="Daily rainfall",
         marker_color=CATEGORY_COLOURS.get(season.category, UNCLASSIFIED_COLOUR) if season.category else UNCLASSIFIED_COLOUR,
-        hovertemplate="%{x|%d %b %Y}: %{y:.1f} mm<extra></extra>", row=1, col=1,
+        marker_line=OUTLINE, hovertemplate="%{x|%d %b %Y}: %{y:.1f} mm<extra></extra>", row=1, col=1,
     )
     for name, values, colour in (
         ("Daily maximum", season.daily_max_temperature_c, TEMPERATURE_COLOURS["max"]),
@@ -240,7 +242,7 @@ def water_use_figure(result: IndicatorResult, crop_name: str, window_name: str) 
         if members:
             figure.add_bar(
                 x=[item.year for item in members], y=[item.value for item in members],
-                name=f"{category.value.title()} seasons", marker_color=CATEGORY_COLOURS[category],
+                name=f"{category.value.title()} seasons", marker_color=CATEGORY_COLOURS[category], marker_line=OUTLINE,
                 customdata=[item.position for item in members],
                 hovertemplate="%{x}: %{y:.0f} mm, %{customdata} the indicative range<extra></extra>",
             )
