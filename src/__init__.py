@@ -74,6 +74,7 @@ MODULES: tuple[Module, ...] = (
         deferred="Not built: the A5 brief says not to persist user inputs without an explicit need; downloads cover keeping a result.",
     ),
     Module("report_service", "A5", "Export a comparison as Markdown and JSON", True),
+    Module("ui_theme", "A5", "Starry Night visual theme: stylesheet, background artwork and chart restyling", True),
     Module("openai_service", "A6", "Optional plain-language explanations", False),
     Module("manus_service", "A7", "Optional asynchronous research reports", False),
 )

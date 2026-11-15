@@ -75,8 +75,16 @@ code ("descriptive text and metadata"):
 * this file and `README.md` state it;
 * the app's footer states it.
 
-No AI-generated images, video or audio are in this project. If any are added,
-they need a visible watermark. No NASA logos or mission identifiers are used.
+AI-generated images: the visual theme's artwork in `static/theme/` (a painted
+night sky over fields and wheat, a banner strip and brushstroke ornaments) is
+original SVG produced by `scripts/make_theme_artwork.py`, which was written
+with AI assistance (patch A9.UI.1). It is inspired by Vincent van Gogh's
+public-domain *The Starry Night* (1889) but reproduces no painting. As the
+Project Submission Guide requires, the image carries a visible watermark
+("Original AI-generated artwork (SI)"), and every page shows a credit saying
+the background is AI-generated. The landscape is imaginary, not the pilot
+site. No AI-generated video or audio is in this project. No NASA logos or
+mission identifiers are used.
 
 The participant should complete the SI field of the submission form in their
 own words, and add any other AI tools they used outside this repository.

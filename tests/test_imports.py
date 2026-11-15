@@ -96,6 +96,7 @@ def test_data_and_knowledge_modules_are_working():
         "visualizations",
         "ui_state",
         "report_service",
+        "ui_theme",
     }
 
 

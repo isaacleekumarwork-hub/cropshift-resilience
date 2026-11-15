@@ -8,11 +8,43 @@ gatherUsageStats = false
 [server]
 # Start without the interactive first-run prompt.
 headless = true
+# Serve ./static (the theme's painted SVG artwork) from this app at /app/static/.
+# Local files only, so offline mode is unaffected.
+enableStaticServing = true
 
 [client]
 # The public page shows generic error messages only; details go to the server log.
 showErrorDetails = "none"
 
 [theme]
-# Okabe-Ito blue: colour-blind safe, and not a red/green verdict colour.
-primaryColor = "#0072B2"
+# "Starry Night" theme (patch A9.UI.1): a dark night-sky palette. Presentation
+# only; the CSS and background artwork live in src/ui_theme.py. Every text
+# colour below is checked for WCAG AA contrast in tests/test_ui_theme.py.
+# Gold is an interface accent only; it never marks a result as better.
+base = "dark"
+primaryColor = "#F3C94E"
+backgroundColor = "#101B38"
+secondaryBackgroundColor = "#17294B"
+textColor = "#F4E8C8"
+linkColor = "#F3C94E"
+borderColor = "#54759B"
+dataframeBorderColor = "#3B5C85"
+dataframeHeaderBackgroundColor = "#24477A"
+dataframeHeaderTextColor = "#F4E8C8"
+showWidgetBorder = true
+baseRadius = "0.6rem"
+# Body: Streamlit's bundled sans-serif (Source Sans), served by the app itself,
+# so offline mode never waits for a font download. Headings: Georgia, a
+# system serif.
+font = "sans-serif"
+headingFont = "Georgia, 'Times New Roman', serif"
+# Status words (Supported, Conditional, Unavailable) keep their text; these
+# colours only have to stay readable on the dark panels.
+blueTextColor = "#9CC8F2"
+orangeTextColor = "#FFB46B"
+grayTextColor = "#BAC6D8"
+
+[theme.sidebar]
+backgroundColor = "#0D1631"
+secondaryBackgroundColor = "#17294B"
+textColor = "#F4E8C8"

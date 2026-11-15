@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import calendar
 import hashlib
+import itertools
 import logging
 from datetime import date
 
@@ -50,6 +51,7 @@ from src.scenario_engine import ScenarioSet, build_scenarios
 from src.season_config import CANDIDATE_STRATEGIES, PilotConfiguration, pilot_configuration
 from src.soil_inputs import SoilProfileInput
 from src import ui_state as ui
+from src import ui_theme
 from src import visualizations as viz
 
 LOG = logging.getLogger("cropshift.app")
@@ -171,8 +173,13 @@ def _label(variable: str, unit: str) -> str:
     return f"{VARIABLE_LABELS.get(variable, variable)} ({unit})"
 
 
+# Painted cards get a unique key per run; Streamlit turns it into a CSS class.
+_CARD_IDS = itertools.count()
+
+
 def _chart(figure) -> None:
-    st.plotly_chart(figure, width="stretch", config=viz.CHART_CONFIG)
+    # The theme restyles colours only; every trace keeps its data and units.
+    st.plotly_chart(ui_theme.theme_figure(figure), width="stretch", config=viz.CHART_CONFIG)
 
 
 def _confidence(result: IndicatorResult) -> str:
@@ -228,7 +235,7 @@ def _explanation(result: IndicatorResult, kb: KnowledgeBase) -> None:
 
 
 def _indicator_card(result: IndicatorResult, category: ScenarioCategory | None, kb: KnowledgeBase, prioritised: bool) -> None:
-    with st.container(border=True):
+    with st.container(border=True, key=ui_theme.card_key(next(_CARD_IDS))):
         star = " · ★ your priority" if prioritised else ""
         st.markdown(f"{STATUS_LABELS[result.status]} · confidence {_confidence(result)}{star}")
         st.markdown(result.headline)
@@ -552,7 +559,7 @@ def _comparison(report: ComparisonReport | None, report_error: str | None, kb: K
         st.subheader("Your priorities")
         for section in report.priorities.sections:
             prioritised.update(section.indicator_ids)
-            with st.container(border=True):
+            with st.container(border=True, key=ui_theme.card_key(next(_CARD_IDS))):
                 st.markdown(f"**{section.order}. {section.label}** · evidence available: {section.evidence_available.replace('_', ' ')}")
                 st.caption(section.why_it_matters)
                 if section.unsupported_note:
@@ -575,7 +582,7 @@ def _comparison(report: ComparisonReport | None, report_error: str | None, kb: K
     for column, assessment in zip(columns, report.strategies):
         profile = assessment.profile
         with column:
-            with st.container(border=True):
+            with st.container(border=True, key=ui_theme.card_key(next(_CARD_IDS))):
                 st.markdown(f"### {profile.name}")
                 st.markdown(f"**Sequence:** {' → '.join(crop.common_name for crop in profile.crops)} (repeating)")
                 st.markdown(f"**Plant families:** {', '.join(profile.families)}")
@@ -994,7 +1001,9 @@ def _about(settings: Settings, scenarios: ScenarioSet | None) -> None:
     st.subheader("AI assistance")
     st.caption(
         "Built during the hackathon with an AI coding assistant (Claude Code, by Anthropic) under the participant's "
-        "direction. No AI-generated images, video, audio or scientific data are included; see docs/provenance.md."
+        "direction. No AI-generated video, audio or scientific data are included. The page background is an "
+        "original AI-generated artwork inspired by Van Gogh's The Starry Night (1889), watermarked as such; "
+        "see docs/provenance.md."
     )
 
 
@@ -1003,8 +1012,11 @@ def _about(settings: Settings, scenarios: ScenarioSet | None) -> None:
 # --------------------------------------------------------------------------- #
 
 st.set_page_config(page_title=PROJECT_NAME, page_icon="🌾", layout="wide")
+THEMED = ui_theme.apply_starry_night_theme()
 
 st.title(PROJECT_NAME)
+if THEMED:
+    st.markdown(ui_theme.tagline_html(), unsafe_allow_html=True)
 st.markdown("**Explore historical climate conditions and compare evidence-backed crop rotations.**")
 st.caption(f"{EVENT_NAME} · {CHALLENGE_NAME}")
 
@@ -1096,4 +1108,5 @@ st.caption(DEFAULT_DISCLAIMER)
 st.caption(
     f"Version {__version__} · NASA data from the NASA POWER project; this project is not endorsed by NASA · "
     "Built during the hackathon with AI coding assistance; see docs/provenance.md."
+    + (f" {ui_theme.ARTWORK_CREDIT}." if THEMED else "")
 )
