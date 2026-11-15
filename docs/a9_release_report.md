@@ -38,7 +38,7 @@ Judging" (section L).
 | `main` | Fast-forwarded to `bc5bff3` after approval |
 | Remote | `origin` = https://github.com/isaacleekumarwork-hub/cropshift-resilience (public), created with `gh repo create --public --source . --push`; `main` pushed and tracking `origin/main`. Other local branches were not pushed |
 | History rewritten | No. No force-push |
-| Author identity | `isaacleekumarwork` with a Gmail address on all three commits (see section E) |
+| Author identity | Rewritten after A9 to `Isaac Lee Kumar <windshift@noreply.invalid>` on every commit; see `a9_publication_report.md` |
 
 ## C. Final scientific claims register
 
@@ -95,7 +95,7 @@ patent grant, and matches what the Space Apps terms name as NASA's default.
 | Minors | No people appear anywhere |
 | **Git history secrets** | All commits searched for API-key, token and private-key patterns: none. The only `.env`-type file ever committed is `.env.example`, whose key values are empty |
 | `.gitignore` | Excludes `.env`, `.env.*` (except the example), `.streamlit/secrets.toml`, `.venv/`, caches, `data/cache/`, databases, logs, `.DS_Store`, `.claude/`, `.gstack/` |
-| **Personal data** | No name, e-mail or local path in any tracked file. **The commit author e-mail is a personal Gmail address on all three commits** (compliance item C5): it becomes public on publication. Changing it means rewriting history, which A9 forbids without approval |
+| **Personal data** | No e-mail or local path in any tracked file. The commit author e-mail was originally a personal address (compliance item C5); with the participant's approval every commit was rewritten to an anonymous address and the repository recreated (`a9_publication_report.md`) |
 | Intended contents only | 84 tracked files plus the A9 additions: code, tests, the NASA response, knowledge JSON, docs and screenshots. Largest file 900 KB (the NASA response) |
 
 ## F. Presentation and screenshots

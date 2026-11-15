@@ -5,8 +5,8 @@ evidence, the gaps and the uncertainty in plain view.**
 
 An entry to the **NASA Space Apps Challenge 2026**, challenge
 [Field Shift: Adapting Farms with NASA Data](https://www.spaceappschallenge.org/2026/challenges/adapting-farms-with-nasa-data/),
-Singapore Local Event. Built by a solo participant (team WindShift) during the
-hackathon.
+Singapore Local Event. Built during the hackathon by Isaac Lee Kumar, a solo
+participant competing as team WindShift.
 
 **Demo:** [seven-slide deck (PDF)](docs/presentation/CropShift_RESILIENCE_demo.pdf)
 
@@ -298,6 +298,7 @@ docs/screenshots/       Real screenshots of the app
 | [docs/a9_claims_register.md](docs/a9_claims_register.md) | What may be claimed, what must be qualified, what must not be claimed |
 | [docs/a9_submission_text.md](docs/a9_submission_text.md) | Text for the Space Apps project page |
 | [docs/a9_release_report.md](docs/a9_release_report.md) | A9 release, licensing and publication audit, submission checklist |
+| [docs/a9_publication_report.md](docs/a9_publication_report.md) | Final publication: licence, commit identity, privacy audit, public access checks |
 | [docs/a8_validation_report.md](docs/a8_validation_report.md) | Internal validation by separate recalculation: science, NASA data, browser walkthrough, security, accessibility (not an external review) |
 | [docs/a5_application_guide.md](docs/a5_application_guide.md) | Using the app; demonstration script; known issues |
 | [docs/rotation_comparison_methodology.md](docs/rotation_comparison_methodology.md) | Indicators, constraints, priorities, tradeoffs and the pilot results |
@@ -339,8 +340,8 @@ scientific sources, ran the NASA requests and checked the app in a browser.
 
 ## Licence
 
-The original code and documentation are released under the
-[Apache License 2.0](LICENSE), chosen by the participant on 15 November 2026.
+Copyright 2026 Isaac Lee Kumar. The original code and documentation are
+released under the [Apache License 2.0](LICENSE); see also [NOTICE](NOTICE).
 The bundled NASA POWER data keeps NASA's own terms and attribution, and the
 cited scientific sources remain their authors' works. Third-party software
 licences (all permissive) are listed in [docs/compliance.md](docs/compliance.md).

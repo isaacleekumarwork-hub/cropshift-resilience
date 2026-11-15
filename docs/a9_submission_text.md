@@ -13,8 +13,10 @@ The form itself is behind the participant's login and was not opened, so if a
 field shows a limit when you paste, shorten the text there. The answers below
 are written to be cut from the end.
 
-**Before pasting, replace the bracketed placeholders:** `[Team name]` and
-`[Your full name]`. Both links are filled in.
+**Ready to paste.** Project: CropShift RESILIENCE. Team: WindShift.
+Participant: Isaac Lee Kumar. Both links are filled in and were checked
+without a login. One bracketed note remains in the SI section for you to
+complete or delete.
 
 ---
 
@@ -174,7 +176,7 @@ shows they are needed.
 
 **Team**
 
-Solo participant: [Your full name], team [Team name], Singapore Local Event.
+Team WindShift: Isaac Lee Kumar, solo participant, Singapore Local Event.
 The participant chose the challenge and defined the product concept,
 architecture, scope and acceptance criteria for each development phase, and
 reviewed and approved each phase. Implementation was AI-assisted, as described
