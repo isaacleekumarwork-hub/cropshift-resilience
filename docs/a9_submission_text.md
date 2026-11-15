@@ -13,8 +13,8 @@ The form itself is behind the participant's login and was not opened, so if a
 field shows a limit when you paste, shorten the text there. The answers below
 are written to be cut from the end.
 
-**Before pasting, replace every bracketed placeholder:** `[Team name]`,
-`[Your full name]`, `[demo link]`.
+**Before pasting, replace the bracketed placeholders:** `[Team name]` and
+`[Your full name]`. Both links are filled in.
 
 ---
 
@@ -45,11 +45,10 @@ starting point for adapting farm decisions to variable rainfall.
 
 ## Link to Project Demo
 
-[demo link]
+https://github.com/isaacleekumarwork-hub/cropshift-resilience/blob/main/docs/presentation/CropShift_RESILIENCE_demo.pdf
 
-A seven-slide deck (title and introduction included). It has to be exported
-and hosted at a public link that needs no login. Test the link in a private
-browser window before submitting.
+A seven-slide deck (title and introduction included), as a PDF in the public
+repository. Test the link in a private browser window before submitting.
 
 ## Link to Final Project
 

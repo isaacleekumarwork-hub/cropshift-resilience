@@ -5,7 +5,10 @@ evidence, the gaps and the uncertainty in plain view.**
 
 An entry to the **NASA Space Apps Challenge 2026**, challenge
 [Field Shift: Adapting Farms with NASA Data](https://www.spaceappschallenge.org/2026/challenges/adapting-farms-with-nasa-data/),
-Singapore Local Event. Built by a solo participant during the hackathon.
+Singapore Local Event. Built by a solo participant (team WindShift) during the
+hackathon.
+
+**Demo:** [seven-slide deck (PDF)](docs/presentation/CropShift_RESILIENCE_demo.pdf)
 
 ![The CropShift RESILIENCE Overview tab](docs/screenshots/01-overview.png)
 

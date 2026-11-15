@@ -151,7 +151,7 @@ participant's login and was not opened.
 | Link | Status |
 | --- | --- |
 | Public repository | **https://github.com/isaacleekumarwork-hub/cropshift-resilience**. Checked without credentials on 15 Nov 2026: the repository page, README, LICENSE, a screenshot and the NASA data file all return HTTP 200; the GitHub API reports visibility public, licence Apache-2.0, default branch main; in a signed-out browser the README renders with all six screenshots loaded |
-| Public demo (slides) | **Does not exist.** The deck is a private artifact |
+| Public demo (slides) | `docs/presentation/CropShift_RESILIENCE_demo.pdf` in the public repository: seven 1920 × 1080 pages rendered with headless Chromium from the deck's own slide files (same HTML, styles, fonts and screenshots), each page checked by eye. Link: https://github.com/isaacleekumarwork-hub/cropshift-resilience/blob/main/docs/presentation/CropShift_RESILIENCE_demo.pdf (no-login check below) |
 | Hosted app | None, and none is needed: the guide accepts a code repository as the final project link |
 | `http://localhost:8501` | Local only. Not a submission link; judges cannot open it |
 
@@ -177,7 +177,8 @@ No other test was changed.
 ## J. Outstanding blockers
 
 1. ~~No public link.~~ **Resolved:** the repository is public (section H).
-2. **Demo not hosted.** The deck has to be exported to PDF (or shared publicly)
+2. ~~Demo not hosted.~~ **Resolved:** the deck PDF is in the public repository.
+   Original note: The deck has to be exported to PDF (or shared publicly)
    and given a link that needs no login.
 3. **Placeholders.** Team name and participant name in the deck and the form;
    repository and demo links in the deck and the form.
@@ -201,7 +202,7 @@ to present the pilot site (provisional, as everywhere now, unless approved).
 | Third-party licences checked | Passed | Section E |
 | Project licence approved | Passed | Apache-2.0 approved 15 Nov 2026; `LICENSE` added |
 | Public repository approved and published | Passed | Approved 15 Nov 2026; section H |
-| Public link verified without login | Passed for the repository; **not done** for the demo | Section H |
+| Public link verified without login | Passed for the repository and the demo PDF | Section H |
 | Seven-slide deck or compliant video created | Passed (placeholders remain) | Private Slides artifact |
 | Demo assets checked | Passed | Real screenshots; local render check |
 | Submission text prepared | Passed | `a9_submission_text.md` |
@@ -237,8 +238,8 @@ was. The rest, in order, with the time each takes:
 
 3. ~~**Check the repository link**~~ (done without credentials; a private
    window check of your own is still worthwhile, 1 minute).
-4. **Finish the deck** (5 minutes): replace the two remaining placeholders
-   (`[Team name]`, `[Your full name]`; the repository link is filled in), then
+4. ~~**Finish the deck**~~ (done: team WindShift and the participant's name on
+   the cover; PDF rendered and pushed to `docs/presentation/`). Original note:
    export it as PDF from the deck's Share menu. Add the PDF to the repository
    (for example `docs/presentation/CropShift_RESILIENCE_demo.pdf`) and push,
    or upload it to Google Drive with "anyone with the link" access. Check the
