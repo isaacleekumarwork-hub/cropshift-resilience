@@ -195,8 +195,12 @@ out the demo slides; and drafted this text.
 
 What the SI did not do: it generated no environmental data (every value was
 returned by NASA's service and is stored unmodified), no agronomic values
-(every one was read from the published source it cites), and no images, video
-or audio (the screenshots are captures of the running app). The running app
+(every one was read from the published source it cites), and no video or
+audio. One image is AI-generated: the demo deck's painted background (original
+artwork inspired by Van Gogh's public-domain The Starry Night, showing an
+imaginary landscape), which carries a visible "AI-generated artwork (SI)"
+watermark on every slide. The app itself contains no AI-generated images, and
+the screenshots are captures of the running app. The running app
 uses no AI: its scientific engine is deterministic, and its optional OpenAI and
 Manus integrations are switched off and not built.
 
@@ -302,8 +306,10 @@ documentation are released under the Apache License 2.0.
 
 **Demo deck**
 
-Typefaces Space Grotesk and Inter from Google Fonts (SIL Open Font Licence).
-All images are screenshots of the app; no stock or AI-generated images.
+Typeface Inter from Google Fonts (SIL Open Font Licence) and the system font
+Georgia. Images: screenshots of the app, and a painted background that is the
+project's own watermarked AI-generated artwork (inspired by Vincent van Gogh,
+The Starry Night, 1889; public domain). No stock images.
 
 **Tools**
 

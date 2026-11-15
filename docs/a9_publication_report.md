@@ -135,7 +135,14 @@ signed-out headless browser):
 * Editable source: the private claude.ai Slides artifact.
 * Public copy: `docs/presentation/CropShift_RESILIENCE_demo.pdf`, seven
   1920 × 1080 pages rendered from the deck's own slide files and checked page
-  by page.
+  by page. Same file name, so the demo link is unchanged.
+* Look (updated 15 Nov 2026, at the participant's request): the "Starry
+  Night" theme. Every slide sits on a painted night sky over fields and wheat,
+  original AI-generated artwork watermarked "AI-generated artwork (SI) · after
+  Van Gogh, The Starry Night (1889) · imaginary landscape" on every slide, with
+  text on solid dark panels. Content, numbers and the real app screenshots are
+  unchanged. The AI-use disclosures in the README, `provenance.md` and the
+  submission text were updated to say so.
 
 ## J. Submission text status
 
