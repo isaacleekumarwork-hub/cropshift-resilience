@@ -1,8 +1,38 @@
 # A9.UI.1: Starry Night visual theme, Post-Impressionist edition
 
 Team WindShift, CropShift RESILIENCE. Prepared on branch
-`ui/starry-night-theme`, 15 November 2026. **Presentation only. Not merged,
-not published; the public release on `main` is unchanged.**
+`ui/starry-night-theme`, 15 November 2026. **Presentation only.**
+
+## Update, 18:55: the participant's painting replaces the drawn background
+
+At the participant's request the app now uses the same painting as the demo
+deck: a wheat field under a swirling night sky in the style of Van Gogh, an
+AI-generated image the participant created (no people; imaginary landscape,
+not the pilot site).
+
+* `static/theme/wheatfield_night_wide.jpg` is the page background on
+  landscape screens; `wheatfield_night_tall.jpg` (the participant's tall
+  version) is used on portrait screens and in the tall sidebar;
+  `wheatfield_night_banner.jpg` is a strip cut from the wide version (sky,
+  hills, the lit farmhouse, the edge of the wheat, the cypress), shown as its
+  own layer and cropped to fit, never stretched.
+* The SVG background and banner drawn by `scripts/make_theme_artwork.py` were
+  removed; the script now draws only the brushstroke ornaments (frame,
+  underline, divider, sidebar edge, canvas grain).
+* Every page's credit now reads "Background: AI-generated image (SI) by the
+  participant, in the style of Van Gogh; imaginary landscape, not the pilot
+  site"; the About caption, README, provenance and submission text say the
+  same.
+* Metric values and labels now wrap instead of being cut short (a narrow
+  window had shown "20…" for 209 mm).
+* Contrast tests now assume pure white under every panel, since the painting
+  has near-white strokes; all text still passes WCAG AA.
+* Checked in a browser at 1440 px, 1018 px and 375 px: no errors, no
+  horizontal overflow, no truncated metric; the wide painting on landscape
+  screens and the tall one on the phone.
+
+The sections below describe the first version and remain accurate except
+where this update supersedes them.
 
 ## 1. What changed
 

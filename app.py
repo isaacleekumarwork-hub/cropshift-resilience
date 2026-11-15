@@ -1002,8 +1002,9 @@ def _about(settings: Settings, scenarios: ScenarioSet | None) -> None:
     st.caption(
         "Built during the hackathon with an AI coding assistant (Claude Code, by Anthropic) under the participant's "
         "direction. No AI-generated video, audio or scientific data are included. The page background is an "
-        "original AI-generated artwork inspired by Van Gogh's The Starry Night (1889), watermarked as such; "
-        "see docs/provenance.md."
+        "AI-generated image the participant created, a wheat field under a night sky in the style of Van Gogh; it "
+        "shows an imaginary landscape, not the pilot site, and is labelled as AI-generated on every page; see "
+        "docs/provenance.md."
     )
 
 

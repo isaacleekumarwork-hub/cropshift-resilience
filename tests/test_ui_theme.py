@@ -22,7 +22,7 @@ from src.scenario_engine import build_scenarios
 from src.season_config import pilot_configuration
 
 APP_FILE = str(PROJECT_ROOT / "app.py")
-BRIGHTEST_ARTWORK = "#FFF1B8"  # the palest star-core colour painted anywhere
+BRIGHTEST_ARTWORK = "#FFFFFF"  # the painting has near-white strokes, so assume pure white beneath a panel
 
 
 def _channel(value: int) -> float:
@@ -78,10 +78,32 @@ def test_stylesheet_is_css_only_and_loads_nothing_from_outside():
 def test_every_artwork_file_is_local_small_and_script_free():
     for name in ui_theme.ASSETS.values():
         path = ui_theme.ASSET_DIR / name
-        text = path.read_text(encoding="utf-8")
-        assert "<script" not in text and "javascript:" not in text and "foreignObject" not in text
-        assert set(re.findall(r"https?://[^\s\"')]+", text)) <= {"http://www.w3.org/2000/svg"}
         assert path.stat().st_size < 400_000, name
+        if name.endswith(".svg"):
+            text = path.read_text(encoding="utf-8")
+            assert "<script" not in text and "javascript:" not in text and "foreignObject" not in text
+            assert set(re.findall(r"https?://[^\s\"')]+", text)) <= {"http://www.w3.org/2000/svg"}
+        else:
+            assert name.endswith(".jpg") and path.read_bytes()[:3] == b"\xff\xd8\xff", name  # a plain JPEG
+
+
+def test_the_painting_fits_the_screen_without_stretching():
+    from PIL import Image
+
+    wide = Image.open(ui_theme.ASSET_DIR / ui_theme.ASSETS["background"])
+    tall = Image.open(ui_theme.ASSET_DIR / ui_theme.ASSETS["background_tall"])
+    assert wide.width > wide.height and tall.height > tall.width
+    css = ui_theme.theme_css(ui_theme.asset_urls())
+    assert "@media (max-aspect-ratio: 1/1)" in css and ui_theme.ASSETS["background_tall"] in css
+    # The banner strip is its own layer, cropped to fit ("cover"), never forced to a fixed width and height.
+    banner_rule = css[css.index('[data-testid="stMainBlockContainer"]::before'):]
+    assert "/ cover" in banner_rule.split("}")[0]
+
+
+def test_numbers_wrap_instead_of_being_cut_short():
+    css = ui_theme.theme_css(ui_theme.asset_urls())
+    rule = css[css.index('[data-testid="stMetricValue"] div'):].split("}")[0]
+    assert "text-overflow: clip" in rule and "white-space: normal" in rule
 
 
 def test_artwork_is_regenerated_exactly_by_its_script():
@@ -117,12 +139,15 @@ def test_missing_artwork_falls_back_to_a_plain_night_sky(monkeypatch, tmp_path):
 # --- Honest about AI-generated artwork ---------------------------------------------------------------
 
 
-def test_artwork_is_watermarked_and_disclosed_on_the_page():
-    background = (ui_theme.ASSET_DIR / ui_theme.ASSETS["background"]).read_text(encoding="utf-8")
-    assert "<text" in background and "AI-generated artwork (SI)" in background
-    assert "not the project's pilot site" in background and "imaginary" in background
-    assert "AI-generated" in ui_theme.ARTWORK_CREDIT and "imaginary landscape" in ui_theme.ARTWORK_CREDIT
-    assert ui_theme.ARTWORK_CREDIT in ui_theme.theme_css(ui_theme.asset_urls())
+def test_artwork_is_labelled_as_ai_generated_on_every_page():
+    credit = ui_theme.ARTWORK_CREDIT
+    assert "AI-generated image (SI)" in credit and "by the participant" in credit
+    assert "imaginary landscape" in credit and "not the pilot site" in credit
+    css = ui_theme.theme_css(ui_theme.asset_urls())
+    assert credit in css  # shown in the header strip of every page
+    provenance = (PROJECT_ROOT / "docs" / "provenance.md").read_text(encoding="utf-8")
+    assert "wheatfield_night" not in provenance or "AI-generated" in provenance
+    assert "app's page background" in provenance and "AI image-generation tool" in provenance
 
 
 # --- Readable and accessible -------------------------------------------------------------------------

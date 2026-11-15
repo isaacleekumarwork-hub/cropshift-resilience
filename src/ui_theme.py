@@ -5,23 +5,26 @@ the evidence gate or any comparison result. The theme has three parts:
 
 * colours, fonts and borders in ``.streamlit/config.toml`` (Streamlit's own
   theming), so widgets, tables and status words follow the dark palette;
-* :func:`apply_starry_night_theme`, which adds one stylesheet: a painted
-  Post-Impressionist background (directional brushstrokes, swirling wind,
-  haloed stars, rolling fields and golden wheat) under a canvas grain, a
-  painted banner, brushed frames, gold brushstroke underlines, painted
-  dividers, hand-drawn edges for cards, expanders, buttons and chart frames,
-  visible keyboard focus and reduced-motion rules;
+* :func:`apply_starry_night_theme`, which adds one stylesheet: the
+  participant's painting of a wheat field under a swirling night sky as the
+  page background (wide or tall to suit the screen) under a canvas grain, a
+  strip of the same painting as a banner, brushed frames, gold brushstroke
+  underlines, painted dividers, hand-drawn edges for cards, expanders,
+  buttons and chart frames, metric values that wrap instead of being cut
+  short, visible keyboard focus and reduced-motion rules;
 * :func:`theme_figure`, which restyles a finished Plotly figure for the dark
   panels without touching its data, units or category colours. Data marks
   stay exact; only the frame around a chart is painterly.
 
-The artwork is original SVG in ``static/theme/``, painted by
-``scripts/make_theme_artwork.py`` and served by Streamlit's local static file
-server (``server.enableStaticServing``): no external address, so offline mode
-is unaffected. It was generated with AI assistance, so it carries a visible
-watermark and the page shows a caption saying so. The landscape is imaginary,
-not the pilot site. Text always sits on solid painted panels; the textures
-stay outside them. If an asset is missing, a plain night-sky gradient is used.
+The painting (``static/theme/wheatfield_night_*.jpg``) is an AI-generated
+image the participant created and supplied, in the style of Vincent van Gogh,
+so every page carries a credit saying so. The landscape is imaginary, not the
+pilot site, and shows no people. The brushstroke ornaments are SVG drawn by
+``scripts/make_theme_artwork.py``. Everything is served by Streamlit's local
+static file server (``server.enableStaticServing``): no external address, so
+offline mode is unaffected. Text always sits on solid painted panels; the
+textures stay outside them. If an asset is missing, a plain night-sky
+gradient is used.
 
 Set ``CROPSHIFT_THEME=classic`` to switch the stylesheet, the artwork and the
 chart restyling off.
@@ -52,15 +55,16 @@ PALETTE = {
 ASSET_DIR = Path(__file__).resolve().parent.parent / "static" / "theme"
 ASSET_URL = "app/static/theme/"  # Streamlit serves ./static at /app/static/
 ASSETS = {
-    "background": "starry_night_background.svg",
-    "banner": "starry_night_banner.svg",
+    "background": "wheatfield_night_wide.jpg",  # the participant's AI-generated painting, wide version
+    "background_tall": "wheatfield_night_tall.jpg",  # the same painting, tall version, for portrait screens
+    "banner": "wheatfield_night_banner.jpg",  # a strip cut from the wide version
     "frame": "brush_frame.svg",
     "underline": "brush_underline.svg",
     "divider": "brush_divider.svg",
     "edge": "brush_edge.svg",
     "grain": "canvas_grain.svg",
 }
-ARTWORK_CREDIT = "Background: original AI-generated artwork (SI), inspired by Vincent van Gogh, The Starry Night (1889); imaginary landscape"
+ARTWORK_CREDIT = "Background: AI-generated image (SI) by the participant, in the style of Van Gogh; imaginary landscape, not the pilot site"
 TAGLINE = "Finding clarity in changing seasons."
 
 # Opacity of the painted panels that carry text. Checked in tests: ivory text
@@ -122,7 +126,12 @@ def theme_css(urls: dict[str, str | None] | None = None) -> str:
     side_images, side_sizes = _layers(
         (url("edge"), "14px 100%"),
         (f"linear-gradient(rgba(13, 22, 49, {PANEL_OPACITY}), rgba(13, 22, 49, {PANEL_OPACITY}))", "auto"),
-        (url("background"), "cover"),
+        (url("background_tall") or url("background"), "cover"),
+    )
+    tall_images, tall_sizes = _layers(
+        (url("grain"), "180px 180px"),
+        ("linear-gradient(180deg, rgba(16, 27, 56, 0.28) 0%, rgba(16, 27, 56, 0.42) 55%, rgba(16, 27, 56, 0.58) 100%)", "cover"),
+        (url("background_tall") or url("background") or sky, "cover"),
     )
     underline = url("underline") or "none"
     divider = url("divider") or f"linear-gradient({p['swirl']}, {p['swirl']})"
@@ -147,11 +156,8 @@ def theme_css(urls: dict[str, str | None] | None = None) -> str:
 
 /* The main canvas: a solid painted panel in a brushed frame, a painted strip on top. */
 [data-testid="stMainBlockContainer"] {{
+  position: relative;
   background-color: rgba(16, 27, 56, {PANEL_OPACITY});
-  background-image: {banner};
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: 100% 150px;
   background-clip: padding-box;
   {frame}
   box-shadow: 0 18px 48px rgba(5, 10, 25, 0.55);
@@ -160,6 +166,13 @@ def theme_css(urls: dict[str, str | None] | None = None) -> str:
   padding-top: 176px;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+}}
+
+/* The painted strip across the top of the canvas: cropped to fit, never stretched. */
+[data-testid="stMainBlockContainer"]::before {{
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 150px;
+  background: {banner} center 62% / cover no-repeat;
+  pointer-events: none;
 }}
 
 /* Sidebar: the night painting seen through a dark glaze, with a brushed edge. */
@@ -192,6 +205,11 @@ def theme_css(urls: dict[str, str | None] | None = None) -> str:
 }}
 [data-testid="stCaptionContainer"] {{ color: {p['secondary_text']}; }}
 [data-testid="stMetricValue"], [data-testid="stMarkdownContainer"] td {{ font-variant-numeric: tabular-nums; }}
+/* Never cut a number or its label short: wrap instead of "20…". */
+[data-testid="stMetricValue"] div, [data-testid="stMetricLabel"] p, [data-testid="stMetricLabel"] div {{
+  white-space: normal !important; overflow: visible !important; text-overflow: clip !important;
+}}
+[data-testid="stMetricValue"] {{ font-size: clamp(1.6rem, 2.6vw, 2.25rem); }}
 
 /* Navigation: the selected tab is underlined with a gold brushstroke. */
 [data-testid="stTab"] {{ padding-bottom: 6px; }}
@@ -257,12 +275,16 @@ def theme_css(urls: dict[str, str | None] | None = None) -> str:
   background: rgba(13, 22, 49, 0.9); padding: 2px 10px; border-radius: 6px; border: 1px solid rgba(243, 201, 78, 0.35);
 }}
 
+@media (max-aspect-ratio: 1/1) {{
+  [data-testid="stApp"] {{ background-image: {tall_images}; background-size: {tall_sizes}; }}
+}}
 @media (max-width: 768px) {{
   [data-testid="stApp"] {{ background-attachment: scroll; }}
   [data-testid="stMainBlockContainer"] {{
     border-width: 12px; margin-top: 3rem; padding-top: 110px;
-    background-size: 100% 90px; padding-left: 0.9rem; padding-right: 0.9rem;
+    padding-left: 0.9rem; padding-right: 0.9rem;
   }}
+  [data-testid="stMainBlockContainer"]::before {{ height: 90px; }}
   [data-testid="stApp"]::after {{ font-size: 9.5px; top: 4px; left: 48px; transform: none; max-width: calc(100vw - 170px); text-align: left; }}
 }}
 @media (prefers-reduced-motion: reduce) {{
