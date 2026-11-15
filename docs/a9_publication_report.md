@@ -11,22 +11,26 @@ participant action**, **Blocked**.
 | Apache-2.0 licence, copyright notice | Verified |
 | Commit identity rewritten to an anonymous address | Verified (section D) |
 | A9 changes committed with the new identity | Verified |
-| Old public repository (personal e-mail in its history) | Pending participant action: delete it on GitHub |
-| New public repository from the rewritten history | Pending: created right after the deletion (section B) |
-| Public access checked without login | Pending: after the new push (section H) |
+| Old public repository (personal e-mail in its history) | Completed: deleted by the participant; verified 404 |
+| New public repository from the rewritten history | Verified (section B) |
+| Public access checked without login | Verified (section H) |
 | NASA Space Apps submission | Pending participant action; not authorised for the assistant |
 
 ## B. Public GitHub URL
 
-`https://github.com/isaacleekumarwork-hub/cropshift-resilience`, the same name
-as the first publication, so the links in the submission text and the deck
-stay valid. Section H records the check after recreation.
+**https://github.com/isaacleekumarwork-hub/cropshift-resilience**, created
+as a new public repository after the participant deleted the first one. Same
+name, so the links in the submission text and the deck are unchanged.
+Description: "CropShift RESILIENCE by Team WindShift — transparent
+crop-rotation comparisons using NASA historical climate data and traceable
+agronomic evidence."
 
 ## C. Git branch and final commit
 
-Branch `main`. The final commit hash is the `main` head that is pushed; it is
-recorded in section H after the push. Commit hashes before the rewrite are
-obsolete and must not be used as release identifiers.
+Branch `main`. Release commit `b276ed4` ("Add NOTICE and copyright; name team
+WindShift; record identity rewrite (A9)"), pushed to an empty repository with
+a normal push (no force, no mirror). This report's results were added in the
+commit after it. Commit hashes from before the rewrite are obsolete.
 
 ## D. Git identity rewrite
 
@@ -101,12 +105,28 @@ organisation.
 
 ## G. Final test results
 
-See section H for the run on the final commit. Expected and previously
-observed: 905 passed, 1 skipped (the live NASA test, run on request).
+| Run | Result |
+| --- | --- |
+| `.venv/bin/python -m pytest` on `b276ed4` | **905 passed, 1 skipped** (the live NASA test, run on request) |
+| App on `--server.address localhost` | About tab: "Development stage A9 of A9"; OpenAI and Manus disabled; no errors. All six tabs checked earlier in A9 with no errors |
+| Scientific results | Unchanged: no code changed after the A9 About-tab correction; the identity rewrite kept every file tree identical |
 
 ## H. Public accessibility verification
 
-Filled in after the new repository is pushed.
+Checked on 15 November 2026 without credentials (plain HTTP requests and a
+signed-out headless browser):
+
+| Check | Result |
+| --- | --- |
+| Old repository | Gone: API and page return 404 |
+| Visibility, licence, default branch | Public, Apache-2.0, `main` |
+| Branches and tags pushed | `main` only; no tags; no backup or old-history refs |
+| Commit identities (7 commits) | All `Isaac Lee Kumar <windshift@noreply.invalid>` for author and committer |
+| Personal e-mail or old author name in any public commit patch | None |
+| Old commit hashes | 404 in the new repository |
+| README | Renders; all six screenshots load; NASA attribution, "not endorsed by NASA", limitations and the copyright line present |
+| `LICENSE`, `NOTICE`, source, NASA data file | HTTP 200 |
+| Demo PDF and its GitHub page | HTTP 200 |
 
 ## I. Presentation status
 
@@ -128,7 +148,7 @@ used outside the repository.
 
 ## K. Remaining participant actions
 
-1. Delete the old repository (step needed before the new push).
+1. ~~Delete the old repository~~ (done).
 2. Paste the submission text into the Project page; check both links in a
    private browser window.
 3. Tick the two boxes and press "Submit for Judging"; confirm the banner.
